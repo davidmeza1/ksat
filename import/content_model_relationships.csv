@@ -1,0 +1,580 @@
+﻿From,FromName,To,ToName
+1,Worker Characteristics,1.A,Abilities
+1.A,Abilities,1.A.1,Cognitive Abilities
+1.A.1,Cognitive Abilities,1.A.1.a,Verbal Abilities
+1.A.1.a,Verbal Abilities,1.A.1.a.1,Oral Comprehension
+1.A.1.a,Verbal Abilities,1.A.1.a.2,Written Comprehension
+1.A.1.a,Verbal Abilities,1.A.1.a.3,Oral Expression
+1.A.1.a,Verbal Abilities,1.A.1.a.4,Written Expression
+1.A.1,Cognitive Abilities,1.A.1.b,Idea Generation and Reasoning Abilities
+1.A.1.b,Idea Generation and Reasoning Abilities,1.A.1.b.1,Fluency of Ideas
+1.A.1.b,Idea Generation and Reasoning Abilities,1.A.1.b.2,Originality
+1.A.1.b,Idea Generation and Reasoning Abilities,1.A.1.b.3,Problem Sensitivity
+1.A.1.b,Idea Generation and Reasoning Abilities,1.A.1.b.4,Deductive Reasoning
+1.A.1.b,Idea Generation and Reasoning Abilities,1.A.1.b.5,Inductive Reasoning
+1.A.1.b,Idea Generation and Reasoning Abilities,1.A.1.b.6,Information Ordering
+1.A.1.b,Idea Generation and Reasoning Abilities,1.A.1.b.7,Category Flexibility
+1.A.1,Cognitive Abilities,1.A.1.c,Quantitative Abilities
+1.A.1.c,Quantitative Abilities,1.A.1.c.1,Mathematical Reasoning
+1.A.1.c,Quantitative Abilities,1.A.1.c.2,Number Facility
+1.A.1,Cognitive Abilities,1.A.1.d,Memory
+1.A.1.d,Memory,1.A.1.d.1,Memorization
+1.A.1,Cognitive Abilities,1.A.1.e,Perceptual Abilities
+1.A.1.e,Perceptual Abilities,1.A.1.e.1,Speed of Closure
+1.A.1.e,Perceptual Abilities,1.A.1.e.2,Flexibility of Closure
+1.A.1.e,Perceptual Abilities,1.A.1.e.3,Perceptual Speed
+1.A.1,Cognitive Abilities,1.A.1.f,Spatial Abilities
+1.A.1.f,Spatial Abilities,1.A.1.f.1,Spatial Orientation
+1.A.1.f,Spatial Abilities,1.A.1.f.2,Visualization
+1.A.1,Cognitive Abilities,1.A.1.g,Attentiveness
+1.A.1.g,Attentiveness,1.A.1.g.1,Selective Attention
+1.A.1.g,Attentiveness,1.A.1.g.2,Time Sharing
+1.A,Abilities,1.A.2,Psychomotor Abilities
+1.A.2,Psychomotor Abilities,1.A.2.a,Fine Manipulative Abilities
+1.A.2.a,Fine Manipulative Abilities,1.A.2.a.1,Arm-Hand Steadiness
+1.A.2.a,Fine Manipulative Abilities,1.A.2.a.2,Manual Dexterity
+1.A.2.a,Fine Manipulative Abilities,1.A.2.a.3,Finger Dexterity
+1.A.2,Psychomotor Abilities,1.A.2.b,Control Movement Abilities
+1.A.2.b,Control Movement Abilities,1.A.2.b.1,Control Precision
+1.A.2.b,Control Movement Abilities,1.A.2.b.2,Multilimb Coordination
+1.A.2.b,Control Movement Abilities,1.A.2.b.3,Response Orientation
+1.A.2.b,Control Movement Abilities,1.A.2.b.4,Rate Control
+1.A.2,Psychomotor Abilities,1.A.2.c,Reaction Time and Speed Abilities
+1.A.2.c,Reaction Time and Speed Abilities,1.A.2.c.1,Reaction Time
+1.A.2.c,Reaction Time and Speed Abilities,1.A.2.c.2,Wrist-Finger Speed
+1.A.2.c,Reaction Time and Speed Abilities,1.A.2.c.3,Speed of Limb Movement
+1.A,Abilities,1.A.3,Physical Abilities
+1.A.3,Physical Abilities,1.A.3.a,Physical Strength Abilities
+1.A.3.a,Physical Strength Abilities,1.A.3.a.1,Static Strength
+1.A.3.a,Physical Strength Abilities,1.A.3.a.2,Explosive Strength
+1.A.3.a,Physical Strength Abilities,1.A.3.a.3,Dynamic Strength
+1.A.3.a,Physical Strength Abilities,1.A.3.a.4,Trunk Strength
+1.A.3,Physical Abilities,1.A.3.b,Endurance
+1.A.3.b,Endurance,1.A.3.b.1,Stamina
+1.A.3,Physical Abilities,1.A.3.c,"Flexibility, Balance, and Coordination"
+1.A.3.c,"Flexibility, Balance, and Coordination",1.A.3.c.1,Extent Flexibility
+1.A.3.c,"Flexibility, Balance, and Coordination",1.A.3.c.2,Dynamic Flexibility
+1.A.3.c,"Flexibility, Balance, and Coordination",1.A.3.c.3,Gross Body Coordination
+1.A.3.c,"Flexibility, Balance, and Coordination",1.A.3.c.4,Gross Body Equilibrium
+1.A,Abilities,1.A.4,Sensory Abilities
+1.A.4,Sensory Abilities,1.A.4.a,Visual Abilities
+1.A.4.a,Visual Abilities,1.A.4.a.1,Near Vision
+1.A.4.a,Visual Abilities,1.A.4.a.2,Far Vision
+1.A.4.a,Visual Abilities,1.A.4.a.3,Visual Color Discrimination
+1.A.4.a,Visual Abilities,1.A.4.a.4,Night Vision
+1.A.4.a,Visual Abilities,1.A.4.a.5,Peripheral Vision
+1.A.4.a,Visual Abilities,1.A.4.a.6,Depth Perception
+1.A.4.a,Visual Abilities,1.A.4.a.7,Glare Sensitivity
+1.A.4,Sensory Abilities,1.A.4.b,Auditory and Speech Abilities
+1.A.4.b,Auditory and Speech Abilities,1.A.4.b.1,Hearing Sensitivity
+1.A.4.b,Auditory and Speech Abilities,1.A.4.b.2,Auditory Attention
+1.A.4.b,Auditory and Speech Abilities,1.A.4.b.3,Sound Localization
+1.A.4.b,Auditory and Speech Abilities,1.A.4.b.4,Speech Recognition
+1.A.4.b,Auditory and Speech Abilities,1.A.4.b.5,Speech Clarity
+1,Worker Characteristics,1.B,Interests
+1.B,Interests,1.B.1,Occupational Interests
+1.B.1,Occupational Interests,1.B.1.a,Realistic
+1.B.1,Occupational Interests,1.B.1.b,Investigative
+1.B.1,Occupational Interests,1.B.1.c,Artistic
+1.B.1,Occupational Interests,1.B.1.d,Social
+1.B.1,Occupational Interests,1.B.1.e,Enterprising
+1.B.1,Occupational Interests,1.B.1.f,Conventional
+1.B.1,Occupational Interests,1.B.1.g,First Interest High-Point
+1.B.1,Occupational Interests,1.B.1.h,Second Interest High-Point
+1.B.1,Occupational Interests,1.B.1.i,Third Interest High-Point
+1.B,Interests,1.B.2,Work Values
+1.B.2,Work Values,1.B.2.a,Achievement
+1.B.2.a,Achievement,1.B.2.a.1,Ability Utilization
+1.B.2.a,Achievement,1.B.2.a.2,Achievement
+1.B.2,Work Values,1.B.2.b,Working Conditions
+1.B.2.b,Working Conditions,1.B.2.b.1,Activity
+1.B.2.b,Working Conditions,1.B.2.b.2,Independence
+1.B.2.b,Working Conditions,1.B.2.b.3,Variety
+1.B.2.b,Working Conditions,1.B.2.b.4,Compensation
+1.B.2.b,Working Conditions,1.B.2.b.5,Security
+1.B.2.b,Working Conditions,1.B.2.b.6,Working Conditions
+1.B.2,Work Values,1.B.2.c,Recognition
+1.B.2.c,Recognition,1.B.2.c.1,Advancement
+1.B.2.c,Recognition,1.B.2.c.2,Recognition
+1.B.2.c,Recognition,1.B.2.c.3,Authority
+1.B.2.c,Recognition,1.B.2.c.4,Social Status
+1.B.2,Work Values,1.B.2.d,Relationships
+1.B.2.d,Relationships,1.B.2.d.1,Co-workers
+1.B.2.d,Relationships,1.B.2.d.2,Social Service
+1.B.2.d,Relationships,1.B.2.d.3,Moral Values
+1.B.2,Work Values,1.B.2.e,Support
+1.B.2.e,Support,1.B.2.e.1,Company Policies and Practices
+1.B.2.e,Support,1.B.2.e.2,"Supervision, Human Relations"
+1.B.2.e,Support,1.B.2.e.3,"Supervision, Technical"
+1.B.2,Work Values,1.B.2.f,Independence
+1.B.2.f,Independence,1.B.2.f.1,Creativity
+1.B.2.f,Independence,1.B.2.f.2,Responsibility
+1.B.2.f,Independence,1.B.2.f.3,Autonomy
+1.B.2,Work Values,1.B.2.g,First Work Value High-Point
+1.B.2,Work Values,1.B.2.h,Second Work Value High-Point
+1.B.2,Work Values,1.B.2.i,Third Work Value High-Point
+1,Worker Characteristics,1.C,Work Styles
+1.C,Work Styles,1.C.1,Achievement Orientation
+1.C.1,Achievement Orientation,1.C.1.a,Achievement/Effort
+1.C.1,Achievement Orientation,1.C.1.b,Persistence
+1.C.1,Achievement Orientation,1.C.1.c,Initiative
+1.C,Work Styles,1.C.2,Social Influence
+1.C.2,Social Influence,1.C.2.b,Leadership
+1.C,Work Styles,1.C.3,Interpersonal Orientation
+1.C.3,Interpersonal Orientation,1.C.3.a,Cooperation
+1.C.3,Interpersonal Orientation,1.C.3.b,Concern for Others
+1.C.3,Interpersonal Orientation,1.C.3.c,Social Orientation
+1.C,Work Styles,1.C.4,Adjustment
+1.C.4,Adjustment,1.C.4.a,Self Control
+1.C.4,Adjustment,1.C.4.b,Stress Tolerance
+1.C.4,Adjustment,1.C.4.c,Adaptability/Flexibility
+1.C,Work Styles,1.C.5,Conscientiousness
+1.C.5,Conscientiousness,1.C.5.a,Dependability
+1.C.5,Conscientiousness,1.C.5.b,Attention to Detail
+1.C.5,Conscientiousness,1.C.5.c,Integrity
+1.C,Work Styles,1.C.6,Independence
+1.C,Work Styles,1.C.7,Practical Intelligence
+1.C.7,Practical Intelligence,1.C.7.a,Innovation
+1.C.7,Practical Intelligence,1.C.7.b,Analytical Thinking
+2,Worker Requirements,2.A,Basic Skills
+2.A,Basic Skills,2.A.1,Content
+2.A.1,Content,2.A.1.a,Reading Comprehension
+2.A.1,Content,2.A.1.b,Active Listening
+2.A.1,Content,2.A.1.c,Writing
+2.A.1,Content,2.A.1.d,Speaking
+2.A.1,Content,2.A.1.e,Mathematics
+2.A.1,Content,2.A.1.f,Science
+2.A,Basic Skills,2.A.2,Process
+2.A.2,Process,2.A.2.a,Critical Thinking
+2.A.2,Process,2.A.2.b,Active Learning
+2.A.2,Process,2.A.2.c,Learning Strategies
+2.A.2,Process,2.A.2.d,Monitoring
+2,Worker Requirements,2.B,Cross-Functional Skills
+2.B,Cross-Functional Skills,2.B.1,Social Skills
+2.B.1,Social Skills,2.B.1.a,Social Perceptiveness
+2.B.1,Social Skills,2.B.1.b,Coordination
+2.B.1,Social Skills,2.B.1.c,Persuasion
+2.B.1,Social Skills,2.B.1.d,Negotiation
+2.B.1,Social Skills,2.B.1.e,Instructing
+2.B.1,Social Skills,2.B.1.f,Service Orientation
+2.B,Cross-Functional Skills,2.B.2,Complex Problem Solving Skills
+2.B.2,Complex Problem Solving Skills,2.B.2.i,Complex Problem Solving
+2.B,Cross-Functional Skills,2.B.3,Technical Skills
+2.B.3,Technical Skills,2.B.3.a,Operations Analysis
+2.B.3,Technical Skills,2.B.3.b,Technology Design
+2.B.3,Technical Skills,2.B.3.c,Equipment Selection
+2.B.3,Technical Skills,2.B.3.d,Installation
+2.B.3,Technical Skills,2.B.3.e,Programming
+2.B.3,Technical Skills,2.B.3.g,Operation Monitoring
+2.B.3,Technical Skills,2.B.3.h,Operation and Control
+2.B.3,Technical Skills,2.B.3.j,Equipment Maintenance
+2.B.3,Technical Skills,2.B.3.k,Troubleshooting
+2.B.3,Technical Skills,2.B.3.l,Repairing
+2.B.3,Technical Skills,2.B.3.m,Quality Control Analysis
+2.B,Cross-Functional Skills,2.B.4,Systems Skills
+2.B.4,Systems Skills,2.B.4.e,Judgment and Decision Making
+2.B.4,Systems Skills,2.B.4.g,Systems Analysis
+2.B.4,Systems Skills,2.B.4.h,Systems Evaluation
+2.B,Cross-Functional Skills,2.B.5,Resource Management Skills
+2.B.5,Resource Management Skills,2.B.5.a,Time Management
+2.B.5,Resource Management Skills,2.B.5.b,Management of Financial Resources
+2.B.5,Resource Management Skills,2.B.5.c,Management of Material Resources
+2.B.5,Resource Management Skills,2.B.5.d,Management of Personnel Resources
+2,Worker Requirements,2.C,Knowledge
+2.C,Knowledge,2.C.1,Business and Management
+2.C.1,Business and Management,2.C.1.a,Administration and Management
+2.C.1,Business and Management,2.C.1.b,Clerical
+2.C.1,Business and Management,2.C.1.c,Economics and Accounting
+2.C.1,Business and Management,2.C.1.d,Sales and Marketing
+2.C.1,Business and Management,2.C.1.e,Customer and Personal Service
+2.C.1,Business and Management,2.C.1.f,Personnel and Human Resources
+2.C,Knowledge,2.C.2,Manufacturing and Production
+2.C.2,Manufacturing and Production,2.C.2.a,Production and Processing
+2.C.2,Manufacturing and Production,2.C.2.b,Food Production
+2.C,Knowledge,2.C.3,Engineering and Technology
+2.C.3,Engineering and Technology,2.C.3.a,Computers and Electronics
+2.C.3,Engineering and Technology,2.C.3.b,Engineering and Technology
+2.C.3,Engineering and Technology,2.C.3.c,Design
+2.C.3,Engineering and Technology,2.C.3.d,Building and Construction
+2.C.3,Engineering and Technology,2.C.3.e,Mechanical
+2.C,Knowledge,2.C.4,Mathematics and Science
+2.C.4,Mathematics and Science,2.C.4.a,Mathematics
+2.C.4,Mathematics and Science,2.C.4.b,Physics
+2.C.4,Mathematics and Science,2.C.4.c,Chemistry
+2.C.4,Mathematics and Science,2.C.4.d,Biology
+2.C.4,Mathematics and Science,2.C.4.e,Psychology
+2.C.4,Mathematics and Science,2.C.4.f,Sociology and Anthropology
+2.C.4,Mathematics and Science,2.C.4.g,Geography
+2.C,Knowledge,2.C.5,Health Services
+2.C.5,Health Services,2.C.5.a,Medicine and Dentistry
+2.C.5,Health Services,2.C.5.b,Therapy and Counseling
+2.C,Knowledge,2.C.6,Education and Training
+2.C,Knowledge,2.C.7,Arts and Humanities
+2.C.7,Arts and Humanities,2.C.7.a,English Language
+2.C.7,Arts and Humanities,2.C.7.b,Foreign Language
+2.C.7,Arts and Humanities,2.C.7.c,Fine Arts
+2.C.7,Arts and Humanities,2.C.7.d,History and Archeology
+2.C.7,Arts and Humanities,2.C.7.e,Philosophy and Theology
+2.C,Knowledge,2.C.8,Law and Public Safety
+2.C.8,Law and Public Safety,2.C.8.a,Public Safety and Security
+2.C.8,Law and Public Safety,2.C.8.b,Law and Government
+2.C,Knowledge,2.C.9,Communications
+2.C.9,Communications,2.C.9.a,Telecommunications
+2.C.9,Communications,2.C.9.b,Communications and Media
+2.C,Knowledge,2.C.10,Transportation
+2,Worker Requirements,2.D,Education
+2.D,Education,2.D.1,Required Level of Education
+2.D,Education,2.D.2,Instructional Program Required
+2.D,Education,2.D.3,Education Level in Specific Subjects
+2.D.3,Education Level in Specific Subjects,2.D.3.a,Technical Vocational
+2.D.3,Education Level in Specific Subjects,2.D.3.b,Business Vocational
+2.D.3,Education Level in Specific Subjects,2.D.3.c,English/language Arts
+2.D.3,Education Level in Specific Subjects,2.D.3.d,Oral Communication
+2.D.3,Education Level in Specific Subjects,2.D.3.e,Languages
+2.D.3,Education Level in Specific Subjects,2.D.3.f,Basic Math
+2.D.3,Education Level in Specific Subjects,2.D.3.g,Advanced Math
+2.D.3,Education Level in Specific Subjects,2.D.3.h,Physical Science
+2.D.3,Education Level in Specific Subjects,2.D.3.i,Computer Science
+2.D.3,Education Level in Specific Subjects,2.D.3.j,Biological Science
+2.D.3,Education Level in Specific Subjects,2.D.3.k,Applied Science
+2.D.3,Education Level in Specific Subjects,2.D.3.l,Social Science
+2.D.3,Education Level in Specific Subjects,2.D.3.m,Arts
+2.D.3,Education Level in Specific Subjects,2.D.3.n,Humanities
+2.D.3,Education Level in Specific Subjects,2.D.3.o,Physical Education
+2.D,Education,2.D.4,Job-Related Professional Certification
+2.D.4,Job-Related Professional Certification,2.D.4.a,Job-Related Professional Certification
+3,Experience Requirements,3.A,Experience and Training
+3.A,Experience and Training,3.A.1,Related Work Experience
+3.A,Experience and Training,3.A.2,On-Site or In-Plant Training
+3.A,Experience and Training,3.A.3,On-the-Job Training
+3.A,Experience and Training,3.A.4,Apprenticeship
+3.A.4,Apprenticeship,3.A.4.a,Apprenticeship
+3,Experience Requirements,3.B,Basic Skills - Entry Requirement
+3.B,Basic Skills - Entry Requirement,3.B.1,Content - Entry Requirement
+3.B.1,Content - Entry Requirement,3.B.1.a,Reading Comprehension - Entry Requirement
+3.B.1,Content - Entry Requirement,3.B.1.b,Active Listening - Entry Requirement
+3.B.1,Content - Entry Requirement,3.B.1.c,Writing - Entry Requirement
+3.B.1,Content - Entry Requirement,3.B.1.d,Speaking - Entry Requirement
+3.B.1,Content - Entry Requirement,3.B.1.e,Mathematics - Entry Requirement
+3.B.1,Content - Entry Requirement,3.B.1.f,Science - Entry Requirement
+3.B,Basic Skills - Entry Requirement,3.B.2,Process - Entry Requirement
+3.B.2,Process - Entry Requirement,3.B.2.a,Critical Thinking - Entry Requirement
+3.B.2,Process - Entry Requirement,3.B.2.b,Active Learning - Entry Requirement
+3.B.2,Process - Entry Requirement,3.B.2.c,Learning Strategies - Entry Requirement
+3.B.2,Process - Entry Requirement,3.B.2.d,Monitoring - Entry Requirement
+3,Experience Requirements,3.C,Cross-Functional Skills - Entry Requirement
+3.C,Cross-Functional Skills - Entry Requirement,3.C.1,Social Skills - Entry Requirement
+3.C.1,Social Skills - Entry Requirement,3.C.1.a,Social Perceptiveness - Entry Requirement
+3.C.1,Social Skills - Entry Requirement,3.C.1.b,Coordination - Entry Requirement
+3.C.1,Social Skills - Entry Requirement,3.C.1.c,Persuasion - Entry Requirement
+3.C.1,Social Skills - Entry Requirement,3.C.1.d,Negotiation - Entry Requirement
+3.C.1,Social Skills - Entry Requirement,3.C.1.e,Instructing - Entry Requirement
+3.C.1,Social Skills - Entry Requirement,3.C.1.f,Service Orientation - Entry Requirement
+3.C,Cross-Functional Skills - Entry Requirement,3.C.2,Complex Problem Solving Skills - Entry Requirement
+3.C.2,Complex Problem Solving Skills - Entry Requirement,3.C.2.a,Problem Identification - Entry Requirement
+3.C.2,Complex Problem Solving Skills - Entry Requirement,3.C.2.b,Information Gathering - Entry Requirement
+3.C.2,Complex Problem Solving Skills - Entry Requirement,3.C.2.c,Information Organization - Entry Requirement
+3.C.2,Complex Problem Solving Skills - Entry Requirement,3.C.2.d,Synthesis/Reorganization - Entry Requirement
+3.C.2,Complex Problem Solving Skills - Entry Requirement,3.C.2.e,Idea Generation - Entry Requirement
+3.C.2,Complex Problem Solving Skills - Entry Requirement,3.C.2.f,Idea Evaluation - Entry Requirement
+3.C.2,Complex Problem Solving Skills - Entry Requirement,3.C.2.g,Implementation Planning - Entry Requirement
+3.C.2,Complex Problem Solving Skills - Entry Requirement,3.C.2.h,Solution Appraisal - Entry Requirement
+3.C,Cross-Functional Skills - Entry Requirement,3.C.3,Technical Skills - Entry Requirement
+3.C.3,Technical Skills - Entry Requirement,3.C.3.a,Operations Analysis - Entry Requirement
+3.C.3,Technical Skills - Entry Requirement,3.C.3.b,Technology Design - Entry Requirement
+3.C.3,Technical Skills - Entry Requirement,3.C.3.c,Equipment Selection - Entry Requirement
+3.C.3,Technical Skills - Entry Requirement,3.C.3.d,Installation - Entry Requirement
+3.C.3,Technical Skills - Entry Requirement,3.C.3.e,Programming - Entry Requirement
+3.C.3,Technical Skills - Entry Requirement,3.C.3.f,Testing - Entry Requirement
+3.C.3,Technical Skills - Entry Requirement,3.C.3.g,Operation Monitoring - Entry Requirement
+3.C.3,Technical Skills - Entry Requirement,3.C.3.h,Operation and Control - Entry Requirement
+3.C.3,Technical Skills - Entry Requirement,3.C.3.i,Product Inspection - Entry Requirement
+3.C.3,Technical Skills - Entry Requirement,3.C.3.j,Equipment Maintenance - Entry Requirement
+3.C.3,Technical Skills - Entry Requirement,3.C.3.k,Troubleshooting - Entry Requirement
+3.C.3,Technical Skills - Entry Requirement,3.C.3.l,Repairing - Entry Requirement
+3.C,Cross-Functional Skills - Entry Requirement,3.C.4,Systems Skills - Entry Requirement
+3.C.4,Systems Skills - Entry Requirement,3.C.4.a,Visioning - Entry Requirement
+3.C.4,Systems Skills - Entry Requirement,3.C.4.b,Systems Perception - Entry Requirement
+3.C.4,Systems Skills - Entry Requirement,3.C.4.c,Identifying Downstream Consequences - Entry Requirement
+3.C.4,Systems Skills - Entry Requirement,3.C.4.d,Identification of Key Causes - Entry Requirement
+3.C.4,Systems Skills - Entry Requirement,3.C.4.e,Judgment and Decision Making - Entry Requirement
+3.C.4,Systems Skills - Entry Requirement,3.C.4.f,System Evaluation - Entry Requirement
+3.C,Cross-Functional Skills - Entry Requirement,3.C.5,Resource Management Skills - Entry Requirement
+3.C.5,Resource Management Skills - Entry Requirement,3.C.5.a,Time Management - Entry Requirement
+3.C.5,Resource Management Skills - Entry Requirement,3.C.5.b,Management of Financial Resources - Entry Requirement
+3.C.5,Resource Management Skills - Entry Requirement,3.C.5.c,Management of Material Resources - Entry Requirement
+3.C.5,Resource Management Skills - Entry Requirement,3.C.5.d,Management of Personnel Resources - Entry Requirement
+3,Experience Requirements,3.D,Licensing
+3.D,Licensing,3.D.1,"License, Certificate, or Registration Required"
+3.D,Licensing,3.D.2,Specific License or Certificate Required
+3.D.2,Specific License or Certificate Required,3.D.2.a,Post-Secondary Degree
+3.D.2,Specific License or Certificate Required,3.D.2.b,Graduate Degree
+3.D.2,Specific License or Certificate Required,3.D.2.c,On-the-Job Training
+3.D.2,Specific License or Certificate Required,3.D.2.d,Examination
+3.D.2,Specific License or Certificate Required,3.D.2.e,Character References
+3.D,Licensing,3.D.4,Additional Education and Training
+3.D,Licensing,3.D.5,Organization and Agency Requirements
+3.D.5,Organization and Agency Requirements,3.D.5.a,Legal Requirement
+3.D.5,Organization and Agency Requirements,3.D.5.b,Employer Requirement
+3.D.5,Organization and Agency Requirements,3.D.5.c,"Union, Guild, or Professional Association"
+4,Occupational Requirements,4.A,Generalized Work Activities
+4.A,Generalized Work Activities,4.A.1,Information Input
+4.A.1,Information Input,4.A.1.a,Looking for and Receiving Job-Related Information
+4.A.1.a,Looking for and Receiving Job-Related Information,4.A.1.a.1,Getting Information
+4.A.1.a,Looking for and Receiving Job-Related Information,4.A.1.a.2,"Monitor Processes, Materials, or Surroundings"
+4.A.1,Information Input,4.A.1.b,Identify and Evaluating Job-Relevant Information
+4.A.1.b,Identify and Evaluating Job-Relevant Information,4.A.1.b.1,"Identifying Objects, Actions, and Events"
+4.A.1.b,Identify and Evaluating Job-Relevant Information,4.A.1.b.2,"Inspecting Equipment, Structures, or Material"
+4.A.1.b,Identify and Evaluating Job-Relevant Information,4.A.1.b.3,"Estimating the Quantifiable Characteristics of Products, Events, or Information"
+4.A,Generalized Work Activities,4.A.2,Mental Processes
+4.A.2,Mental Processes,4.A.2.a,Information and Data Processing
+4.A.2.a,Information and Data Processing,4.A.2.a.1,"Judging the Qualities of Things, Services, or People"
+4.A.2.a,Information and Data Processing,4.A.2.a.2,Processing Information
+4.A.2.a,Information and Data Processing,4.A.2.a.3,Evaluating Information to Determine Compliance with Standards
+4.A.2.a,Information and Data Processing,4.A.2.a.4,Analyzing Data or Information
+4.A.2,Mental Processes,4.A.2.b,Reasoning and Decision Making
+4.A.2.b,Reasoning and Decision Making,4.A.2.b.1,Making Decisions and Solving Problems
+4.A.2.b,Reasoning and Decision Making,4.A.2.b.2,Thinking Creatively
+4.A.2.b,Reasoning and Decision Making,4.A.2.b.3,Updating and Using Relevant Knowledge
+4.A.2.b,Reasoning and Decision Making,4.A.2.b.4,Developing Objectives and Strategies
+4.A.2.b,Reasoning and Decision Making,4.A.2.b.5,Scheduling Work and Activities
+4.A.2.b,Reasoning and Decision Making,4.A.2.b.6,"Organizing, Planning, and Prioritizing Work"
+4.A,Generalized Work Activities,4.A.3,Work Output
+4.A.3,Work Output,4.A.3.a,Performing Physical and Manual Work Activities
+4.A.3.a,Performing Physical and Manual Work Activities,4.A.3.a.1,Performing General Physical Activities
+4.A.3.a,Performing Physical and Manual Work Activities,4.A.3.a.2,Handling and Moving Objects
+4.A.3.a,Performing Physical and Manual Work Activities,4.A.3.a.3,Controlling Machines and Processes
+4.A.3.a,Performing Physical and Manual Work Activities,4.A.3.a.4,"Operating Vehicles, Mechanized Devices, or Equipment"
+4.A.3,Work Output,4.A.3.b,Performing Complex and Technical Activities
+4.A.3.b,Performing Complex and Technical Activities,4.A.3.b.1,Interacting With Computers
+4.A.3.b,Performing Complex and Technical Activities,4.A.3.b.2,"Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment"
+4.A.3.b,Performing Complex and Technical Activities,4.A.3.b.4,Repairing and Maintaining Mechanical Equipment
+4.A.3.b,Performing Complex and Technical Activities,4.A.3.b.5,Repairing and Maintaining Electronic Equipment
+4.A.3.b,Performing Complex and Technical Activities,4.A.3.b.6,Documenting/Recording Information
+4.A,Generalized Work Activities,4.A.4,Interacting With Others
+4.A.4,Interacting With Others,4.A.4.a,Communicating and Interacting
+4.A.4.a,Communicating and Interacting,4.A.4.a.1,Interpreting the Meaning of Information for Others
+4.A.4.a,Communicating and Interacting,4.A.4.a.2,"Communicating with Supervisors, Peers, or Subordinates"
+4.A.4.a,Communicating and Interacting,4.A.4.a.3,Communicating with Persons Outside Organization
+4.A.4.a,Communicating and Interacting,4.A.4.a.4,Establishing and Maintaining Interpersonal Relationships
+4.A.4.a,Communicating and Interacting,4.A.4.a.5,Assisting and Caring for Others
+4.A.4.a,Communicating and Interacting,4.A.4.a.6,Selling or Influencing Others
+4.A.4.a,Communicating and Interacting,4.A.4.a.7,Resolving Conflicts and Negotiating with Others
+4.A.4.a,Communicating and Interacting,4.A.4.a.8,Performing for or Working Directly with the Public
+4.A.4,Interacting With Others,4.A.4.b,"Coordinating, Developing, Managing, and Advising"
+4.A.4.b,"Coordinating, Developing, Managing, and Advising",4.A.4.b.1,Coordinating the Work and Activities of Others
+4.A.4.b,"Coordinating, Developing, Managing, and Advising",4.A.4.b.2,Developing and Building Teams
+4.A.4.b,"Coordinating, Developing, Managing, and Advising",4.A.4.b.3,Training and Teaching Others
+4.A.4.b,"Coordinating, Developing, Managing, and Advising",4.A.4.b.4,"Guiding, Directing, and Motivating Subordinates"
+4.A.4.b,"Coordinating, Developing, Managing, and Advising",4.A.4.b.5,Coaching and Developing Others
+4.A.4.b,"Coordinating, Developing, Managing, and Advising",4.A.4.b.6,Provide Consultation and Advice to Others
+4.A.4,Interacting With Others,4.A.4.c,Administering
+4.A.4.c,Administering,4.A.4.c.1,Performing Administrative Activities
+4.A.4.c,Administering,4.A.4.c.2,Staffing Organizational Units
+4.A.4.c,Administering,4.A.4.c.3,Monitoring and Controlling Resources
+4,Occupational Requirements,4.B,Organizational Context
+4.B,Organizational Context,4.B.1,Structural Characteristics
+4.B.1,Structural Characteristics,4.B.1.a,Organizational Structure
+4.B.1.a,Organizational Structure,4.B.1.a.1,Decision Making System
+4.B.1.a.1,Decision Making System,4.B.1.a.1.a,Decentralization and Employee Empowerment
+4.B.1.a.1.a,Decentralization and Employee Empowerment,4.B.1.a.1.a.1,Have Control Over Unit or Department
+4.B.1.a.1.a,Decentralization and Employee Empowerment,4.B.1.a.1.a.2,Have Influence Over Decisions
+4.B.1.a.1.a,Decentralization and Employee Empowerment,4.B.1.a.1.a.3,Monitor Data on Quality/Costs/Waste/etc.
+4.B.1.a.1.a,Decentralization and Employee Empowerment,4.B.1.a.1.a.4,Determine Work Flow or Order of Tasks
+4.B.1.a.1.a,Decentralization and Employee Empowerment,4.B.1.a.1.a.5,Invest in New Equipment and Technology
+4.B.1.a.1.a,Decentralization and Employee Empowerment,4.B.1.a.1.a.6,"Develop New Products, Services, and Procedures"
+4.B.1.a.1,Decision Making System,4.B.1.a.1.b,Individual versus Team Structure
+4.B.1.a.1.b,Individual versus Team Structure,4.B.1.a.1.b.1,Percent of Time in Intact Team
+4.B.1.a,Organizational Structure,4.B.1.a.2,Job Characteristics
+4.B.1.a.2,Job Characteristics,4.B.1.a.2.a,Skill Variety
+4.B.1.a.2.a,Skill Variety,4.B.1.a.2.a.1,Job Variety
+4.B.1.a.2.a,Skill Variety,4.B.1.a.2.a.2,Complex or High Level Skills Required
+4.B.1.a.2.a,Skill Variety,4.B.1.a.2.a.3,Variety of Tasks Required
+4.B.1.a.2,Job Characteristics,4.B.1.a.2.b,Task Significance
+4.B.1.a.2.b,Task Significance,4.B.1.a.2.b.1,Significance or Importance of Job
+4.B.1.a.2.b,Task Significance,4.B.1.a.2.b.2,Job Quality Affects Lots of People
+4.B.1.a.2.b,Task Significance,4.B.1.a.2.b.3,Job Itself Is Very Significant
+4.B.1.a.2,Job Characteristics,4.B.1.a.2.c,Task Identity
+4.B.1.a.2.c,Task Identity,4.B.1.a.2.c.1,Job Involves Whole Piece of Work
+4.B.1.a.2.c,Task Identity,4.B.1.a.2.c.2,Can Do Entire Piece of Work
+4.B.1.a.2.c,Task Identity,4.B.1.a.2.c.3,Can Finish What You Start
+4.B.1.a.2,Job Characteristics,4.B.1.a.2.d,Autonomy
+4.B.1.a.2.d,Autonomy,4.B.1.a.2.d.1,Autonomy and Freedom in Job
+4.B.1.a.2.d,Autonomy,4.B.1.a.2.d.2,Chance for Initiative and Judgment
+4.B.1.a.2.d,Autonomy,4.B.1.a.2.d.3,Opportunity for Independence and Freedom
+4.B.1.a.2,Job Characteristics,4.B.1.a.2.e,Feedback
+4.B.1.a.2.e,Feedback,4.B.1.a.2.e.1,Extent of Feedback From Doing Job Itself
+4.B.1.a.2.e,Feedback,4.B.1.a.2.e.2,Doing Job Provides Chances for Feedback
+4.B.1.a.2.e,Feedback,4.B.1.a.2.e.3,"After Finishing Job, Know Own Performance"
+4.B.1.a,Organizational Structure,4.B.1.a.3,Job Stability and Rotation
+4.B.1.a.3,Job Stability and Rotation,4.B.1.a.3.a,Number of Supervisors in Past Year
+4.B.1.a.3,Job Stability and Rotation,4.B.1.a.3.b,Number of Work Teams in Past Year
+4.B.1.a.3,Job Stability and Rotation,4.B.1.a.3.c,Number of Work Group Reorganizations in Past Year
+4.B.1.a.3,Job Stability and Rotation,4.B.1.a.3.d,Number of Times Nature of Job Changed
+4.B.1.a.3,Job Stability and Rotation,4.B.1.a.3.e,Job Rotation Practices
+4.B.1,Structural Characteristics,4.B.1.b,Human Resources Systems and Practices
+4.B.1.b,Human Resources Systems and Practices,4.B.1.b.1,Recruitment and Selection
+4.B.1.b.1,Recruitment and Selection,4.B.1.b.1.a,Recruitment Operations
+4.B.1.b.1.a,Recruitment Operations,4.B.1.b.1.a.1,Sources of People for Current Job
+4.B.1.b.1,Recruitment and Selection,4.B.1.b.1.b,Selection Assessment Methods Used
+4.B.1.b.1.b,Selection Assessment Methods Used,4.B.1.b.1.b.1,Assessment Methods Used to Select for Job
+4.B.1.b,Human Resources Systems and Practices,4.B.1.b.2,Training and Development
+4.B.1.b.2,Training and Development,4.B.1.b.2.a,Training Methods
+4.B.1.b.2.a,Training Methods,4.B.1.b.2.a.1,Training Methods Used in Company
+4.B.1.b.2,Training and Development,4.B.1.b.2.b,Training Topics and Content
+4.B.1.b.2.b,Training Topics and Content,4.B.1.b.2.b.1,Areas of Recent Formal Training
+4.B.1.b.2,Training and Development,4.B.1.b.2.c,Extent and Support of Training Activities
+4.B.1.b.2.c,Extent and Support of Training Activities,4.B.1.b.2.c.1,Recent Technical Skill Training
+4.B.1.b,Human Resources Systems and Practices,4.B.1.b.3,Reward System
+4.B.1.b.3,Reward System,4.B.1.b.3.a,Basis of Compensation
+4.B.1.b.3.a,Basis of Compensation,4.B.1.b.3.a.1,Compensation Package Components
+4.B.1.b.3,Reward System,4.B.1.b.3.b,Benefits
+4.B.1.b.3.b,Benefits,4.B.1.b.3.b.1,Benefit Components
+4.B,Organizational Context,4.B.2,Social Processes
+4.B.2,Social Processes,4.B.2.a,Goals
+4.B.2.a,Goals,4.B.2.a.1,Individual Goal Characteristics
+4.B.2.a.1,Individual Goal Characteristics,4.B.2.a.1.a,Achieve Most Important Individual Goal
+4.B.2.a.1,Individual Goal Characteristics,4.B.2.a.1.b,How Many Quantitative Individual Goals
+4.B.2.a,Goals,4.B.2.a.2,Goal Feedback
+4.B.2.a.2,Goal Feedback,4.B.2.a.2.a,How Many Specific Individual Goals
+4.B.2.a.2,Goal Feedback,4.B.2.a.2.b,When Get Information on Individual Goals
+4.B.2.a.2,Goal Feedback,4.B.2.a.2.c,"Informal, Job-Relevant Feedback"
+4.B.2.a.2,Goal Feedback,4.B.2.a.2.d,"Meet One-on-One With Supervisor on Goals, Training, and Development"
+4.B.2,Social Processes,4.B.2.b,Roles
+4.B.2.b,Roles,4.B.2.b.1,Role Conflict
+4.B.2.b.1,Role Conflict,4.B.2.b.1.a,Often Receive Conflicting Requests
+4.B.2.b.1,Role Conflict,4.B.2.b.1.b,Work With Groups With Different Focuses
+4.B.2.b.1,Role Conflict,4.B.2.b.1.c,You and Your Supervisor Agree About Job
+4.B.2.b.1,Role Conflict,4.B.2.b.1.d,Supervisor Makes Conflicting Requests
+4.B.2.b,Roles,4.B.2.b.2,Role Negotiability
+4.B.2.b.2,Role Negotiability,4.B.2.b.2.a,Negotiate Changes in Role with Supervisor
+4.B.2.b.2,Role Negotiability,4.B.2.b.2.b,Significant Input Into Way You Do Job
+4.B.2.b,Roles,4.B.2.b.3,Role Overload
+4.B.2.b.3,Role Overload,4.B.2.b.3.a,Get Assignments without Adequate Resources
+4.B.2.b.3,Role Overload,4.B.2.b.3.b,Given Enough Time to Do Work
+4.B.2.b.3,Role Overload,4.B.2.b.3.c,Too Much for One Person to Do
+4.B.2,Social Processes,4.B.2.c,Culture
+4.B.2.c,Culture,4.B.2.c.1,Organizational Values
+4.B.2.c.1,Organizational Values,4.B.2.c.1.a,Guiding Principles of Organization
+4.B.2.c.1.a,Guiding Principles of Organization,4.B.2.c.1.a.1,Taking Chances; Going Out on a Limb
+4.B.2.c.1.a,Guiding Principles of Organization,4.B.2.c.1.a.2,Fairness; Justice
+4.B.2.c.1.a,Guiding Principles of Organization,4.B.2.c.1.a.3,Precision
+4.B.2.c.1.a,Guiding Principles of Organization,4.B.2.c.1.a.4,Stability
+4.B.2.c.1.a,Guiding Principles of Organization,4.B.2.c.1.a.5,Getting Things Done
+4.B.2.c.1.a,Guiding Principles of Organization,4.B.2.c.1.a.6,Caring About Employees
+4.B.2.c.1.a,Guiding Principles of Organization,4.B.2.c.1.a.7,Innovation
+4.B.2.c.1.a,Guiding Principles of Organization,4.B.2.c.1.a.8,Aggressiveness
+4.B.2.c.1.a,Guiding Principles of Organization,4.B.2.c.1.a.9,Valuing Customers
+4.B.2.c.1.a,Guiding Principles of Organization,4.B.2.c.1.a.10,Providing High Quality Products
+4.B.2.c.1.a,Guiding Principles of Organization,4.B.2.c.1.a.11,Openness and Honesty
+4.B.2.c.1.a,Guiding Principles of Organization,4.B.2.c.1.a.12,"Flexibility, Adapting to Change"
+4.B.2,Social Processes,4.B.2.d,Supervisor Role
+4.B.2.d,Supervisor Role,4.B.2.d.1,Supervisor Friendly and Supportive
+4.B.2.d,Supervisor Role,4.B.2.d.2,Supervisor Takes Active Role
+4.B.2.d,Supervisor Role,4.B.2.d.3,Supervisor Provides Clear Vision
+4.B.2.d,Supervisor Role,4.B.2.d.4,Supervisor Solves Problems
+4,Occupational Requirements,4.C,Work Context
+4.C,Work Context,4.C.1,Interpersonal Relationships
+4.C.1,Interpersonal Relationships,4.C.1.a,Communication
+4.C.1.a,Communication,4.C.1.a.2,Communication Methods
+4.C.1.a.2,Communication Methods,4.C.1.a.2.c,Public Speaking
+4.C.1.a.2,Communication Methods,4.C.1.a.2.f,Telephone
+4.C.1.a.2,Communication Methods,4.C.1.a.2.h,Electronic Mail
+4.C.1.a.2,Communication Methods,4.C.1.a.2.j,Letters and Memos
+4.C.1.a.2,Communication Methods,4.C.1.a.2.l,Face-to-Face Discussions
+4.C.1.a,Communication,4.C.1.a.4,Contact With Others
+4.C.1,Interpersonal Relationships,4.C.1.b,Role Relationships
+4.C.1.b,Role Relationships,4.C.1.b.1,Job Interactions
+4.C.1.b.1,Job Interactions,4.C.1.b.1.e,Work With Work Group or Team
+4.C.1.b.1,Job Interactions,4.C.1.b.1.f,Deal With External Customers
+4.C.1.b.1,Job Interactions,4.C.1.b.1.g,Coordinate or Lead Others
+4.C.1,Interpersonal Relationships,4.C.1.c,Responsibility for Others
+4.C.1.c,Responsibility for Others,4.C.1.c.1,Responsible for Others' Health and Safety
+4.C.1.c,Responsibility for Others,4.C.1.c.2,Responsibility for Outcomes and Results
+4.C.1,Interpersonal Relationships,4.C.1.d,Conflictual Contact
+4.C.1.d,Conflictual Contact,4.C.1.d.1,Frequency of Conflict Situations
+4.C.1.d,Conflictual Contact,4.C.1.d.2,Deal With Unpleasant or Angry People
+4.C.1.d,Conflictual Contact,4.C.1.d.3,Deal With Physically Aggressive People
+4.C,Work Context,4.C.2,Physical Work Conditions
+4.C.2,Physical Work Conditions,4.C.2.a,Work Setting
+4.C.2.a,Work Setting,4.C.2.a.1,Frequency Required to Work:
+4.C.2.a.1,Frequency Required to Work:,4.C.2.a.1.a,"Indoors, Environmentally Controlled"
+4.C.2.a.1,Frequency Required to Work:,4.C.2.a.1.b,"Indoors, Not Environmentally Controlled"
+4.C.2.a.1,Frequency Required to Work:,4.C.2.a.1.c,"Outdoors, Exposed to Weather"
+4.C.2.a.1,Frequency Required to Work:,4.C.2.a.1.d,"Outdoors, Under Cover"
+4.C.2.a.1,Frequency Required to Work:,4.C.2.a.1.e,In an Open Vehicle or Equipment
+4.C.2.a.1,Frequency Required to Work:,4.C.2.a.1.f,In an Enclosed Vehicle or Equipment
+4.C.2.a,Work Setting,4.C.2.a.3,Physical Proximity
+4.C.2,Physical Work Conditions,4.C.2.b,Environmental Conditions
+4.C.2.b,Environmental Conditions,4.C.2.b.1,Frequency in Environmental Conditions
+4.C.2.b.1,Frequency in Environmental Conditions,4.C.2.b.1.a,"Sounds, Noise Levels Are Distracting or Uncomfortable"
+4.C.2.b.1,Frequency in Environmental Conditions,4.C.2.b.1.b,Very Hot or Cold Temperatures
+4.C.2.b.1,Frequency in Environmental Conditions,4.C.2.b.1.c,Extremely Bright or Inadequate Lighting
+4.C.2.b.1,Frequency in Environmental Conditions,4.C.2.b.1.d,Exposed to Contaminants
+4.C.2.b.1,Frequency in Environmental Conditions,4.C.2.b.1.e,"Cramped Work Space, Awkward Positions"
+4.C.2.b.1,Frequency in Environmental Conditions,4.C.2.b.1.f,Exposed to Whole Body Vibration
+4.C.2,Physical Work Conditions,4.C.2.c,Job Hazards
+4.C.2.c,Job Hazards,4.C.2.c.1,Frequency of Exposure to Job Hazards
+4.C.2.c.1,Frequency of Exposure to Job Hazards,4.C.2.c.1.a,Exposed to Radiation
+4.C.2.c.1,Frequency of Exposure to Job Hazards,4.C.2.c.1.b,Exposed to Disease or Infections
+4.C.2.c.1,Frequency of Exposure to Job Hazards,4.C.2.c.1.c,Exposed to High Places
+4.C.2.c.1,Frequency of Exposure to Job Hazards,4.C.2.c.1.d,Exposed to Hazardous Conditions
+4.C.2.c.1,Frequency of Exposure to Job Hazards,4.C.2.c.1.e,Exposed to Hazardous Equipment
+4.C.2.c.1,Frequency of Exposure to Job Hazards,4.C.2.c.1.f,"Exposed to Minor Burns, Cuts, Bites, or Stings"
+4.C.2.c,Job Hazards,4.C.2.c.2,Likelihood of Injury From Job Hazards
+4.C.2.c,Job Hazards,4.C.2.c.3,Degree of Injury
+4.C.2,Physical Work Conditions,4.C.2.d,Body Positioning
+4.C.2.d,Body Positioning,4.C.2.d.1,Time Spent in Body Positions
+4.C.2.d.1,Time Spent in Body Positions,4.C.2.d.1.a,Spend Time Sitting
+4.C.2.d.1,Time Spent in Body Positions,4.C.2.d.1.b,Spend Time Standing
+4.C.2.d.1,Time Spent in Body Positions,4.C.2.d.1.c,"Spend Time Climbing Ladders, Scaffolds, or Poles"
+4.C.2.d.1,Time Spent in Body Positions,4.C.2.d.1.d,Spend Time Walking and Running
+4.C.2.d.1,Time Spent in Body Positions,4.C.2.d.1.e,"Spend Time Kneeling, Crouching, Stooping, or Crawling"
+4.C.2.d.1,Time Spent in Body Positions,4.C.2.d.1.f,Spend Time Keeping or Regaining Balance
+4.C.2.d.1,Time Spent in Body Positions,4.C.2.d.1.g,"Spend Time Using Your Hands to Handle, Control, or Feel Objects, Tools, or Controls"
+4.C.2.d.1,Time Spent in Body Positions,4.C.2.d.1.h,Spend Time Bending or Twisting the Body
+4.C.2.d.1,Time Spent in Body Positions,4.C.2.d.1.i,Spend Time Making Repetitive Motions
+4.C.2,Physical Work Conditions,4.C.2.e,Work Attire
+4.C.2.e,Work Attire,4.C.2.e.1,Frequency of Wearing Work Attire
+4.C.2.e.1,Frequency of Wearing Work Attire,4.C.2.e.1.d,"Wear Common Protective or Safety Equipment such as Safety Shoes, Glasses, Gloves, Hearing Protection, Hard Hats, or Life Jackets"
+4.C.2.e.1,Frequency of Wearing Work Attire,4.C.2.e.1.e,"Wear Specialized Protective or Safety Equipment such as Breathing Apparatus, Safety Harness, Full Protection Suits, or Radiation Protection"
+4.C,Work Context,4.C.3,Structural Job Characteristics
+4.C.3,Structural Job Characteristics,4.C.3.a,Criticality of Position
+4.C.3.a,Criticality of Position,4.C.3.a.1,Consequence of Error
+4.C.3.a,Criticality of Position,4.C.3.a.2,Impact of Decisions
+4.C.3.a.2,Impact of Decisions,4.C.3.a.2.a,Impact of Decisions on Co-workers or Company Results
+4.C.3.a.2,Impact of Decisions,4.C.3.a.2.b,Frequency of Decision Making
+4.C.3.a,Criticality of Position,4.C.3.a.4,Freedom to Make Decisions
+4.C.3,Structural Job Characteristics,4.C.3.b,Routine versus Challenging Work
+4.C.3.b,Routine versus Challenging Work,4.C.3.b.2,Degree of Automation
+4.C.3.b,Routine versus Challenging Work,4.C.3.b.4,Importance of Being Exact or Accurate
+4.C.3.b,Routine versus Challenging Work,4.C.3.b.7,Importance of Repeating Same Tasks
+4.C.3.b,Routine versus Challenging Work,4.C.3.b.8,Structured versus Unstructured Work
+4.C.3,Structural Job Characteristics,4.C.3.c,Competition
+4.C.3.c,Competition,4.C.3.c.1,Level of Competition
+4.C.3,Structural Job Characteristics,4.C.3.d,Pace and Scheduling
+4.C.3.d,Pace and Scheduling,4.C.3.d.1,Time Pressure
+4.C.3.d,Pace and Scheduling,4.C.3.d.3,Pace Determined by Speed of Equipment
+4.C.3.d,Pace and Scheduling,4.C.3.d.4,Work Schedules
+4.C.3.d,Pace and Scheduling,4.C.3.d.8,Duration of Typical Work Week
+4,Occupational Requirements,4.D,Detailed Work Activities
+4.D,Detailed Work Activities,4.D.1,Detailed Work Activities List
+4,Occupational Requirements,4.E,Intermediate Work Activities
+4.E,Intermediate Work Activities,4.E.1,Intermediate Work Activities List
+5,Occupation-Specific Information,5.A,Tasks
+,,5.A.1,Task List
+5,Occupation-Specific Information,5.C,Title
+5.A,Tasks,5.C.1,Title
+5,Occupation-Specific Information,5.D,Description
+5.D,Description,5.D.1,Description
+5,Occupation-Specific Information,5.E,Alternate Titles
+5.E,Alternate Titles,5.E.1,Alternate Titles List
+5.E,Alternate Titles,5.E.2,Sample of Reported Titles List
+5,Occupation-Specific Information,5.F,Technology Skills
+5.F,Technology Skills,5.F.1,Technology Skills List
+5,Occupation-Specific Information,5.G,Tools
+5.G,Tools,5.G.1,Tools List
+6,Workforce Characteristics,6.A,Labor Market Information
+6.A,Labor Market Information,6.A.1,Occupational Statistics
+6,Workforce Characteristics,6.B,Occupational Outlook
+6.B,Occupational Outlook,6.B.1,Occupational Projections

@@ -1,0 +1,586 @@
+Element ID	Element Name	Description
+1	Worker Characteristics	Worker Characteristics
+1.A	Abilities	Enduring attributes of the individual that influence performance
+1.A.1	Cognitive Abilities	Abilities that influence the acquisition and application of knowledge in problem solving
+1.A.1.a	Verbal Abilities	Abilities that influence the acquisition and application of verbal information in problem solving
+1.A.1.a.1	Oral Comprehension	The ability to listen to and understand information and ideas presented through spoken words and sentences.
+1.A.1.a.2	Written Comprehension	The ability to read and understand information and ideas presented in writing.
+1.A.1.a.3	Oral Expression	The ability to communicate information and ideas in speaking so others will understand.
+1.A.1.a.4	Written Expression	The ability to communicate information and ideas in writing so others will understand.
+1.A.1.b	Idea Generation and Reasoning Abilities	Abilities that influence the application and manipulation of information in problem solving
+1.A.1.b.1	Fluency of Ideas	The ability to come up with a number of ideas about a topic (the number of ideas is important, not their quality, correctness, or creativity).
+1.A.1.b.2	Originality	The ability to come up with unusual or clever ideas about a given topic or situation, or to develop creative ways to solve a problem.
+1.A.1.b.3	Problem Sensitivity	The ability to tell when something is wrong or is likely to go wrong. It does not involve solving the problem, only recognizing there is a problem.
+1.A.1.b.4	Deductive Reasoning	The ability to apply general rules to specific problems to produce answers that make sense.
+1.A.1.b.5	Inductive Reasoning	The ability to combine pieces of information to form general rules or conclusions (includes finding a relationship among seemingly unrelated events).
+1.A.1.b.6	Information Ordering	The ability to arrange things or actions in a certain order or pattern according to a specific rule or set of rules (e.g., patterns of numbers, letters, words, pictures, mathematical operations).
+1.A.1.b.7	Category Flexibility	The ability to generate or use different sets of rules for combining or grouping things in different ways.
+1.A.1.c	Quantitative Abilities	Abilities that influence the solution of problems involving mathematical relationships
+1.A.1.c.1	Mathematical Reasoning	The ability to choose the right mathematical methods or formulas to solve a problem.
+1.A.1.c.2	Number Facility	The ability to add, subtract, multiply, or divide quickly and correctly.
+1.A.1.d	Memory	Abilities related to the recall of available information
+1.A.1.d.1	Memorization	The ability to remember information such as words, numbers, pictures, and procedures.
+1.A.1.e	Perceptual Abilities	Abilities related to the acquisition and organization of visual information
+1.A.1.e.1	Speed of Closure	The ability to quickly make sense of, combine, and organize information into meaningful patterns.
+1.A.1.e.2	Flexibility of Closure	The ability to identify or detect a known pattern (a figure, object, word, or sound) that is hidden in other distracting material.
+1.A.1.e.3	Perceptual Speed	The ability to quickly and accurately compare similarities and differences among sets of letters, numbers, objects, pictures, or patterns. The things to be compared may be presented at the same time or one after the other. This ability also includes comparing a presented object with a remembered object.
+1.A.1.f	Spatial Abilities	Abilities related to the manipulation and organization of spatial information
+1.A.1.f.1	Spatial Orientation	The ability to know your location in relation to the environment or to know where other objects are in relation to you.
+1.A.1.f.2	Visualization	The ability to imagine how something will look after it is moved around or when its parts are moved or rearranged.
+1.A.1.g	Attentiveness	Abilities related to application of attention
+1.A.1.g.1	Selective Attention	The ability to concentrate on a task over a period of time without being distracted.
+1.A.1.g.2	Time Sharing	The ability to shift back and forth between two or more activities or sources of information (such as speech, sounds, touch, or other sources).
+1.A.2	Psychomotor Abilities	Abilities that influence the capacity to manipulate and control objects
+1.A.2.a	Fine Manipulative Abilities	Abilities related to the manipulation of objects
+1.A.2.a.1	Arm-Hand Steadiness	The ability to keep your hand and arm steady while moving your arm or while holding your arm and hand in one position.
+1.A.2.a.2	Manual Dexterity	The ability to quickly move your hand, your hand together with your arm, or your two hands to grasp, manipulate, or assemble objects.
+1.A.2.a.3	Finger Dexterity	The ability to make precisely coordinated movements of the fingers of one or both hands to grasp, manipulate, or assemble very small objects.
+1.A.2.b	Control Movement Abilities	Abilities related to the control and manipulation of objects in time and space
+1.A.2.b.1	Control Precision	The ability to quickly and repeatedly adjust the controls of a machine or a vehicle to exact positions.
+1.A.2.b.2	Multilimb Coordination	The ability to coordinate two or more limbs (for example, two arms, two legs, or one leg and one arm) while sitting, standing, or lying down. It does not involve performing the activities while the whole body is in motion.
+1.A.2.b.3	Response Orientation	The ability to choose quickly between two or more movements in response to two or more different signals (lights, sounds, pictures). It includes the speed with which the correct response is started with the hand, foot, or other body part.
+1.A.2.b.4	Rate Control	The ability to time your movements or the movement of a piece of equipment in anticipation of changes in the speed and/or direction of a moving object or scene.
+1.A.2.c	Reaction Time and Speed Abilities	Abilities related to speed of manipulation of objects
+1.A.2.c.1	Reaction Time	The ability to quickly respond (with the hand, finger, or foot) to a signal (sound, light, picture) when it appears.
+1.A.2.c.2	Wrist-Finger Speed	The ability to make fast, simple, repeated movements of the fingers, hands, and wrists.
+1.A.2.c.3	Speed of Limb Movement	The ability to quickly move the arms and legs.
+1.A.3	Physical Abilities	Abilities that influence strength, endurance, flexibility, balance and coordination
+1.A.3.a	Physical Strength Abilities	Abilities related to the capacity to exert force
+1.A.3.a.1	Static Strength	The ability to exert maximum muscle force to lift, push, pull, or carry objects.
+1.A.3.a.2	Explosive Strength	The ability to use short bursts of muscle force to propel oneself (as in jumping or sprinting), or to throw an object.
+1.A.3.a.3	Dynamic Strength	The ability to exert muscle force repeatedly or continuously over time. This involves muscular endurance and resistance to muscle fatigue.
+1.A.3.a.4	Trunk Strength	The ability to use your abdominal and lower back muscles to support part of the body repeatedly or continuously over time without 'giving out' or fatiguing.
+1.A.3.b	Endurance	The ability to exert oneself physically over long periods without getting out of breath
+1.A.3.b.1	Stamina	The ability to exert yourself physically over long periods of time without getting winded or out of breath.
+1.A.3.c	Flexibility, Balance, and Coordination	Abilities related to the control of gross body movements
+1.A.3.c.1	Extent Flexibility	The ability to bend, stretch, twist, or reach with your body, arms, and/or legs.
+1.A.3.c.2	Dynamic Flexibility	The ability to quickly and repeatedly bend, stretch, twist, or reach out with your body, arms, and/or legs.
+1.A.3.c.3	Gross Body Coordination	The ability to coordinate the movement of your arms, legs, and torso together when the whole body is in motion.
+1.A.3.c.4	Gross Body Equilibrium	The ability to keep or regain your body balance or stay upright when in an unstable position.
+1.A.4	Sensory Abilities	Abilities that influence visual, auditory and speech perception
+1.A.4.a	Visual Abilities	Abilities related to visual sensory input
+1.A.4.a.1	Near Vision	The ability to see details at close range (within a few feet of the observer).
+1.A.4.a.2	Far Vision	The ability to see details at a distance.
+1.A.4.a.3	Visual Color Discrimination	The ability to match or detect differences between colors, including shades of color and brightness.
+1.A.4.a.4	Night Vision	The ability to see under low light conditions.
+1.A.4.a.5	Peripheral Vision	The ability to see objects or movement of objects to one's side when the eyes are looking ahead.
+1.A.4.a.6	Depth Perception	The ability to judge which of several objects is closer or farther away from you, or to judge the distance between you and an object.
+1.A.4.a.7	Glare Sensitivity	The ability to see objects in the presence of glare or bright lighting.
+1.A.4.b	Auditory and Speech Abilities	Abilities related to auditory and oral input
+1.A.4.b.1	Hearing Sensitivity	The ability to detect or tell the differences between sounds that vary in pitch and loudness.
+1.A.4.b.2	Auditory Attention	The ability to focus on a single source of sound in the presence of other distracting sounds.
+1.A.4.b.3	Sound Localization	The ability to tell the direction from which a sound originated.
+1.A.4.b.4	Speech Recognition	The ability to identify and understand the speech of another person.
+1.A.4.b.5	Speech Clarity	The ability to speak clearly so others can understand you.
+1.B	Interests	Preferences for work environments and outcomes
+1.B.1	Occupational Interests	Preferences for work environments. Occupational Interest Profiles (OIPs) are compatible with Holland's (1985, 1997) model of personality types and work environments. Six interest categories are used to describe the work environment of occupations: Realistic, Investigative, Artistic, Social, Enterprising, and Conventional. An OIP consists of six numerical scores indicating how descriptive and characteristic each work environment (or interest area) is for an O*NET-SOC occupation. In addition, a high-point profile has been assigned indicating which interests are most characteristic of an O*NET-SOC occupation. A high-point profile consists of one to three interest codes, depending on how many interest categories meet a minimum degree of descriptiveness for the O*NET-SOC occupation.
+1.B.1.a	Realistic	Realistic occupations frequently involve work activities that include practical, hands-on problems and solutions. They often deal with plants, animals, and real-world materials like wood, tools, and machinery. Many of the occupations require working outside, and do not involve a lot of paperwork or working closely with others.
+1.B.1.b	Investigative	Investigative occupations frequently involve working with ideas, and require an extensive amount of thinking. These occupations can involve searching for facts and figuring out problems mentally.
+1.B.1.c	Artistic	Artistic occupations frequently involve working with forms, designs and patterns. They often require self-expression and the work can be done without following a clear set of rules.
+1.B.1.d	Social	Social occupations frequently involve working with, communicating with, and teaching people. These occupations often involve helping or providing service to others.
+1.B.1.e	Enterprising	Enterprising occupations frequently involve starting up and carrying out projects. These occupations can involve leading people and making many decisions. Sometimes they require risk taking and often deal with business.
+1.B.1.f	Conventional	Conventional occupations frequently involve following set procedures and routines. These occupations can include working with data and details more than with ideas. Usually there is a clear line of authority to follow.
+1.B.1.g	First Interest High-Point	Primary-Rank Descriptiveness
+1.B.1.h	Second Interest High-Point	Secondary-Cutoff/Rank Descriptiveness
+1.B.1.i	Third Interest High-Point	Tertiary-Cutoff/Rank Descriptiveness
+1.B.2	Work Values	Occupational Reinforcer Patterns (ORPs) indicate which work values and needs are likely to be reinforced or satisfied by a particular O*NET-SOC occupation. The use of work values to describe occupations is based on the Theory of Work Adjustment (TWA) developed during the Work Adjustment Project at the University of Minnesota under Research Grants from the U.S. Department of Health, Education and Welfare (Dawis, R.V., England, G.W., & Lofquist, L.H., 1964; Dawis, R.V., & Lofquist, L.H., 1984). This theory proposes that job satisfaction is directly related to the degree to which a person's values and corresponding needs are satisfied by his or her work environment. The TWA identifies six work values each with a corresponding set of needs.
+1.B.2.a	Achievement	Occupations that satisfy this work value are results oriented and allow employees to use their strongest abilities, giving them a feeling of accomplishment. Corresponding needs are Ability Utilization and Achievement.
+1.B.2.a.1	Ability Utilization	Workers on this job make use of their individual abilities.
+1.B.2.a.2	Achievement	Workers on this job get a feeling of accomplishment.
+1.B.2.b	Working Conditions	Occupations that satisfy this work value offer job security and good working conditions. Corresponding needs are Activity, Compensation, Independence, Security, Variety and Working Conditions.
+1.B.2.b.1	Activity	Workers on this job are busy all the time.
+1.B.2.b.2	Independence	Workers on this job do their work alone.
+1.B.2.b.3	Variety	Workers on this job have something different to do every day.
+1.B.2.b.4	Compensation	Workers on this job are paid well in comparison with other workers.
+1.B.2.b.5	Security	Workers on this job have steady employment.
+1.B.2.b.6	Working Conditions	Workers on this job have good working conditions.
+1.B.2.c	Recognition	Occupations that satisfy this work value offer advancement, potential for leadership, and are often considered prestigious. Corresponding needs are Advancement, Authority, Recognition and Social Status.
+1.B.2.c.1	Advancement	Workers on this job have opportunities for advancement.
+1.B.2.c.2	Recognition	Workers on this job receive recognition for the work they do.
+1.B.2.c.3	Authority	Workers on this job give directions and instructions to others.
+1.B.2.c.4	Social Status	Workers on this job are looked up to by others in their company and their community.
+1.B.2.d	Relationships	Occupations that satisfy this work value allow employees to provide service to others and work with co-workers in a friendly non-competitive environment. Corresponding needs are Co-workers, Moral Values and Social Service.
+1.B.2.d.1	Co-workers	Workers on this job have co-workers who are easy to get along with.
+1.B.2.d.2	Social Service	Workers on this job have work where they do things for other people.
+1.B.2.d.3	Moral Values	Workers on this job are never pressured to do things that go against their sense of right and wrong.
+1.B.2.e	Support	Occupations that satisfy this work value offer supportive management that stands behind employees. Corresponding needs are Company Policies, Supervision: Human Relations and Supervision: Technical.
+1.B.2.e.1	Company Policies and Practices	Workers on this job are treated fairly by the company.
+1.B.2.e.2	Supervision, Human Relations	Workers on this job have supervisors who back up their workers with management.
+1.B.2.e.3	Supervision, Technical	Workers on this job have supervisors who train their workers well.
+1.B.2.f	Independence	Occupations that satisfy this work value allow employees to work on their own and make decisions. Corresponding needs are Creativity, Responsibility and Autonomy.
+1.B.2.f.1	Creativity	Workers on this job try out their own ideas.
+1.B.2.f.2	Responsibility	Workers on this job make decisions on their own.
+1.B.2.f.3	Autonomy	Workers on this job plan their work with little supervision.
+1.B.2.g	First Work Value High-Point	Primary-Rank Descriptiveness
+1.B.2.h	Second Work Value High-Point	Secondary-Cutoff/Rank Descriptiveness
+1.B.2.i	Third Work Value High-Point	Tertiary-Cutoff/Rank Descriptiveness
+1.C	Work Styles	Personal characteristics that can affect how well someone performs a job.
+1.C.1	Achievement Orientation	Job requires personal goal setting, trying to succeed at those goals, and striving to be competent in own work
+1.C.1.a	Achievement/Effort	Job requires establishing and maintaining personally challenging achievement goals and exerting effort toward mastering tasks.
+1.C.1.b	Persistence	Job requires persistence in the face of obstacles.
+1.C.1.c	Initiative	Job requires a willingness to take on responsibilities and challenges.
+1.C.2	Social Influence	Job requires having an impact on others in the organization, and displaying energy and leadership
+1.C.2.b	Leadership	Job requires a willingness to lead, take charge, and offer opinions and direction.
+1.C.3	Interpersonal Orientation	Job requires being pleasant, cooperative, sensitive to others, easy to get along with, and having a preference for associating with other organization members
+1.C.3.a	Cooperation	Job requires being pleasant with others on the job and displaying a good-natured, cooperative attitude.
+1.C.3.b	Concern for Others	Job requires being sensitive to others' needs and feelings and being understanding and helpful on the job.
+1.C.3.c	Social Orientation	Job requires preferring to work with others rather than alone, and being personally connected with others on the job.
+1.C.4	Adjustment	Job requires maturity, poise, flexibility, and restraint to cope with pressure, stress, criticism, setbacks, personal and work-related problems, etc.
+1.C.4.a	Self Control	Job requires maintaining composure, keeping emotions in check, controlling anger, and avoiding aggressive behavior, even in very difficult situations.
+1.C.4.b	Stress Tolerance	Job requires accepting criticism and dealing calmly and effectively with high stress situations.
+1.C.4.c	Adaptability/Flexibility	Job requires being open to change (positive or negative) and to considerable variety in the workplace.
+1.C.5	Conscientiousness	Job requires dependability, commitment to doing the job correctly and carefully, and being trustworthy, accountable, and attentive to details
+1.C.5.a	Dependability	Job requires being reliable, responsible, and dependable, and fulfilling obligations.
+1.C.5.b	Attention to Detail	Job requires being careful about detail and thorough in completing work tasks.
+1.C.5.c	Integrity	Job requires being honest and ethical.
+1.C.6	Independence	Job requires developing one's own ways of doing things, guiding oneself with little or no supervision, and depending on oneself to get things done.
+1.C.7	Practical Intelligence	Job requires generating useful ideas and thinking things through logically
+1.C.7.a	Innovation	Job requires creativity and alternative thinking to develop new ideas for and answers to work-related problems.
+1.C.7.b	Analytical Thinking	Job requires analyzing information and using logic to address work-related issues and problems.
+2	Worker Requirements	Worker Requirements
+2.A	Basic Skills	Developed capacities that facilitate learning or the more rapid acquisition of knowledge
+2.A.1	Content	Background structures needed to work with and acquire more specific skills in a variety of different domains
+2.A.1.a	Reading Comprehension	Understanding written sentences and paragraphs in work related documents.
+2.A.1.b	Active Listening	Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times.
+2.A.1.c	Writing	Communicating effectively in writing as appropriate for the needs of the audience.
+2.A.1.d	Speaking	Talking to others to convey information effectively.
+2.A.1.e	Mathematics	Using mathematics to solve problems.
+2.A.1.f	Science	Using scientific rules and methods to solve problems.
+2.A.2	Process	Procedures that contribute to the more rapid acquisition of knowledge and skill across a variety of domains
+2.A.2.a	Critical Thinking	Using logic and reasoning to identify the strengths and weaknesses of alternative solutions, conclusions or approaches to problems.
+2.A.2.b	Active Learning	Understanding the implications of new information for both current and future problem-solving and decision-making.
+2.A.2.c	Learning Strategies	Selecting and using training/instructional methods and procedures appropriate for the situation when learning or teaching new things.
+2.A.2.d	Monitoring	Monitoring/Assessing performance of yourself, other individuals, or organizations to make improvements or take corrective action.
+2.B	Cross-Functional Skills	Developed capacities that facilitate performance of activities that occur across jobs
+2.B.1	Social Skills	Developed capacities used to work with people to achieve goals
+2.B.1.a	Social Perceptiveness	Being aware of others' reactions and understanding why they react as they do.
+2.B.1.b	Coordination	Adjusting actions in relation to others' actions.
+2.B.1.c	Persuasion	Persuading others to change their minds or behavior.
+2.B.1.d	Negotiation	Bringing others together and trying to reconcile differences.
+2.B.1.e	Instructing	Teaching others how to do something.
+2.B.1.f	Service Orientation	Actively looking for ways to help people.
+2.B.2	Complex Problem Solving Skills	Developed capacities used to solve novel, ill-defined problems in complex, real-world settings
+2.B.2.i	Complex Problem Solving	Identifying complex problems and reviewing related information to develop and evaluate options and implement solutions.
+2.B.3	Technical Skills	Developed capacities used to design, set-up, operate, and correct malfunctions involving application of machines or technological systems
+2.B.3.a	Operations Analysis	Analyzing needs and product requirements to create a design.
+2.B.3.b	Technology Design	Generating or adapting equipment and technology to serve user needs.
+2.B.3.c	Equipment Selection	Determining the kind of tools and equipment needed to do a job.
+2.B.3.d	Installation	Installing equipment, machines, wiring, or programs to meet specifications.
+2.B.3.e	Programming	Writing computer programs for various purposes.
+2.B.3.g	Operation Monitoring	Watching gauges, dials, or other indicators to make sure a machine is working properly.
+2.B.3.h	Operation and Control	Controlling operations of equipment or systems.
+2.B.3.j	Equipment Maintenance	Performing routine maintenance on equipment and determining when and what kind of maintenance is needed.
+2.B.3.k	Troubleshooting	Determining causes of operating errors and deciding what to do about it.
+2.B.3.l	Repairing	Repairing machines or systems using the needed tools.
+2.B.3.m	Quality Control Analysis	Conducting tests and inspections of products, services, or processes to evaluate quality or performance.
+2.B.4	Systems Skills	Developed capacities used to understand, monitor, and improve socio-technical systems
+2.B.4.e	Judgment and Decision Making	Considering the relative costs and benefits of potential actions to choose the most appropriate one.
+2.B.4.g	Systems Analysis	Determining how a system should work and how changes in conditions, operations, and the environment will affect outcomes.
+2.B.4.h	Systems Evaluation	Identifying measures or indicators of system performance and the actions needed to improve or correct performance, relative to the goals of the system.
+2.B.5	Resource Management Skills	Developed capacities used to allocate resources efficiently
+2.B.5.a	Time Management	Managing one's own time and the time of others.
+2.B.5.b	Management of Financial Resources	Determining how money will be spent to get the work done, and accounting for these expenditures.
+2.B.5.c	Management of Material Resources	Obtaining and seeing to the appropriate use of equipment, facilities, and materials needed to do certain work.
+2.B.5.d	Management of Personnel Resources	Motivating, developing, and directing people as they work, identifying the best people for the job.
+2.C	Knowledge	Organized sets of principles and facts applying in general domains
+2.C.1	Business and Management	Knowledge of principles and facts related to business administration and accounting, human and material resource management in organizations, sales and marketing, economics, and office information and organizing systems
+2.C.1.a	Administration and Management	Knowledge of business and management principles involved in strategic planning, resource allocation, human resources modeling, leadership technique, production methods, and coordination of people and resources.
+2.C.1.b	Clerical	Knowledge of administrative and clerical procedures and systems such as word processing, managing files and records, stenography and transcription, designing forms, and other office procedures and terminology.
+2.C.1.c	Economics and Accounting	Knowledge of economic and accounting principles and practices, the financial markets, banking and the analysis and reporting of financial data.
+2.C.1.d	Sales and Marketing	Knowledge of principles and methods for showing, promoting, and selling products or services. This includes marketing strategy and tactics, product demonstration, sales techniques, and sales control systems.
+2.C.1.e	Customer and Personal Service	Knowledge of principles and processes for providing customer and personal services. This includes customer needs assessment, meeting quality standards for services, and evaluation of customer satisfaction.
+2.C.1.f	Personnel and Human Resources	Knowledge of principles and procedures for personnel recruitment, selection, training, compensation and benefits, labor relations and negotiation, and personnel information systems.
+2.C.2	Manufacturing and Production	Knowledge of principles and facts related to the production, processing, storage, and distribution of manufactured and agricultural goods
+2.C.2.a	Production and Processing	Knowledge of raw materials, production processes, quality control, costs, and other techniques for maximizing the effective manufacture and distribution of goods.
+2.C.2.b	Food Production	Knowledge of techniques and equipment for planting, growing, and harvesting food products (both plant and animal) for consumption, including storage/handling techniques.
+2.C.3	Engineering and Technology	Knowledge of the design, development, and application of technology for specific purposes.
+2.C.3.a	Computers and Electronics	Knowledge of circuit boards, processors, chips, electronic equipment, and computer hardware and software, including applications and programming.
+2.C.3.b	Engineering and Technology	Knowledge of the practical application of engineering science and technology. This includes applying principles, techniques, procedures, and equipment to the design and production of various goods and services.
+2.C.3.c	Design	Knowledge of design techniques, tools, and principles involved in production of precision technical plans, blueprints, drawings, and models.
+2.C.3.d	Building and Construction	Knowledge of materials, methods, and the tools involved in the construction or repair of houses, buildings, or other structures such as highways and roads.
+2.C.3.e	Mechanical	Knowledge of machines and tools, including their designs, uses, repair, and maintenance.
+2.C.4	Mathematics and Science	Knowledge of the history, theories, methods, and applications of the physical, biological, social, mathematical, and geography
+2.C.4.a	Mathematics	Knowledge of arithmetic, algebra, geometry, calculus, statistics, and their applications.
+2.C.4.b	Physics	Knowledge and prediction of physical principles, laws, their interrelationships, and applications to understanding fluid, material, and atmospheric dynamics, and mechanical, electrical, atomic and sub- atomic structures and processes.
+2.C.4.c	Chemistry	Knowledge of the chemical composition, structure, and properties of substances and of the chemical processes and transformations that they undergo. This includes uses of chemicals and their interactions, danger signs, production techniques, and disposal methods.
+2.C.4.d	Biology	Knowledge of plant and animal organisms, their tissues, cells, functions, interdependencies, and interactions with each other and the environment.
+2.C.4.e	Psychology	Knowledge of human behavior and performance; individual differences in ability, personality, and interests; learning and motivation; psychological research methods; and the assessment and treatment of behavioral and affective disorders.
+2.C.4.f	Sociology and Anthropology	Knowledge of group behavior and dynamics, societal trends and influences, human migrations, ethnicity, cultures and their history and origins.
+2.C.4.g	Geography	Knowledge of principles and methods for describing the features of land, sea, and air masses, including their physical characteristics, locations, interrelationships, and distribution of plant, animal, and human life.
+2.C.5	Health Services	Knowledge of principles and facts regarding diagnosing, curing, and preventing disease, and improving and preserving physical and mental health and well-being
+2.C.5.a	Medicine and Dentistry	Knowledge of the information and techniques needed to diagnose and treat human injuries, diseases, and deformities. This includes symptoms, treatment alternatives, drug properties and interactions, and preventive health-care measures.
+2.C.5.b	Therapy and Counseling	Knowledge of principles, methods, and procedures for diagnosis, treatment, and rehabilitation of physical and mental dysfunctions, and for career counseling and guidance.
+2.C.6	Education and Training	Knowledge of principles and methods for curriculum and training design, teaching and instruction for individuals and groups, and the measurement of training effects.
+2.C.7	Arts and Humanities	Knowledge of facts and principles related to the branches of learning concerned with human thought, language, and the arts.
+2.C.7.a	English Language	Knowledge of the structure and content of the English language including the meaning and spelling of words, rules of composition, and grammar.
+2.C.7.b	Foreign Language	Knowledge of the structure and content of a foreign (non-English) language including the meaning and spelling of words, rules of composition and grammar, and pronunciation.
+2.C.7.c	Fine Arts	Knowledge of the theory and techniques required to compose, produce, and perform works of music, dance, visual arts, drama, and sculpture.
+2.C.7.d	History and Archeology	Knowledge of historical events and their causes, indicators, and effects on civilizations and cultures.
+2.C.7.e	Philosophy and Theology	Knowledge of different philosophical systems and religions. This includes their basic principles, values, ethics, ways of thinking, customs, practices, and their impact on human culture.
+2.C.8	Law and Public Safety	Knowledge of regulations and methods for maintaining people and property free from danger, injury, or damage; the rules of public conduct established and enforced by legislation, and the political process establishing such rules.
+2.C.8.a	Public Safety and Security	Knowledge of relevant equipment, policies, procedures, and strategies to promote effective local, state, or national security operations for the protection of people, data, property, and institutions.
+2.C.8.b	Law and Government	Knowledge of laws, legal codes, court procedures, precedents, government regulations, executive orders, agency rules, and the democratic political process.
+2.C.9	Communications	Knowledge of the science and art of delivering information
+2.C.9.a	Telecommunications	Knowledge of transmission, broadcasting, switching, control, and operation of telecommunications systems.
+2.C.9.b	Communications and Media	Knowledge of media production, communication, and dissemination techniques and methods. This includes alternative ways to inform and entertain via written, oral, and visual media.
+2.C.10	Transportation	Knowledge of principles and methods for moving people or goods by air, rail, sea, or road, including the relative costs and benefits.
+2.D	Education	Prior educational experience required to perform in a job
+2.D.1	Required Level of Education	The level of education required to perform a job.
+2.D.2	Instructional Program Required	The instructional program required for this job
+2.D.3	Education Level in Specific Subjects	The amount of education required in 15 subject areas to perform in a job. Subject areas cover most of the courses that occur in high school, junior college, college undergraduate degree programs, and other education and training programs
+2.D.3.a	Technical Vocational	Courses focus on non-business technical skills, such as Agriculture, Industrial Arts, Automobile and Shop, and Electronics
+2.D.3.b	Business Vocational	Courses focus on basic business skills, such as Word Processing, Filing, Bookkeeping/Basic Accounting
+2.D.3.c	English/language Arts	Courses focus on reading, interpretation, and writing, such as Literature, Composition, Journalism, and Creative Writing
+2.D.3.d	Oral Communication	Courses focus on oral communication and speech, such as Oral Communication, Speech, and Interpersonal Communication
+2.D.3.e	Languages	Courses focus on reading, writing, and/or speaking languages other than English, such as French, Chinese, German, Japanese, Latin, Russian, and Spanish
+2.D.3.f	Basic Math	Courses focus on basic and applied math, such as General Math and Business Math
+2.D.3.g	Advanced Math	Courses focus on advanced topics in math, such as Algebra, Geometry, Calculus, and Statistics
+2.D.3.h	Physical Science	Courses focus on the study of matter and/or energy, such as Physics, Chemistry, and Astronomy
+2.D.3.i	Computer Science	Courses focus on computers and their uses, such as Programming, Information Systems Management, and Software Applications
+2.D.3.j	Biological Science	Courses focus on the study of life and living beings, such as life science, biology, anatomy and physiology
+2.D.3.k	Applied Science	Courses focus on the application of science, such as Engineering, Health, and Medicine
+2.D.3.l	Social Science	Courses focus on the behavioral sciences, such as Social Studies, Economics, History, Psychology, and Sociology
+2.D.3.m	Arts	Courses focus on visual and performing arts, such as Arts and Crafts, Music, Painting, Sculpture, Theater, and Voice
+2.D.3.n	Humanities	Courses focus on cultural and philosophical aspects of humans, such as Minority Studies, Philosophy, and Religion
+2.D.3.o	Physical Education	Courses focus on physical fitness and sports, such as Aerobics, Jogging, Weight Lifting, and Specific Sports
+2.D.4	Job-Related Professional Certification	Certification: A credential awarded by a certification body based on an individual demonstrating through an examination process that he or she has acquired the designated knowledge, skills, and abilities to perform a specific job.
+2.D.4.a	Job-Related Professional Certification	Possession of an occupational or industry certification to perform the job.
+3	Experience Requirements	Experience Requirements
+3.A	Experience and Training	If someone were being hired to perform this job, how much of the following would be required?
+3.A.1	Related Work Experience	Amount of related work experience required to get hired for the job?
+3.A.2	On-Site or In-Plant Training	Amount of on-site or in-plant training (e.g., organized class room instruction) required to perform the job?
+3.A.3	On-the-Job Training	Amount of on the job training required to perform the job?
+3.A.4	Apprenticeship	Apprenticeship is a combination of on-the-job training and related instruction in which workers learn the practical and theoretical aspects of a highly skilled occupation. Apprenticeship programs can be sponsored by individual employers, joint employer and labor groups, and/or employer associations.
+3.A.4.a	Apprenticeship	Completion of a job-related apprenticeship to perform the job.
+3.B	Basic Skills - Entry Requirement	Entry requirement for developed capacities that facilitate learning or the more rapid acquisition of knowledge
+3.B.1	Content - Entry Requirement	Entry requirement for background structures needed to work with and acquire more specific skills in a variety of different domains
+3.B.1.a	Reading Comprehension - Entry Requirement	Entry requirement for understanding written sentences and paragraphs in work related documents
+3.B.1.b	Active Listening - Entry Requirement	Entry requirement for listening to what other people are saying and asking questions as appropriate
+3.B.1.c	Writing - Entry Requirement	Entry requirement for communicating effectively with others in writing as indicated by the needs of the audience
+3.B.1.d	Speaking - Entry Requirement	Entry requirement for talking to others to effectively convey information
+3.B.1.e	Mathematics - Entry Requirement	Entry requirement for using mathematics to solve problems
+3.B.1.f	Science - Entry Requirement	Entry requirement for using scientific methods to solve problems
+3.B.2	Process - Entry Requirement	Entry requirement for procedures that contribute to the more rapid acquisition of knowledge and skill across a variety of domains
+3.B.2.a	Critical Thinking - Entry Requirement	Entry requirement for using logic and analysis to identify the strengths and weaknesses in different approaches
+3.B.2.b	Active Learning - Entry Requirement	Entry requirement for working with new material or information to grasp its implications
+3.B.2.c	Learning Strategies - Entry Requirement	Entry requirement for using multiple approaches when learning or teaching new things
+3.B.2.d	Monitoring - Entry Requirement	Entry requirement for assessing how well one is doing when learning or doing something
+3.C	Cross-Functional Skills - Entry Requirement	Entry requirement for developed capacities that facilitate performance of activities that occur across jobs
+3.C.1	Social Skills - Entry Requirement	Entry requirement for developed capacities used to work with people to achieve goals
+3.C.1.a	Social Perceptiveness - Entry Requirement	Entry requirement for being aware of others' reactions and understanding why they react the way they do
+3.C.1.b	Coordination - Entry Requirement	Entry requirement for adjusting actions in relation to others' actions
+3.C.1.c	Persuasion - Entry Requirement	Entry requirement for persuading others to approach things differently
+3.C.1.d	Negotiation - Entry Requirement	Entry requirement for bring others together and trying to reconcile differences
+3.C.1.e	Instructing - Entry Requirement	Entry requirement for teaching others how to do something
+3.C.1.f	Service Orientation - Entry Requirement	Entry requirement for actively looking for ways to help people
+3.C.2	Complex Problem Solving Skills - Entry Requirement	Entry requirement for developed capacities used to solve novel, ill-defined problems in complex, real-world settings
+3.C.2.a	Problem Identification - Entry Requirement	Entry requirement for identifying the nature of problems
+3.C.2.b	Information Gathering - Entry Requirement	Entry requirement for knowing how to find information and identifying essential information
+3.C.2.c	Information Organization - Entry Requirement	Entry requirement for finding ways to structure or classify multiple pieces of information
+3.C.2.d	Synthesis/Reorganization - Entry Requirement	Entry requirement for reorganizing information to get a better approach to problems or tasks
+3.C.2.e	Idea Generation - Entry Requirement	Entry requirement for generating a number of different approaches to problems
+3.C.2.f	Idea Evaluation - Entry Requirement	Entry requirement for evaluating the likely success of an idea in relation to the demands of the situation
+3.C.2.g	Implementation Planning - Entry Requirement	Entry requirement for developing approaches for implementing an idea
+3.C.2.h	Solution Appraisal - Entry Requirement	Entry requirement for observing and evaluating the outcomes of a problem solution to identify lessons learned or redirect efforts
+3.C.3	Technical Skills - Entry Requirement	Entry requirement for developed capacities used to design, set-up, operate, and correct malfunctions involving application of machines or technological systems
+3.C.3.a	Operations Analysis - Entry Requirement	Entry requirement for analyzing needs and product requirements to create a design
+3.C.3.b	Technology Design - Entry Requirement	Entry requirement for generating or adapting equipment and technology to serve user needs
+3.C.3.c	Equipment Selection - Entry Requirement	Entry requirement for determining the kind of tools and equipment needed to do a job
+3.C.3.d	Installation - Entry Requirement	Entry requirement for installing equipment, machines, wiring, or programs to meet specifications
+3.C.3.e	Programming - Entry Requirement	Entry requirement for writing computer programs for various purposes
+3.C.3.f	Testing - Entry Requirement	Entry requirement for conducting tests to determine whether equipment, software, or procedures are operating as expected
+3.C.3.g	Operation Monitoring - Entry Requirement	Entry requirement for watching gauges, dials, or other indicators to make sure a machine is working properly
+3.C.3.h	Operation and Control - Entry Requirement	Entry requirement for controlling operations of equipment or systems
+3.C.3.i	Product Inspection - Entry Requirement	Entry requirement for inspecting and evaluating the quality of products
+3.C.3.j	Equipment Maintenance - Entry Requirement	Entry requirement for performing routine maintenance and determining when and what kind of maintenance is needed
+3.C.3.k	Troubleshooting - Entry Requirement	Entry requirement for determining what is causing an operating error and deciding what to do about it
+3.C.3.l	Repairing - Entry Requirement	Entry requirement for repairing machines or systems using the needed tools
+3.C.4	Systems Skills - Entry Requirement	Entry requirement for developed capacities used to understand, monitor, and improve socio-technical systems
+3.C.4.a	Visioning - Entry Requirement	Entry requirement for developing an image of how a system should work under ideal conditions
+3.C.4.b	Systems Perception - Entry Requirement	Entry requirement for determining when important changes have occurred in a system or are likely to occur
+3.C.4.c	Identifying Downstream Consequences - Entry Requirement	Entry requirement for determining the long-term outcomes of a change in operations
+3.C.4.d	Identification of Key Causes - Entry Requirement	Entry requirement for identifying the things that must be changed to achieve a goal
+3.C.4.e	Judgment and Decision Making - Entry Requirement	Entry requirement for weighing the relative costs and benefits of a potential action
+3.C.4.f	System Evaluation - Entry Requirement	Entry requirement for looking at many indicators of system performance, taking into account their accuracy
+3.C.5	Resource Management Skills - Entry Requirement	Entry requirement for developed capacities used to allocate resources efficiently
+3.C.5.a	Time Management - Entry Requirement	Entry requirement for managing one's own time and the time of others
+3.C.5.b	Management of Financial Resources - Entry Requirement	Entry requirement for determining how money will be spent to get the work done, and accounting for these expenditures
+3.C.5.c	Management of Material Resources - Entry Requirement	Entry requirement for obtaining and seeing to the appropriate use of equipment, facilities, and materials needed to do certain work
+3.C.5.d	Management of Personnel Resources - Entry Requirement	Entry requirement for motivating, developing, and directing people as they work, identifying the best people for the job
+3.D	Licensing	Licenses, certificates, or registrations that are awarded to show that a job holder has gained certain skills. This includes requirements for obtaining these credentials, and the organization or agency requiring their possession.
+3.D.1	License, Certificate, or Registration Required	At least one license, certificate, or registration is required to perform in this job, including a driver's or vehicle operator's license. The specific license(s), certificate(s), or registration(s) are listed.
+3.D.2	Specific License or Certificate Required	Specific education, training, examination, or other requirements for obtaining the licenses, certificates, or registration needed to perform in this job
+3.D.2.a	Post-Secondary Degree	Obtaining the licenses, certificates, or registration needed to perform in this job requires a post-secondary degree, for example an Associate's or Bachelor's degree.
+3.D.2.b	Graduate Degree	Obtaining the licenses, certificates, or registration needed to perform in this job requires a graduate degree, for example, a Master's or Doctoral degree.
+3.D.2.c	On-the-Job Training	Obtaining the licenses, certificates, or registration needed to perform in this job requires on-the-job training, including apprenticeships, internships, and other supervised experiences.
+3.D.2.d	Examination	Obtaining the licenses, certificates, or registration needed to perform in this job requires an examination, for example, written, oral, or performance assessments.
+3.D.2.e	Character References	Obtaining the licenses, certificates, or registration needed to perform in this job requires one or more character references from other individuals.
+3.D.4	Additional Education and Training	Retaining the licenses, certificates, or registration needed to perform in this job requires additional course work.
+3.D.5	Organization and Agency Requirements	Organizations or agencies requiring the specific licenses, certificates, or registration needed to perform in a job
+3.D.5.a	Legal Requirement	Federal, state, or local law requires possessing specific licenses, certificates, or registration for performance in this job.
+3.D.5.b	Employer Requirement	Employers require possessing specific licenses, certificates, or registration for performance in this job.
+3.D.5.c	Union, Guild, or Professional Association	A union or professional association requires possessing specific licenses, certificates, or registration for performance in this job.
+4	Occupational Requirements	Occupational Requirements
+4.A	Generalized Work Activities	Work activities that are common across a very large number of occupations. They are performed in almost all job families and industries.
+4.A.1	Information Input	Where and how are the information and data gained that are needed to perform this job?
+4.A.1.a	Looking for and Receiving Job-Related Information	How is information obtained to perform this job?
+4.A.1.a.1	Getting Information	Observing, receiving, and otherwise obtaining information from all relevant sources.
+4.A.1.a.2	Monitor Processes, Materials, or Surroundings	Monitoring and reviewing information from materials, events, or the environment, to detect or assess problems.
+4.A.1.b	Identify and Evaluating Job-Relevant Information	How is information interpreted to perform this job?
+4.A.1.b.1	Identifying Objects, Actions, and Events	Identifying information by categorizing, estimating, recognizing differences or similarities, and detecting changes in circumstances or events.
+4.A.1.b.2	Inspecting Equipment, Structures, or Material	Inspecting equipment, structures, or materials to identify the cause of errors or other problems or defects.
+4.A.1.b.3	Estimating the Quantifiable Characteristics of Products, Events, or Information	Estimating sizes, distances, and quantities; or determining time, costs, resources, or materials needed to perform a work activity.
+4.A.2	Mental Processes	What processing, planning, problem-solving, decision-making, and innovating activities are performed with job-relevant information?
+4.A.2.a	Information and Data Processing	How is information processed to perform this job?
+4.A.2.a.1	Judging the Qualities of Things, Services, or People	Assessing the value, importance, or quality of things or people.
+4.A.2.a.2	Processing Information	Compiling, coding, categorizing, calculating, tabulating, auditing, or verifying information or data.
+4.A.2.a.3	Evaluating Information to Determine Compliance with Standards	Using relevant information and individual judgment to determine whether events or processes comply with laws, regulations, or standards.
+4.A.2.a.4	Analyzing Data or Information	Identifying the underlying principles, reasons, or facts of information by breaking down information or data into separate parts.
+4.A.2.b	Reasoning and Decision Making	What decisions are made and problems solved in performing this job?
+4.A.2.b.1	Making Decisions and Solving Problems	Analyzing information and evaluating results to choose the best solution and solve problems.
+4.A.2.b.2	Thinking Creatively	Developing, designing, or creating new applications, ideas, relationships, systems, or products, including artistic contributions.
+4.A.2.b.3	Updating and Using Relevant Knowledge	Keeping up-to-date technically and applying new knowledge to your job.
+4.A.2.b.4	Developing Objectives and Strategies	Establishing long-range objectives and specifying the strategies and actions to achieve them.
+4.A.2.b.5	Scheduling Work and Activities	Scheduling events, programs, and activities, as well as the work of others.
+4.A.2.b.6	Organizing, Planning, and Prioritizing Work	Developing specific goals and plans to prioritize, organize, and accomplish your work.
+4.A.3	Work Output	What physical activities are performed, what equipment and vehicles are operated/controlled, and what complex/technical activities are accomplished as job outputs?
+4.A.3.a	Performing Physical and Manual Work Activities	What activities using the body and hands are done to perform this job?
+4.A.3.a.1	Performing General Physical Activities	Performing physical activities that require considerable use of your arms and legs and moving your whole body, such as climbing, lifting, balancing, walking, stooping, and handling of materials.
+4.A.3.a.2	Handling and Moving Objects	Using hands and arms in handling, installing, positioning, and moving materials, and manipulating things.
+4.A.3.a.3	Controlling Machines and Processes	Using either control mechanisms or direct physical activity to operate machines or processes (not including computers or vehicles).
+4.A.3.a.4	Operating Vehicles, Mechanized Devices, or Equipment	Running, maneuvering, navigating, or driving vehicles or mechanized equipment, such as forklifts, passenger vehicles, aircraft, or water craft.
+4.A.3.b	Performing Complex and Technical Activities	What skilled activities using coordinated movements are done to perform this job?
+4.A.3.b.1	Interacting With Computers	Using computers and computer systems (including hardware and software) to program, write software, set up functions, enter data, or process information.
+4.A.3.b.2	Drafting, Laying Out, and Specifying Technical Devices, Parts, and Equipment	Providing documentation, detailed instructions, drawings, or specifications to tell others about how devices, parts, equipment, or structures are to be fabricated, constructed, assembled, modified, maintained, or used.
+4.A.3.b.4	Repairing and Maintaining Mechanical Equipment	Servicing, repairing, adjusting, and testing machines, devices, moving parts, and equipment that operate primarily on the basis of mechanical (not electronic) principles.
+4.A.3.b.5	Repairing and Maintaining Electronic Equipment	Servicing, repairing, calibrating, regulating, fine-tuning, or testing machines, devices, and equipment that operate primarily on the basis of electrical or electronic (not mechanical) principles.
+4.A.3.b.6	Documenting/Recording Information	Entering, transcribing, recording, storing, or maintaining information in written or electronic/magnetic form.
+4.A.4	Interacting With Others	What interactions with other persons or supervisory activities occur while performing this job?
+4.A.4.a	Communicating and Interacting	What interactions with other people occur while performing this job?
+4.A.4.a.1	Interpreting the Meaning of Information for Others	Translating or explaining what information means and how it can be used.
+4.A.4.a.2	Communicating with Supervisors, Peers, or Subordinates	Providing information to supervisors, co-workers, and subordinates by telephone, in written form, e-mail, or in person.
+4.A.4.a.3	Communicating with Persons Outside Organization	Communicating with people outside the organization, representing the organization to customers, the public, government, and other external sources. This information can be exchanged in person, in writing, or by telephone or e-mail.
+4.A.4.a.4	Establishing and Maintaining Interpersonal Relationships	Developing constructive and cooperative working relationships with others, and maintaining them over time.
+4.A.4.a.5	Assisting and Caring for Others	Providing personal assistance, medical attention, emotional support, or other personal care to others such as coworkers, customers, or patients.
+4.A.4.a.6	Selling or Influencing Others	Convincing others to buy merchandise/goods or to otherwise change their minds or actions.
+4.A.4.a.7	Resolving Conflicts and Negotiating with Others	Handling complaints, settling disputes, and resolving grievances and conflicts, or otherwise negotiating with others.
+4.A.4.a.8	Performing for or Working Directly with the Public	Performing for people or dealing directly with the public. This includes serving customers in restaurants and stores, and receiving clients or guests.
+4.A.4.b	Coordinating, Developing, Managing, and Advising	What coordinating, managerial, or advisory activities are done while performing this job?
+4.A.4.b.1	Coordinating the Work and Activities of Others	Getting members of a group to work together to accomplish tasks.
+4.A.4.b.2	Developing and Building Teams	Encouraging and building mutual trust, respect, and cooperation among team members.
+4.A.4.b.3	Training and Teaching Others	Identifying the educational needs of others, developing formal educational or training programs or classes, and teaching or instructing others.
+4.A.4.b.4	Guiding, Directing, and Motivating Subordinates	Providing guidance and direction to subordinates, including setting performance standards and monitoring performance.
+4.A.4.b.5	Coaching and Developing Others	Identifying the developmental needs of others and coaching, mentoring, or otherwise helping others to improve their knowledge or skills.
+4.A.4.b.6	Provide Consultation and Advice to Others	Providing guidance and expert advice to management or other groups on technical, systems-, or process-related topics.
+4.A.4.c	Administering	What administrative, staffing, monitoring, or controlling activities are done while performing this job?
+4.A.4.c.1	Performing Administrative Activities	Performing day-to-day administrative tasks such as maintaining information files and processing paperwork.
+4.A.4.c.2	Staffing Organizational Units	Recruiting, interviewing, selecting, hiring, and promoting employees in an organization.
+4.A.4.c.3	Monitoring and Controlling Resources	Monitoring and controlling resources and overseeing the spending of money.
+4.B	Organizational Context	Characteristics of the organization that influence how people do their work
+4.B.1	Structural Characteristics	A functional subsystem of organization structure subsuming constructs of (a) organizational structure, and (b) human resources systems and practices
+4.B.1.a	Organizational Structure	The architecture or anatomy of an organization, affecting the behavior of organizational members as well as the ability of organizations to adapt effectively to their environments. Elements of organizational structure include the hierarchy of the organization, the degree of centralization, and the nature of work groups used to accomplish organizational objectives
+4.B.1.a.1	Decision Making System	The amount of autonomy and involvement in decision making that employees have
+4.B.1.a.1.a	Decentralization and Employee Empowerment	Indicates the degree to which employees are provided with different types of information and participate in decision-making
+4.B.1.a.1.a.1	Have Control Over Unit or Department	You have a great deal of control over what happens in your unit or department
+4.B.1.a.1.a.2	Have Influence Over Decisions	You have a great deal of influence over decisions that are made in your unit or department.
+4.B.1.a.1.a.3	Monitor Data on Quality/Costs/Waste/etc.	You monitor data on quality, costs, waste, and productivity
+4.B.1.a.1.a.4	Determine Work Flow or Order of Tasks	You determine work flow or the order in which tasks are performed
+4.B.1.a.1.a.5	Invest in New Equipment and Technology	You invest in new equipment and technology
+4.B.1.a.1.a.6	Develop New Products, Services, and Procedures	You develop new products, services, and procedures
+4.B.1.a.1.b	Individual versus Team Structure	Identifies the extent to which employees work in intact teams
+4.B.1.a.1.b.1	Percent of Time in Intact Team	Approximately what percentage of your time do you spend working in an intact team? By intact team we mean a group of 3 or more employees who are jointly responsible for whole work processes and work toward shared goals (e.g., production team; development team; project team).
+4.B.1.a.2	Job Characteristics	Indicates the level of skill variety, task significance, task identity, autonomy, and feedback in this job
+4.B.1.a.2.a	Skill Variety	The variety of skills required of people in this job
+4.B.1.a.2.a.1	Job Variety	How much variety is there in your job? That is, to what extent does the job require you to do many different things at work, using a variety of your skills and talents?
+4.B.1.a.2.a.2	Complex or High Level Skills Required	Your job requires you to use a number of complex or high-level skills.
+4.B.1.a.2.a.3	Variety of Tasks Required	Your job requires you to perform a variety of tasks.
+4.B.1.a.2.b	Task Significance	The importance or significance of the tasks performed on this job, as reflected by its effect on the lives or well-being of others
+4.B.1.a.2.b.1	Significance or Importance of Job	In general, how significant or important is your job? That is, are the results of your work likely to significantly affect the lives or well-being of other people?
+4.B.1.a.2.b.2	Job Quality Affects Lots of People	Your job is one where a lot of people can be affected by how well the work gets done.
+4.B.1.a.2.b.3	Job Itself Is Very Significant	Your job itself is very significant and important in the broader scheme of things.
+4.B.1.a.2.c	Task Identity	The extent to which tasks performed on this job can be perceived as contributing to the final product
+4.B.1.a.2.c.1	Job Involves Whole Piece of Work	To what extent does your job involve doing a 'whole' and identifiable piece of work? That is, is the job a complete piece of work that has an obvious beginning and end? Or is it only a small part of the overall piece of work, which is finished by other people or automatic machines? (If your job involves many different tasks or pieces of work, try to think about your typical tasks or the tasks you spend the most time on.)
+4.B.1.a.2.c.2	Can Do Entire Piece of Work	Your job is arranged so that you can do an entire piece of work from beginning to end.
+4.B.1.a.2.c.3	Can Finish What You Start	Your job provides you a chance to completely finish the piece of work you began.
+4.B.1.a.2.d	Autonomy	The amount of freedom in the job, as reflected in a person being able to exercise personal initiative and judgment in task performance
+4.B.1.a.2.d.1	Autonomy and Freedom in Job	How much autonomy and freedom are there in your job? That is, to what extent does your job permit you to decide on your own how to go about doing your job?
+4.B.1.a.2.d.2	Chance for Initiative and Judgment	Your job gives you a chance to use your personal initiative and judgment in carrying out the work.
+4.B.1.a.2.d.3	Opportunity for Independence and Freedom	Your job gives you considerable opportunity for independence and freedom in how you do your job.
+4.B.1.a.2.e	Feedback	The extent to which this job provides information about how well one is performing
+4.B.1.a.2.e.1	Extent of Feedback From Doing Job Itself	To what extent does doing the job itself provide you with information about your work performance? That is, does the actual work itself provide clues about how well you are doing--aside from any 'feedback' co-workers or supervisors may provide?
+4.B.1.a.2.e.2	Doing Job Provides Chances for Feedback	Just doing the job provides many chances for you to figure out how well you are doing.
+4.B.1.a.2.e.3	After Finishing Job, Know Own Performance	After you finish a job, you know whether you performed well.
+4.B.1.a.3	Job Stability and Rotation	The amount of stability in the job and the extent of job rotation
+4.B.1.a.3.a	Number of Supervisors in Past Year	How many different supervisors have you had in the past year?
+4.B.1.a.3.b	Number of Work Teams in Past Year	Approximately how many different work teams have you belonged to during the past year?
+4.B.1.a.3.c	Number of Work Group Reorganizations in Past Year	In the past year, how many times has your primary work group gone through some kind of reorganization?
+4.B.1.a.3.d	Number of Times Nature of Job Changed	In the past year, how many times has the nature of your job duties changed dramatically?
+4.B.1.a.3.e	Job Rotation Practices	Which statement best describes the job rotation practices in your job and your work group?
+4.B.1.b	Human Resources Systems and Practices	Organizational practices and policies designed to ensure that an organization has employees who are capable of meeting its goals
+4.B.1.b.1	Recruitment and Selection	Organizational practices, decisions, and processes that affect (a) the capability of an organization to make hiring, promotion, and other personnel decisions, and (b) the number or types of individuals who are willing to apply for or accept a given vacancy
+4.B.1.b.1.a	Recruitment Operations	Activities involved in implementing recruitment plans (e.g., selecting sources, realistic job preview)
+4.B.1.b.1.a.1	Sources of People for Current Job	Which of the sources listed below are used to recruit people for your current job?
+4.B.1.b.1.b	Selection Assessment Methods Used	The methods used for selection or promotion of employees
+4.B.1.b.1.b.1	Assessment Methods Used to Select for Job	Which of the following assessment methods are used to select people for your current job?
+4.B.1.b.2	Training and Development	The systematic acquisition of attitudes, concepts, knowledge, roles, or skills that result in improved performance at work
+4.B.1.b.2.a	Training Methods	The methods used in training programs
+4.B.1.b.2.a.1	Training Methods Used in Company	Which of the following training methods have been used in company training courses you have attended in the last two years?
+4.B.1.b.2.b	Training Topics and Content	What trainers intend to teach trainees through training programs
+4.B.1.b.2.b.1	Areas of Recent Formal Training	In which of the following content areas have you received formal training in the last two years?
+4.B.1.b.2.c	Extent and Support of Training Activities	The extent to which an organization makes training available to its employees and provides financial support for training activities
+4.B.1.b.2.c.1	Recent Technical Skill Training	In the last two years, how often have you attended company sponsored job-related technical training (i.e., technical skill training)?
+4.B.1.b.3	Reward System	Monetary compensation and monetary and non-monetary benefits organizations provide to their employees
+4.B.1.b.3.a	Basis of Compensation	The extent to which organizations reward individuals based on: (a) their knowledge, skills, and performance, (b) seniority, (c) team performance, (d) organizational performance, and (e) job attributes
+4.B.1.b.3.a.1	Compensation Package Components	Which of the following is part of your compensation package (i.e., pay)?
+4.B.1.b.3.b	Benefits	The extent to which employees' compensation includes benefits such as pensions, insurance, paid leave, awards and bonuses, pay for time not worked, etc.
+4.B.1.b.3.b.1	Benefit Components	Which of the following is part of your benefits?
+4.B.2	Social Processes	A functional subsystem of organization structure subsuming processes linking people (employees) to their work and to each other and includes elements such as values, goals, leadership, and roles
+4.B.2.a	Goals	Individual goal setting.
+4.B.2.a.1	Individual Goal Characteristics	The extent to which an individual's goal is made explicit, and the probability that an individual can attain the goal
+4.B.2.a.1.a	Achieve Most Important Individual Goal	Realistically, the probability that you will achieve your most important individual work goal this year is:
+4.B.2.a.1.b	How Many Quantitative Individual Goals	How many of your individual work goals are quantitative (e.g., selling $100,000 worth of merchandise as opposed to selling as much merchandise as possible).
+4.B.2.a.2	Goal Feedback	The extent to which an individual is given periodic feedback regarding his or her progress against a goal
+4.B.2.a.2.a	How Many Specific Individual Goals	How many of your individual work goals are specific -- that is, you will know exactly when you have achieved them?
+4.B.2.a.2.b	When Get Information on Individual Goals	How often do you get information regarding how close you are to achieving your most important individual work goal (for example, an interim financial report or data on number of units sold)?
+4.B.2.a.2.c	Informal, Job-Relevant Feedback	To what extent do you receive informal, job-relevant feedback from your supervisor?
+4.B.2.a.2.d	Meet One-on-One With Supervisor on Goals, Training, and Development	During the past year, how often have you met one-on-one with your immediate supervisor to discuss issues such as your performance, goals, training and development?
+4.B.2.b	Roles	Characteristics of job incumbents' roles, such as the extent to which they involve conflict and overload
+4.B.2.b.1	Role Conflict	The extent to which an individual has to deal with conflicting demands
+4.B.2.b.1.a	Often Receive Conflicting Requests	You often receive conflicting requests from two or more people at work.
+4.B.2.b.1.b	Work With Groups With Different Focuses	You work with two or more groups who want you to focus on different things.
+4.B.2.b.1.c	You and Your Supervisor Agree About Job	You and your supervisor agree about what your job should be.
+4.B.2.b.1.d	Supervisor Makes Conflicting Requests	Your supervisor often asks you to do two or more things that conflict (for example, save a large amount of money while at the same time dramatically increasing quality).
+4.B.2.b.2	Role Negotiability	The extent to which an individual can negotiate his/her role in an organization
+4.B.2.b.2.a	Negotiate Changes in Role with Supervisor	You have negotiated changes in the nature of your role at work with your supervisor.
+4.B.2.b.2.b	Significant Input Into Way You Do Job	You have significant input into the way you do your job.
+4.B.2.b.3	Role Overload	A discrepancy between the job's demands and one's ability to meet those demands
+4.B.2.b.3.a	Get Assignments without Adequate Resources	You receive assignments at work without adequate resources and materials to complete them properly.
+4.B.2.b.3.b	Given Enough Time to Do Work	You are given enough time to do what is expected of you at work.
+4.B.2.b.3.c	Too Much for One Person to Do	It often seems like you have too much work for one person to do.
+4.B.2.c	Culture	Patterns of behaviors and social relationships reflecting the assumptions, values, norms, and artifacts shared by members of the organization
+4.B.2.c.1	Organizational Values	Indicates the importance of different organizational values such as tradition, stability, innovation, and collaboration
+4.B.2.c.1.a	Guiding Principles of Organization	How important are each of the following concepts, or values, as a guiding principle for your organization as a whole.
+4.B.2.c.1.a.1	Taking Chances; Going Out on a Limb	Taking chances; going out on a limb
+4.B.2.c.1.a.2	Fairness; Justice	Fairness; justice
+4.B.2.c.1.a.3	Precision	Precision; paying attention to even the smallest details
+4.B.2.c.1.a.4	Stability	Stability; keeping things on an even keel
+4.B.2.c.1.a.5	Getting Things Done	Getting things done; taking decisive or quick action
+4.B.2.c.1.a.6	Caring About Employees	Caring about employees; showing concern for their well-being
+4.B.2.c.1.a.7	Innovation	Innovation; finding new and better ways of doing things; openness to new ideas
+4.B.2.c.1.a.8	Aggressiveness	Aggressiveness; forcefully going after what you want
+4.B.2.c.1.a.9	Valuing Customers	Valuing customers; emphasizing customer service
+4.B.2.c.1.a.10	Providing High Quality Products	Providing high quality products or services; meeting high standards of excellence
+4.B.2.c.1.a.11	Openness and Honesty	Openness; honesty; keeping employees well informed
+4.B.2.c.1.a.12	Flexibility, Adapting to Change	Flexibility, adapting to change
+4.B.2.d	Supervisor Role	The nature of supervisory leadership
+4.B.2.d.1	Supervisor Friendly and Supportive	To what extent does your supervisor act in a friendly and supportive manner? For example, does he/she show concern for members of your work group and respect for your ideas?
+4.B.2.d.2	Supervisor Takes Active Role	To what extent does your supervisor take an active role in directing your work group's activities by setting goals, planning and scheduling work, assigning tasks, and making sure that each person knows what he/she should be doing?
+4.B.2.d.3	Supervisor Provides Clear Vision	To what extent does your supervisor provide members of your work group with a clear vision of where the group is going and keep everyone fully committed to the work at hand?
+4.B.2.d.4	Supervisor Solves Problems	To what extent does your supervisor quickly and effectively solve problems, even difficult problems, that come up in your work group?
+4.C	Work Context	Physical and social factors that influence the nature of work
+4.C.1	Interpersonal Relationships	This category describes the context of the job in terms of human interaction processes
+4.C.1.a	Communication	Types and frequency of interactions with other people that are required as part of this job.
+4.C.1.a.2	Communication Methods	How frequently does this job require the use of the following communication methods?
+4.C.1.a.2.c	Public Speaking	How often do you have to perform public speaking in this job?
+4.C.1.a.2.f	Telephone	How often do you have telephone conversations in this job?
+4.C.1.a.2.h	Electronic Mail	How often do you use electronic mail in this job?
+4.C.1.a.2.j	Letters and Memos	How often does the job require written letters and memos?
+4.C.1.a.2.l	Face-to-Face Discussions	How often do you have to have face-to-face discussions with individuals or teams in this job?
+4.C.1.a.4	Contact With Others	How much does this job require the worker to be in contact with others (face-to-face, by telephone, or otherwise) in order to perform it?
+4.C.1.b	Role Relationships	Importance of different types of interactions with others both inside and outside the organization
+4.C.1.b.1	Job Interactions	How important are interactions requiring the worker to:
+4.C.1.b.1.e	Work With Work Group or Team	How important is it to work with others in a group or team in this job?
+4.C.1.b.1.f	Deal With External Customers	How important is it to work with external customers or the public in this job?
+4.C.1.b.1.g	Coordinate or Lead Others	How important is it to coordinate or lead others in accomplishing work activities in this job?
+4.C.1.c	Responsibility for Others	Amount of responsibility the worker has for other workers as a part of this job
+4.C.1.c.1	Responsible for Others' Health and Safety	How much responsibility is there for the health and safety of others in this job?
+4.C.1.c.2	Responsibility for Outcomes and Results	How responsible is the worker for work outcomes and results of other workers?
+4.C.1.d	Conflictual Contact	Amount of conflict that the worker will encounter as part of this job
+4.C.1.d.1	Frequency of Conflict Situations	How often are there conflict situations the employee has to face in this job?
+4.C.1.d.2	Deal With Unpleasant or Angry People	How frequently does the worker have to deal with unpleasant, angry, or discourteous individuals as part of the job requirements?
+4.C.1.d.3	Deal With Physically Aggressive People	How frequently does this job require the worker to deal with physical aggression of violent individuals?
+4.C.2	Physical Work Conditions	This category describes the work context as it relates to the interactions between the worker and the physical job environment
+4.C.2.a	Work Setting	Description of physical surroundings that the worker will face as part of this job
+4.C.2.a.1	Frequency Required to Work:	How frequently does this job require the worker to work:
+4.C.2.a.1.a	Indoors, Environmentally Controlled	How often does this job require working indoors in environmentally controlled conditions?
+4.C.2.a.1.b	Indoors, Not Environmentally Controlled	How often does this job require working indoors in non-controlled environmental conditions (e.g., warehouse without heat)?
+4.C.2.a.1.c	Outdoors, Exposed to Weather	How often does this job require working outdoors, exposed to all weather conditions?
+4.C.2.a.1.d	Outdoors, Under Cover	How often does this job require working outdoors, under cover (e.g., structure with roof but no walls)?
+4.C.2.a.1.e	In an Open Vehicle or Equipment	How often does this job require working in an open vehicle or equipment (e.g., tractor)?
+4.C.2.a.1.f	In an Enclosed Vehicle or Equipment	How often does this job require working in a closed vehicle or equipment (e.g., car)?
+4.C.2.a.3	Physical Proximity	To what extent does this job require the worker to perform job tasks in close physical proximity to other people?
+4.C.2.b	Environmental Conditions	Description of extreme environmental conditions the worker will be placed in as part of this job
+4.C.2.b.1	Frequency in Environmental Conditions	How often during a usual work period is the worker exposed to the following conditions:
+4.C.2.b.1.a	Sounds, Noise Levels Are Distracting or Uncomfortable	How often does this job require working exposed to sounds and noise levels that are distracting or uncomfortable?
+4.C.2.b.1.b	Very Hot or Cold Temperatures	How often does this job require working in very hot (above 90 F degrees) or very cold (below 32 F degrees) temperatures?
+4.C.2.b.1.c	Extremely Bright or Inadequate Lighting	How often does this job require working in extremely bright or inadequate lighting conditions?
+4.C.2.b.1.d	Exposed to Contaminants	How often does this job require working exposed to contaminants (such as pollutants, gases, dust or odors)?
+4.C.2.b.1.e	Cramped Work Space, Awkward Positions	How often does this job require working in cramped work spaces that requires getting into awkward positions?
+4.C.2.b.1.f	Exposed to Whole Body Vibration	How often does this job require exposure to whole body vibration (e.g., operate a jackhammer)?
+4.C.2.c	Job Hazards	Descriptions of types of hazardous conditions the worker could be exposed to as part of this job. This includes the frequency of exposure, and the likelihood and degree of injury if exposed.
+4.C.2.c.1	Frequency of Exposure to Job Hazards	How often does this job require the worker to be exposed to the following hazards?
+4.C.2.c.1.a	Exposed to Radiation	How often does this job require exposure to radiation?
+4.C.2.c.1.b	Exposed to Disease or Infections	How often does this job require exposure to disease/infections?
+4.C.2.c.1.c	Exposed to High Places	How often does this job require exposure to high places?
+4.C.2.c.1.d	Exposed to Hazardous Conditions	How often does this job require exposure to hazardous conditions?
+4.C.2.c.1.e	Exposed to Hazardous Equipment	How often does this job require exposure to hazardous equipment?
+4.C.2.c.1.f	Exposed to Minor Burns, Cuts, Bites, or Stings	How often does this job require exposure to minor burns, cuts, bites, or stings?
+4.C.2.c.2	Likelihood of Injury From Job Hazards	What is the likelihood that the worker would be injured as a result of being exposed to the following hazards while performing this job?
+4.C.2.c.3	Degree of Injury	If injury, due to exposure to the following hazards, were to occur while performing this job, how serious would be the likely outcome?
+4.C.2.d	Body Positioning	Amount of time the worker will spend in a variety of physical positions on this job
+4.C.2.d.1	Time Spent in Body Positions	How much time in a usual work period does the worker spend:
+4.C.2.d.1.a	Spend Time Sitting	How much does this job require sitting?
+4.C.2.d.1.b	Spend Time Standing	How much does this job require standing?
+4.C.2.d.1.c	Spend Time Climbing Ladders, Scaffolds, or Poles	How much does this job require climbing ladders, scaffolds, or poles?
+4.C.2.d.1.d	Spend Time Walking and Running	How much does this job require walking and running?
+4.C.2.d.1.e	Spend Time Kneeling, Crouching, Stooping, or Crawling	How much does this job require kneeling, crouching, stooping or crawling?
+4.C.2.d.1.f	Spend Time Keeping or Regaining Balance	How much does this job require keeping or regaining your balance?
+4.C.2.d.1.g	Spend Time Using Your Hands to Handle, Control, or Feel Objects, Tools, or Controls	How much does this job require using your hands to handle, control, or feel objects, tools or controls?
+4.C.2.d.1.h	Spend Time Bending or Twisting the Body	How much does this job require bending or twisting your body?
+4.C.2.d.1.i	Spend Time Making Repetitive Motions	How much does this job require making repetitive motions?
+4.C.2.e	Work Attire	Dress requirements of this job
+4.C.2.e.1	Frequency of Wearing Work Attire	How often does the worker wear:
+4.C.2.e.1.d	Wear Common Protective or Safety Equipment such as Safety Shoes, Glasses, Gloves, Hearing Protection, Hard Hats, or Life Jackets	How much does this job require wearing common protective or safety equipment such as safety shoes, glasses, gloves, hard hats or life jackets?
+4.C.2.e.1.e	Wear Specialized Protective or Safety Equipment such as Breathing Apparatus, Safety Harness, Full Protection Suits, or Radiation Protection	How much does this job require wearing specialized protective or safety equipment such as breathing apparatus, safety harness, full protection suits, or radiation protection?
+4.C.3	Structural Job Characteristics	This category involves the relationships or interactions between the worker and the structural characteristics of the job
+4.C.3.a	Criticality of Position	Amount of impact the worker has on final products and their outcomes
+4.C.3.a.1	Consequence of Error	How serious would the result usually be if the worker made a mistake that was not readily correctable?
+4.C.3.a.2	Impact of Decisions	The frequency and nature of the impact of worker's decisions on the organization
+4.C.3.a.2.a	Impact of Decisions on Co-workers or Company Results	What results do your decisions usually have on other people or the image or reputation or financial resources of your employer?
+4.C.3.a.2.b	Frequency of Decision Making	How frequently is the worker required to make decisions that affect other people, the financial resources, and/or the image and reputation of the organization?
+4.C.3.a.4	Freedom to Make Decisions	How much decision making freedom, without supervision, does the job offer?
+4.C.3.b	Routine versus Challenging Work	The relative amounts of routine versus challenging work the worker will perform as part of this job
+4.C.3.b.2	Degree of Automation	How automated is the job?
+4.C.3.b.4	Importance of Being Exact or Accurate	How important is being very exact or highly accurate in performing this job?
+4.C.3.b.7	Importance of Repeating Same Tasks	How important is repeating the same physical activities (e.g., key entry) or mental activities (e.g., checking entries in a ledger) over and over, without stopping, to performing this job?
+4.C.3.b.8	Structured versus Unstructured Work	To what extent is this job structured for the worker, rather than allowing the worker to determine tasks, priorities, and goals?
+4.C.3.c	Competition	Amount of competition that the worker will face as part of this job
+4.C.3.c.1	Level of Competition	To what extent does this job require the worker to compete or to be aware of competitive pressures?
+4.C.3.d	Pace and Scheduling	Description of the role that time plays in the way the worker performs the tasks required by this job
+4.C.3.d.1	Time Pressure	How often does this job require the worker to meet strict deadlines?
+4.C.3.d.3	Pace Determined by Speed of Equipment	How important is it to this job that the pace is determined by the speed of equipment or machinery? (This does not refer to keeping busy at all times on this job.)
+4.C.3.d.4	Work Schedules	How regular are the work schedules for this job?
+4.C.3.d.8	Duration of Typical Work Week	Number of hours typically worked in one week.
+4.D	Detailed Work Activities	Specific work activities that are performed across a small to moderate number of occupations within a job family.
+4.D.1	Detailed Work Activities List	List of detailed work activities for each occupation
+4.E	Intermediate Work Activities	Work activities that are common across many occupations. They are performed in many job families and industries.
+4.E.1	Intermediate Work Activities List	List of intermediate work activities for each occupation
+5	Occupation-Specific Information	Occupation-Specific Information
+5.A	Tasks	Occupation-Specific Tasks
+5.A.1	Task List	List of tasks for each occupation
+5.C	Title	Primary title and code used to identify a single occupation in the O*NET-SOC taxonomy
+5.C.1	Title	O*NET-SOC occupation title and code
+5.D	Description	A statement of required or important duties performed by workers in an occupation in the O*NET-SOC taxonomy.
+5.D.1	Description	O*NET-SOC occupation description
+5.E	Alternate Titles	Alternate or "lay titles" include related job titles and occupational titles gathered from job incumbents, occupational experts, government agencies, professional groups, customer input, employer job postings, and other occupational classification systems.
+5.E.1	Alternate Titles List	List of alternate titles
+5.E.2	Sample of Reported Titles List	List of sample of reported titles
+5.F	Technology Skills	Information technology and software skills essential to the functions of an occupational role.
+5.F.1	Technology Skills List	List of technology skills for each occupation.
+5.G	Tools	Machines, equipment, and tools essential to the performance of an occupational role.
+5.G.1	Tools List	List of machines, equipment, and tools for each occupation.
+6	Workforce Characteristics	Workforce Characteristics
+6.A	Labor Market Information	Labor Market Information
+6.A.1	Occupational Statistics	Information related to economic conditions and labor force characteristics of occupations
+6.B	Occupational Outlook	Occupational Outlook
+6.B.1	Occupational Projections	Projections of future economic conditions and labor force characteristics of occupations
