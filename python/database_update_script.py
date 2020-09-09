@@ -26,7 +26,7 @@
 # Create Neo4j Database
 # Install APOC & GDSL Plug-ins
 # Change Settings
-    # dbms.memory.heap.initial_size=1m
+    # dbms.memory.heap.initial_size=1G
     # dbms.memory.heap.max_size=3G
 # Start up database
 
@@ -103,7 +103,7 @@ def update(string=''):
 
 ############# IMPORT UPDATED .TXT FILES FROM ONET DATABASE #############
 total_program_time_start = time.perf_counter() # start timer to log total program time
-update('Recieved details, starting updates.')
+update('Received details, starting updates.')
 
 # make sure that import folder under neo4j database exists
 if not os.path.exists(path):
@@ -130,7 +130,7 @@ layout = [  [gui.Text('IMPORTING FILES', font=(standard_font))],
             [gui.Text('Most Recent File Imported: ', size=(50, 1), font=(standard_font), key='recent_file')]]
 window = gui.Window('Progress Updates', layout, finalize=True)
 
-# scrape page for all links
+# # scrape page for all links
 for link in soup.find_all('a'):
     # if it's an href attribute & contains .txt, consider it
     if 'href' in link.attrs:
@@ -154,8 +154,8 @@ for link in soup.find_all('a'):
             
 
 file_import_time_stop = time.perf_counter() # stop timer to log total file import time
-if window.read() == gui.WIN_CLOSED:
-    window.close()
+time.sleep(5)
+window.close()
 update('Completed importing .txt files from ONET database.')
 
 ############# CONNECT TO DATABASE #############
@@ -163,13 +163,17 @@ update('Completed importing .txt files from ONET database.')
 # Make sure the database is started first, otherwise attempt to connect will fail
 try:
     graph = Graph('bolt://localhost:'+port, auth=('neo4j', pswd))
-    update('SUCCESS: Connected to the Neo4j Database. Starting cypher queries to create database; please do not interrupt process during runtime. This may take more than an hour; completion will be confirmed by a message to the console.')
+    update('SUCCESS: Connected to the Neo4j Database. Starting cypher queries to create database; please do not interrupt process during runtime.')
     total_queries_time_start = time.perf_counter() # start timer to log total query time
 except Exception as e:
     update('ERROR: Could not connect to the Neo4j Database. See console for details.')
     raise SystemExit(e)
 
 ############# APPEND THE QUERIES TO QUERY_ LIST #############
+
+# #clear db
+# graph.run("""MATCH (n) DETACH DELETE n""")
+# graph.run("""CALL apoc.schema.assert({}, {})""")
 
 query_list = []
 
@@ -457,54 +461,49 @@ ON CREATE SET scale.title = toLower(line.`Scale Name`),
 # Load Abilities
 # Add relationships to Occupation and Workrole
 
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///Abilities.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///Abilities.txt" AS line FIELDTERMINATOR " "
 MATCH (a:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (b:Abilities {elementID: line.`Element ID`})
 WITH a, b, line
-CALL apoc.create.relationship(b, 'Found_In', {datavalue: toFloat(line.`Data Value`),
+CALL apoc.create.relationship(b, "Found_In", {datavalue: toFloat(line.`Data Value`),
      scale: line.`Scale ID`,
-     element: 'ability'},  a) YIELD rel
+     element: "ability"},  a) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///Abilities.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///Abilities.txt" AS line FIELDTERMINATOR " "
 MATCH (a:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (b:Abilities {elementID: line.`Element ID`})
 WITH a, b, line
-CALL apoc.create.relationship(b, 'Found_In', {datavalue: toFloat(line.`Data Value`),
+CALL apoc.create.relationship(b, "Found_In", {datavalue: toFloat(line.`Data Value`),
      scale: line.`Scale ID`,
-     element: 'ability'},  a) YIELD rel
+     element: "ability"},  a) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
-# TAKES A WHILE
 # Add Alternative titles for Occupations and Workrole
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///AlternateTitles.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///AlternateTitles.txt" AS line FIELDTERMINATOR " "
 MATCH (a:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MERGE (t:AlternateTitles {title: line.`Alternate Title`,
     shorttitle: line.`Short Title`, source: line.`Source(s)`})
 WITH a, t, line
-CALL apoc.create.relationship(a, 'Equivalent_To', {}, t) YIELD rel
+CALL apoc.create.relationship(a, "Equivalent_To", {}, t) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
 # Trying Match to see if the properties are not removed.
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///AlternateTitles.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///AlternateTitles.txt" AS line FIELDTERMINATOR " "
 MATCH (a:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MERGE (t:AlternateTitles {title: line.`Alternate Title`,
     shorttitle: line.`Short Title`, source: line.`Source(s)`})
 WITH a, t, line
-CALL apoc.create.relationship(a, 'Equivalent_To', {}, t) YIELD rel
+CALL apoc.create.relationship(a, "Equivalent_To", {}, t) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
 # Add IWA and DWA to Generalized Work Activities
 query_list.append("""USING PERIODIC COMMIT
@@ -517,15 +516,14 @@ CALL apoc.create.relationship(b, 'Sub_Element_Of', {type: 'IWA'}, a) YIELD rel
 RETURN count(rel)
 ;""")
 
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///DWAReference.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///DWAReference.txt" AS line FIELDTERMINATOR " "
 MATCH (a:Generalized_Work_Activities {elementID: line.`IWA ID`})
 MERGE (b:Generalized_Work_Activities {elementID: line.`DWA ID`, title: line.`DWA Title`})
 WITH a, b, line
-CALL apoc.create.relationship(b, 'Sub_Element_Of', {type: 'DWA'}, a) YIELD rel
+CALL apoc.create.relationship(b, "Sub_Element_Of", {type: "DWA"}, a) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
 # Add Education, Experience and Training relationships and measures
 # to Occupationa and workrole
@@ -565,17 +563,16 @@ CALL apoc.create.relationship(b, 'Found_In', {datavalue: toFloat(line.`Data Valu
 RETURN count(rel)
 ;""")
 
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///EducationTrainingandExperience.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///EducationTrainingandExperience.txt" AS line FIELDTERMINATOR " "
 MATCH (a:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (b:Experience_And_Training {elementID: line.`Element ID`})
 WITH a, b, line
-CALL apoc.create.relationship(b, 'Found_In', {datavalue: toFloat(line.`Data Value`),
+CALL apoc.create.relationship(b, "Found_In", {datavalue: toFloat(line.`Data Value`),
      scale: line.`Scale ID`,
-     element: 'experience'},  a) YIELD rel
+     element: "experience"},  a) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
 # Interests
 query_list.append("""USING PERIODIC COMMIT
@@ -629,29 +626,27 @@ RETURN count(rel)
 
 # Knowledge
 # Add relationships to Occupation and Workrole
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///Knowledge.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///Knowledge.txt" AS line FIELDTERMINATOR " "
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (k:Knowledge {elementID: line.`Element ID`})
 WITH o, k, line
-CALL apoc.create.relationship(k, 'Found_In', {datavalue: toFloat(line.`Data Value`),
+CALL apoc.create.relationship(k, "Found_In", {datavalue: toFloat(line.`Data Value`),
      scale: line.`Scale ID`,
-     element: 'knowledge'},  o) YIELD rel
+     element: "knowledge"},  o) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///Knowledge.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///Knowledge.txt" AS line FIELDTERMINATOR " "
 MATCH (w:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (k:Knowledge {elementID: line.`Element ID`})
 WITH w, k, line
-CALL apoc.create.relationship(k, 'Found_In', {datavalue: toFloat(line.`Data Value`),
+CALL apoc.create.relationship(k, "Found_In", {datavalue: toFloat(line.`Data Value`),
      scale: line.`Scale ID`,
-     element: 'knowledge'},  w) YIELD rel
+     element: "knowledge"},  w) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
 # Skills
 # Add relationships to Occupation and Workrole
@@ -669,96 +664,86 @@ RETURN count(rel)
 
 query_list.append("""USING PERIODIC COMMIT
 LOAD CSV WITH HEADERS
-FROM 'file:///Skills.txt' AS line FIELDTERMINATOR '	'
+FROM "file:///Skills.txt" AS line FIELDTERMINATOR "	"
 MATCH (w:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (s:Basic_Skills {elementID: line.`Element ID`})
 WITH w, s, line
-CALL apoc.create.relationship(s, 'Found_In', {datavalue: toFloat(line.`Data Value`),
+CALL apoc.create.relationship(s, "Found_In", {datavalue: toFloat(line.`Data Value`),
      scale: line.`Scale ID`,
-     element: 'basic_skill'},  w) YIELD rel
+     element: "basic_skill"},  w) YIELD rel
 RETURN count(rel)
 ;""")
 
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///Skills.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///Skills.txt" AS line FIELDTERMINATOR "	"
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (s:Cross_Functional_Skills {elementID: line.`Element ID`})
 WITH o, s, line
-CALL apoc.create.relationship(s, 'Found_In', {datavalue: toFloat(line.`Data Value`),
+CALL apoc.create.relationship(s, "Found_In", {datavalue: toFloat(line.`Data Value`),
      scale: line.`Scale ID`,
-     element: 'cf_skill'},  o) YIELD rel
+     element: "cf_skill"},  o) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///Skills.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///Skills.txt" AS line FIELDTERMINATOR "	"
 MATCH (w:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (s:Cross_Functional_Skills {elementID: line.`Element ID`})
 WITH w, s, line
-CALL apoc.create.relationship(s, 'Found_In', {datavalue: toFloat(line.`Data Value`),
+CALL apoc.create.relationship(s, "Found_In", {datavalue: toFloat(line.`Data Value`),
      scale: line.`Scale ID`,
-     element: 'cf_skill'},  w) YIELD rel
+     element: "cf_skill"},  w) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
 # This sections will add task and their statements as nodes and create relationships to occupations.
 # Add relationships to Occupation and Workrole
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///TaskStatements.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///TaskStatements.txt" AS line FIELDTERMINATOR "	"
 MERGE (task:Task { taskID: toInteger(line.`Task ID`)})
 ON CREATE SET task.description = toLower(line.Task),
             task.tasktype = toLower(line.`Task Type`),
             task.incumbentsresponding = line.`Incumbents Responding`,
             task.date = line.Date,
             task.domainsource = line.`Domain Source`,
-            task.source = 'ONET'
+            task.source = "ONET"
 RETURN count(task)
-;""")
+;', null, null)""")
 
-# TAKES A WHILE
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///TaskRatings.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///TaskRatings.txt" AS line FIELDTERMINATOR " "
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (task:Task { taskID: toInteger(line.`Task ID`)})
 WITH o, task, line
-CALL apoc.create.relationship(task, 'Found_In', {datavalue: toFloat(line.`Data Value`),
+CALL apoc.create.relationship(task, "Found_In", {datavalue: toFloat(line.`Data Value`),
      scale: line.`Scale ID`,
-     element: 'task'},  o) YIELD rel
+     element: "task"},  o) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
-# TAKES A WHILE
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///TaskRatings.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///TaskRatings.txt" AS line FIELDTERMINATOR " "
 MATCH (o:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (task:Task { taskID: toInteger(line.`Task ID`)})
 WITH o, task, line
-CALL apoc.create.relationship(task, 'Found_In', {datavalue: toFloat(line.`Data Value`),
+CALL apoc.create.relationship(task, "Found_In", {datavalue: toFloat(line.`Data Value`),
      scale: line.`Scale ID`,
-     element: 'task'},  o) YIELD rel
+     element: "task"},  o) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
-# TAKES A WHILE
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///TaskstoDWAs.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///TaskstoDWAs.txt" AS line FIELDTERMINATOR " "
 MATCH (task:Task { taskID: toInteger(line.`Task ID`)})
 MATCH (a:Generalized_Work_Activities {elementID: line.`DWA ID`})
 WITH a, task, line
-CALL apoc.create.relationship(task, 'Task_For_DWA', {date: line.Date, domainsource: line.`Domain Source`}, a) YIELD rel
+CALL apoc.create.relationship(task, "Task_For_DWA", {date: line.Date, domainsource: line.`Domain Source`}, a) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
 # Commodities, to include tools and tech
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///UNSPSCReference.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///UNSPSCReference.txt" AS line FIELDTERMINATOR " "
 MERGE (s:Segement {segmentID: toInteger(line.`Segment Code`), title: toLower(line.`Segment Title`)})
 MERGE (f:Family {familyID: toInteger(line.`Family Code`), title: toLower(line.`Family Title`)})
 MERGE (c:Class { classID: toInteger(line.`Class Code`), title: toLower(line.`Class Title`)})
@@ -766,21 +751,20 @@ MERGE (m:Commodity {commodityID: toInteger(line.`Commodity Code`), title: toLowe
 MERGE (s)<-[r:Sub_Segment]-(f)
 MERGE (f)<-[a:Sub_Segment]-(c)
 MERGE (c)<-[b:Sub_Segment]-(m)
-;""")
+;', null, null)""")
 
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///TechnologySkills.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///TechnologySkills.txt" AS line FIELDTERMINATOR " "
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
-MATCH (t:Technology_Skills {elementID: '5.F.1'})
+MATCH (t:Technology_Skills {elementID: "5.F.1"})
 MATCH (m:Commodity {commodityID: toInteger(line.`Commodity Code`)})
 SET m:Technology_Skills
 REMOVE m:Commodity
 MERGE (m)-[r:Sub_Element_Of]-(t)
 WITH o, m, line
-CALL apoc.create.relationship(m, 'Technology_Used_In', {example: line.Example, hottech: line.`Hot Technology`}, o) YIELD rel
+CALL apoc.create.relationship(m, "Technology_Used_In", {example: line.Example, hottech: line.`Hot Technology`}, o) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
 query_list.append("""USING PERIODIC COMMIT
 LOAD CSV WITH HEADERS
@@ -793,55 +777,51 @@ RETURN count(rel)
 ;""")
 
 # Tools
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///ToolsUsed.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///ToolsUsed.txt" AS line FIELDTERMINATOR " "
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
-MATCH (t:Tools {elementID: '5.G.1'})
+MATCH (t:Tools {elementID: "5.G.1"})
 MATCH (m:Commodity {commodityID: toInteger(line.`Commodity Code`)})
 SET m:Tools
 REMOVE m:Commodity
 MERGE (m)-[r:Sub_Element_Of]-(t)
 WITH o, m, line
-CALL apoc.create.relationship(m, 'Tools_Used_In', {example: line.Example}, o) YIELD rel
+CALL apoc.create.relationship(m, "Tools_Used_In", {example: line.Example}, o) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///ToolsUsed.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///ToolsUsed.txt" AS line FIELDTERMINATOR " "
 MATCH (o:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (m:Tools {commodityID: toInteger(line.`Commodity Code`)})
 WITH o, m, line
-CALL apoc.create.relationship(m, 'Tools_Used_In', {example: line.Example}, o) YIELD rel
+CALL apoc.create.relationship(m, "Tools_Used_In", {example: line.Example}, o) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
 # Activities
 # Add relationships to Occupation and Workrole
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///WorkActivities.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///WorkActivities.txt" AS line FIELDTERMINATOR "	"
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (a:Generalized_Work_Activities { elementID: line.`Element ID`})
 WITH o, a, line
-CALL apoc.create.relationship(a, 'Found_In', {datavalue: toFloat(line.`Data Value`),
+CALL apoc.create.relationship(a, "Found_In", {datavalue: toFloat(line.`Data Value`),
      scale: line.`Scale ID`,
-     element: 'activity'},  o) YIELD rel
+     element: "activity"},  o) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
-query_list.append("""USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS
-FROM 'file:///WorkActivities.txt' AS line FIELDTERMINATOR '	'
+query_list.append("""CALL apoc.cypher.parallel('LOAD CSV WITH HEADERS
+FROM "file:///WorkActivities.txt" AS line FIELDTERMINATOR "	"
 MATCH (o:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (a:Generalized_Work_Activities { elementID: line.`Element ID`})
 WITH o, a, line
-CALL apoc.create.relationship(a, 'Found_In', {datavalue: toFloat(line.`Data Value`),
+CALL apoc.create.relationship(a, "Found_In", {datavalue: toFloat(line.`Data Value`),
      scale: line.`Scale ID`,
-     element: 'activity'}, o) YIELD rel
+     element: "activity"}, o) YIELD rel
 RETURN count(rel)
-;""")
+;', null, null)""")
 
 # Work Styles
 query_list.append("""USING PERIODIC COMMIT
@@ -1231,16 +1211,14 @@ for query in query_list:
     query_time_stop = time.perf_counter() # stop individual query exection timer
     query_times.append(query_time_stop - query_time_start) # add query execution time to the list
     #logging
-    print('Completed ' + str(query_counter) + '/' + str(total_queries) + ' Queries')
-    print('Query ' + str(query_counter) + f' completed in {query_times[query_counter]:0.4f} seconds.')
-    query_times_and_summary_log_file.write('Query ' + str(query_counter) + f' completed in {query_times[query_counter]:0.4f} seconds.\n')
+    print('Completed query ' + str(query_counter) + '/' + str(total_queries) + f' in {query_times[query_counter]:0.4f} seconds.')
+    query_times_and_summary_log_file.write('Completed query ' + str(query_counter) + '/' + str(total_queries) + f' in {query_times[query_counter]:0.4f} seconds.\n')
     window.read(timeout=0.1) #timeout was the make or break piece
-    window['query_count'].update('Completed ' + str(query_counter) + '/' + str(total_queries) + ' Queries')
-    window['query_time'].update('Query ' + str(query_counter) + f' completed in {query_times[query_counter]:0.4f} seconds.')
+    window['query_count'].update('Completed query ' + str(query_counter) + '/' + str(total_queries) + f' in {query_times[query_counter]:0.4f} seconds.')
     query_counter += 1
 
-if window.read() == gui.WIN_CLOSED:
-    window.close()
+time.sleep(5)
+window.close()
 
 ############# FINISHED QUERIES, WRAP UP LOGGING #############
 
