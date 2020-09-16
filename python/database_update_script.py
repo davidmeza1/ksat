@@ -68,6 +68,9 @@ standard_font = 'Courier', 16
 layout = [  [gui.Text('Database Port', font=(standard_font)), gui.InputText('7687', font=(standard_font))],
             [gui.Text('Database Password', font=(standard_font)), gui.InputText(font=(standard_font))], 
             [gui.Text('Path to Import Folder', font=(standard_font)), gui.InputText(assumed_path, font=(standard_font))],
+            [gui.Text('Install Choice: ', font=(standard_font)),
+                gui.Radio('First-Time DB Install (will erase existing graph components)', 'install choice', font=(standard_font), default=False), 
+                gui.Radio('Update DB (will build on top of existing graph components)', 'install choice', font=(standard_font), default=False)], 
             [gui.Button('Update Database', font=(standard_font)), gui.Button('Cancel', font=(standard_font))] ]
 window = gui.Window('Database Details', layout)
 while True:
@@ -77,10 +80,12 @@ while True:
         quit()
     # before updating, make sure to have the inputs you need - otherwise, send message and don't proceed
     if event == 'Update Database': 
-        if inputs[0] and inputs[1] and inputs[2]:
+        if inputs[0] and inputs[1] and inputs[2] and (inputs[3] or inputs[4]):
             port = inputs[0]
             pswd = inputs[1]
             path = inputs[2]
+            firstrun = inputs[3]
+            updaterun = inputs[4]
             window.close()
             break
         else:
@@ -91,6 +96,8 @@ while True:
                 missing = 'Password'
             elif not inputs[2]:
                 missing = 'Path'
+            elif not inputs[3] or inputs[4]:
+                missing = 'Install Choice'
             # present alert box with the message
             alert = gui.Window(' ', [[gui.Text('Missing ' + missing, font=(standard_font))]])
             if alert.read() == gui.WIN_CLOSED:
@@ -188,8 +195,61 @@ except Exception as e:
 ############# APPEND THE QUERIES TO QUERY_ LIST #############
 
 #clear db
-# graph.run("""MATCH (n) DETACH DELETE n""")
+if firstrun:
+    graph.run("""MATCH (n) DETACH DELETE n""")
+
 graph.run("""CALL apoc.schema.assert({}, {})""")
+#TODO check these constraints
+graph.run("""CREATE CONSTRAINT ON (scale:Scale) ASSERT scale.scaleId IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (workrole:Workrole ) ASSERT workrole.onet_soc_code IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (jzone:JobZone) ASSERT jzone.jobzone IS UNIQUE;""") 
+graph.run("""CREATE CONSTRAINT ON (seg:Segment) ASSERT seg.segmentID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (seg:Segment) ASSERT seg.title IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (fam:Family) ASSERT fam.familyID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (fam:Family) ASSERT fam.title IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (cla:Class) ASSERT cla.classID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (cla:Class) ASSERT cla.title IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (com:Commodity) ASSERT com.commodityID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (com:Commodity) ASSERT com.title IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (tools:Tools) ASSERT tools.commodityID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (ncc:NASAClassCode) ASSERT ncc.ncc_class_code IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (nccgrp:NCCGroup) ASSERT nccgrp.ncc_grp_num IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (opm:OPMSeries) ASSERT opm.series IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (smg:SkillMixGrp) ASSERT smg.title IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (alttitles:AlternateTitles) ASSERT alttitles.title IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (alttitles:AlternateTitles) ASSERT alttitles.shorttitle IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (alttitles:Alternate_Titles) ASSERT alttitles.elementID IS UNIQUE;""")
+#don't think we need a constraint for alternate title sources
+graph.run("""CREATE CONSTRAINT ON (task:Task) ASSERT task.taskID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (abilities:Abilities) ASSERT abilities.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (interests:Interests) ASSERT interests.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (styles:Work_Styles) ASSERT styles.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (reqs:Worker_Requirements) ASSERT reqs.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (bskills:Basic_Skills) ASSERT bskills.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (cfskills:Cross_Functional_Skills) ASSERT cfskills.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (knowledge:Knowledge) ASSERT knowledge.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (edu:Education) ASSERT edu.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (exreqs:Experience_Requirements) ASSERT exreqs.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (exptr:Experience_And_Training) ASSERT exptr.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (bsenreq:Basic_Skills_Entry_Requirement) ASSERT bsenreq.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (cfsenreq:Cross_Functional_Skills_Entry_Requirement) ASSERT cfsenreq.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (licensing:Licensing) ASSERT licensing.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (ocreqs:Occupational_Requirements) ASSERT ocreqs.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (genacts:Generalized_Work_Activities) ASSERT genacts.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (orgcontext:Organizational_Context) ASSERT orgcontext.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (workcontext:Work_Context) ASSERT workcontext.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (detacts:Detailed_Work_Activities) ASSERT detacts.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (intacts:Intermediate_Work_Activities) ASSERT intacts.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (ocinfo:Occupation_Specific_Information) ASSERT ocinfo.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (task:Task) ASSERT task.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (title:Title) ASSERT title.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (desc:Description) ASSERT desc.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (techskills:Technology_Skills) ASSERT techskills.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (techskills:Technology_Skills) ASSERT techskills.commodityID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (tools:Tools) ASSERT tools.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (wfchar:Workforce_Characteristics) ASSERT wfchar.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (lminfo:Labor_Market_Information) ASSERT lminfo.elementID IS UNIQUE;""")
+graph.run("""CREATE CONSTRAINT ON (ocoutlook:Occupational_Outlook) ASSERT ocoutlook.elementID IS UNIQUE;""")
 
 query_list = []
 
@@ -203,10 +263,10 @@ Limit 1
 RETURN line
 ",{batchSize:1000})""")
 
-# TODO need to add constraints, this is example only
+# TODO check these constraints
 query_list.append("""CREATE CONSTRAINT ON (occupation:Occupation) ASSERT occupation.onet_soc_code IS UNIQUE;""")
-query_list.append("""CREATE CONSTRAINT ON (element:Element ) ASSERT element.ElementID IS UNIQUE;""")
-query_list.append("""CREATE CONSTRAINT ON (occupation:MajorGroup) ASSERT occupation.onet_soc_code IS UNIQUE;""")
+query_list.append("""CREATE CONSTRAINT ON (element:Element) ASSERT element.elementID IS UNIQUE;""")
+query_list.append("""CREATE CONSTRAINT ON (majgrp:MajorGroup) ASSERT majgrp.onet_soc_code IS UNIQUE;""")
 
 # Load.
 # Import Occupation Data, known as SOC Level
@@ -221,185 +281,186 @@ ON CREATE SET occupation.title = toLower(line.Title),
             occupation.source = 'ONET'
 ",{batchSize:1000, parallel:true, retries: 10})""") #1110 
 
-# Load the reference model for the elements
-query_list.append("""CALL apoc.periodic.iterate("
-LOAD CSV WITH HEADERS
-FROM 'file:///ContentModelReference.csv' AS line
-RETURN line
-","
-MERGE (element:Element {elementID: line.`Element ID`})
-ON CREATE SET element.title = toLower(line.`Element Name`),
-            element.description = toLower(line.Description),
-            element.source = 'ONET'
-",{batchSize:1000, parallel:true, retries: 10})""") #585
+if firstrun:
+    # Load the reference model for the elements
+    query_list.append("""CALL apoc.periodic.iterate("
+    LOAD CSV WITH HEADERS
+    FROM 'file:///ContentModelReference.csv' AS line
+    RETURN line
+    ","
+    MERGE (element:Element {elementID: line.`Element ID`})
+    ON CREATE SET element.title = toLower(line.`Element Name`),
+                element.description = toLower(line.Description),
+                element.source = 'ONET'
+    ",{batchSize:1000, parallel:true, retries: 10})""") #585
 
-# Load the relationships of the reference model. Self created
-query_list.append("""CALL apoc.periodic.iterate("
-LOAD CSV WITH HEADERS
-FROM 'file:///content_model_relationships.csv' AS line
-RETURN line
-","
-MATCH (a:Element), (b:Element) 
-WHERE a.elementID = line.From AND b.elementID = line.To AND a.elementID <> b.elementID
-MERGE (a)<-[r:Sub_Element_Of]-(b)
-",{batchSize:1000})""") #579
+    # Load the relationships of the reference model. Self created
+    query_list.append("""CALL apoc.periodic.iterate("
+    LOAD CSV WITH HEADERS
+    FROM 'file:///content_model_relationships.csv' AS line
+    RETURN line
+    ","
+    MATCH (a:Element), (b:Element) 
+    WHERE a.elementID = line.From AND b.elementID = line.To AND a.elementID <> b.elementID
+    MERGE (a)<-[r:Sub_Element_Of]-(b)
+    ",{batchSize:1000})""") #579
 
-# Remove Element label and add Worker Characteristics & Ability Label to Remaining
-query_list.append("""MATCH (n:Element)
-WHERE n.elementID = '1'
-SET n:Worker_Characteristics
-;""")
-query_list.append("""MATCH (a:Element)
-WHERE a.elementID CONTAINS('1.A')
-SET a:Abilities
-REMOVE a:Element
-;""")
-query_list.append("""MATCH (b:Element)
-WHERE b.elementID CONTAINS('1.B')
-SET b:Interests
-REMOVE b:Element
-;""")
-query_list.append("""MATCH (c:Element)
-WHERE c.elementID CONTAINS('1.C')
-SET c:Work_Styles
-REMOVE c:Element
-;""")
+    # Remove Element label and add Worker Characteristics & Ability Label to Remaining
+    query_list.append("""MATCH (n:Element)
+    WHERE n.elementID = '1'
+    SET n:Worker_Characteristics
+    ;""")
+    query_list.append("""MATCH (a:Element)
+    WHERE a.elementID CONTAINS('1.A')
+    SET a:Abilities
+    REMOVE a:Element
+    ;""")
+    query_list.append("""MATCH (b:Element)
+    WHERE b.elementID CONTAINS('1.B')
+    SET b:Interests
+    REMOVE b:Element
+    ;""")
+    query_list.append("""MATCH (c:Element)
+    WHERE c.elementID CONTAINS('1.C')
+    SET c:Work_Styles
+    REMOVE c:Element
+    ;""")
 
-# Worker Requirements
-query_list.append("""MATCH (n:Element)
-WHERE n.elementID = '2'
-SET n:Worker_Requirements
-;""")
-query_list.append("""MATCH (a:Element)
-WHERE a.elementID CONTAINS('2.A')
-SET a:Basic_Skills
-REMOVE a:Element
-;""")
-query_list.append("""MATCH (b:Element)
-WHERE b.elementID CONTAINS('2.B')
-SET b:Cross_Functional_Skills
-REMOVE b:Element
-;""")
-query_list.append("""MATCH (c:Element)
-WHERE c.elementID CONTAINS('2.C')
-SET c:Knowledge
-REMOVE c:Element
-;""")
-query_list.append("""MATCH (d:Element)
-WHERE d.elementID CONTAINS('2.D')
-SET d:Education
-REMOVE d:Element
-;""")
+    # Worker Requirements
+    query_list.append("""MATCH (n:Element)
+    WHERE n.elementID = '2'
+    SET n:Worker_Requirements
+    ;""")
+    query_list.append("""MATCH (a:Element)
+    WHERE a.elementID CONTAINS('2.A')
+    SET a:Basic_Skills
+    REMOVE a:Element
+    ;""")
+    query_list.append("""MATCH (b:Element)
+    WHERE b.elementID CONTAINS('2.B')
+    SET b:Cross_Functional_Skills
+    REMOVE b:Element
+    ;""")
+    query_list.append("""MATCH (c:Element)
+    WHERE c.elementID CONTAINS('2.C')
+    SET c:Knowledge
+    REMOVE c:Element
+    ;""")
+    query_list.append("""MATCH (d:Element)
+    WHERE d.elementID CONTAINS('2.D')
+    SET d:Education
+    REMOVE d:Element
+    ;""")
 
-# Experience Requirements
-query_list.append("""MATCH (n:Element)
-WHERE n.elementID = '3'
-SET n:Experience_Requirements
-;""")
-query_list.append("""MATCH (a:Element)
-WHERE a.elementID CONTAINS('3.A')
-SET a:Experience_And_Training
-REMOVE a:Element
-;""")
-query_list.append("""MATCH (b:Element)
-WHERE b.elementID CONTAINS('3.B')
-SET b:Basic_Skills_Entry_Requirement
-REMOVE b:Element
-;""")
-query_list.append("""MATCH (c:Element)
-WHERE c.elementID CONTAINS('3.C')
-SET c:Cross_Functional_Skills_Entry_Requirement
-REMOVE c:Element
-;""")
-query_list.append("""MATCH (d:Element)
-WHERE d.elementID CONTAINS('3.D')
-SET d:Licensing
-REMOVE d:Element
-;""")
+    # Experience Requirements
+    query_list.append("""MATCH (n:Element)
+    WHERE n.elementID = '3'
+    SET n:Experience_Requirements
+    ;""")
+    query_list.append("""MATCH (a:Element)
+    WHERE a.elementID CONTAINS('3.A')
+    SET a:Experience_And_Training
+    REMOVE a:Element
+    ;""")
+    query_list.append("""MATCH (b:Element)
+    WHERE b.elementID CONTAINS('3.B')
+    SET b:Basic_Skills_Entry_Requirement
+    REMOVE b:Element
+    ;""")
+    query_list.append("""MATCH (c:Element)
+    WHERE c.elementID CONTAINS('3.C')
+    SET c:Cross_Functional_Skills_Entry_Requirement
+    REMOVE c:Element
+    ;""")
+    query_list.append("""MATCH (d:Element)
+    WHERE d.elementID CONTAINS('3.D')
+    SET d:Licensing
+    REMOVE d:Element
+    ;""")
 
-# Occupational Requirements
-query_list.append("""MATCH (n:Element)
-WHERE n.elementID = '4'
-SET n:Occupational_Requirements
-;""")
-query_list.append("""MATCH (a:Element)
-WHERE a.elementID CONTAINS('4.A')
-SET a:Generalized_Work_Activities
-REMOVE a:Element
-;""")
-query_list.append("""MATCH (b:Element)
-WHERE b.elementID CONTAINS('4.B')
-SET b:Organizational_Context
-REMOVE b:Element
-;""")
-query_list.append("""MATCH (c:Element)
-WHERE c.elementID CONTAINS('4.C')
-SET c:Work_Context
-REMOVE c:Element
-;""")
-query_list.append("""MATCH (d:Element)
-WHERE d.elementID CONTAINS('4.D')
-SET d:Detailed_Work_Activities
-REMOVE d:Element
-;""")
-query_list.append("""MATCH (e:Element)
-WHERE e.elementID CONTAINS('4.E')
-SET e:Intermediate_Work_Activities
-REMOVE e:Element
-;""")
+    # Occupational Requirements
+    query_list.append("""MATCH (n:Element)
+    WHERE n.elementID = '4'
+    SET n:Occupational_Requirements
+    ;""")
+    query_list.append("""MATCH (a:Element)
+    WHERE a.elementID CONTAINS('4.A')
+    SET a:Generalized_Work_Activities
+    REMOVE a:Element
+    ;""")
+    query_list.append("""MATCH (b:Element)
+    WHERE b.elementID CONTAINS('4.B')
+    SET b:Organizational_Context
+    REMOVE b:Element
+    ;""")
+    query_list.append("""MATCH (c:Element)
+    WHERE c.elementID CONTAINS('4.C')
+    SET c:Work_Context
+    REMOVE c:Element
+    ;""")
+    query_list.append("""MATCH (d:Element)
+    WHERE d.elementID CONTAINS('4.D')
+    SET d:Detailed_Work_Activities
+    REMOVE d:Element
+    ;""")
+    query_list.append("""MATCH (e:Element)
+    WHERE e.elementID CONTAINS('4.E')
+    SET e:Intermediate_Work_Activities
+    REMOVE e:Element
+    ;""")
 
-# Occupation Specific Information
-query_list.append("""MATCH (n:Element)
-WHERE n.elementID = '5'
-SET n:Occupation_Specific_Information
-;""")
-query_list.append("""MATCH (a:Element)
-WHERE a.elementID CONTAINS('5.A')
-SET a:Task
-REMOVE a:Element
-;""")
-# There is no 5.B
-query_list.append("""MATCH (c:Element)
-WHERE c.elementID CONTAINS('5.C')
-SET c:Title
-REMOVE c:Element
-;""")
-query_list.append("""MATCH (d:Element)
-WHERE d.elementID CONTAINS('5.D')
-SET d:Description
-REMOVE d:Element
-;""")
-query_list.append("""MATCH (e:Element)
-WHERE e.elementID CONTAINS('5.E')
-SET e:Alternate_Titles
-REMOVE e:Element
-;""")
-query_list.append("""MATCH (f:Element)
-WHERE f.elementID CONTAINS('5.F')
-SET f:Technology_Skills
-REMOVE f:Element
-;""")
-query_list.append("""MATCH (g:Element)
-WHERE g.elementID CONTAINS('5.G')
-SET g:Tools
-REMOVE g:Element
-;""")
+    # Occupation Specific Information
+    query_list.append("""MATCH (n:Element)
+    WHERE n.elementID = '5'
+    SET n:Occupation_Specific_Information
+    ;""")
+    query_list.append("""MATCH (a:Element)
+    WHERE a.elementID CONTAINS('5.A')
+    SET a:Task
+    REMOVE a:Element
+    ;""")
+    # There is no 5.B
+    query_list.append("""MATCH (c:Element)
+    WHERE c.elementID CONTAINS('5.C')
+    SET c:Title
+    REMOVE c:Element
+    ;""")
+    query_list.append("""MATCH (d:Element)
+    WHERE d.elementID CONTAINS('5.D')
+    SET d:Description
+    REMOVE d:Element
+    ;""")
+    query_list.append("""MATCH (e:Element)
+    WHERE e.elementID CONTAINS('5.E')
+    SET e:Alternate_Titles
+    REMOVE e:Element
+    ;""")
+    query_list.append("""MATCH (f:Element)
+    WHERE f.elementID CONTAINS('5.F')
+    SET f:Technology_Skills
+    REMOVE f:Element
+    ;""")
+    query_list.append("""MATCH (g:Element)
+    WHERE g.elementID CONTAINS('5.G')
+    SET g:Tools
+    REMOVE g:Element
+    ;""")
 
-# Workforce Characteristics
-query_list.append("""MATCH (n:Element)
-WHERE n.elementID = '6'
-SET n:Workforce_Characteristics
-;""")
-query_list.append("""MATCH (a:Element)
-WHERE a.elementID CONTAINS('6.A')
-SET a:Labor_Market_Information
-REMOVE a:Element
-;""")
-query_list.append("""MATCH (b:Element)
-WHERE b.elementID CONTAINS('6.B')
-SET b:Occupational_Outlook
-REMOVE b:Element
-;""")
+    # Workforce Characteristics
+    query_list.append("""MATCH (n:Element)
+    WHERE n.elementID = '6'
+    SET n:Workforce_Characteristics
+    ;""")
+    query_list.append("""MATCH (a:Element)
+    WHERE a.elementID CONTAINS('6.A')
+    SET a:Labor_Market_Information
+    REMOVE a:Element
+    ;""")
+    query_list.append("""MATCH (b:Element)
+    WHERE b.elementID CONTAINS('6.B')
+    SET b:Occupational_Outlook
+    REMOVE b:Element
+    ;""")
 
 # Load The SOC Major Group Occupation, Change label to MajorGroup
 query_list.append("""CALL apoc.periodic.iterate("
@@ -505,10 +566,7 @@ RETURN line
 MATCH (a:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (b:Abilities {elementID: line.`Element ID`})
 WITH a, b, line
-CALL apoc.create.relationship(b, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'ability'},  a) YIELD rel
-RETURN count(rel)
+MERGE (b)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'ability'}]->(a)
 ",{batchSize:10000})""") #100672
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -519,10 +577,7 @@ RETURN line
 MATCH (a:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (b:Abilities {elementID: line.`Element ID`})
 WITH a, b, line
-CALL apoc.create.relationship(b, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'ability'},  a) YIELD rel
-RETURN count(rel)
+MERGE (b)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'ability'}]->(a)
 ",{batchSize:10000})""") #100672
 
 # Add Alternative titles for Occupations and Workrole
@@ -531,12 +586,12 @@ LOAD CSV WITH HEADERS
 FROM 'file:///AlternateTitles.csv' AS line
 RETURN line
 ","
-MATCH (a:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MERGE (t:AlternateTitles {title: line.`Alternate Title`,
     shorttitle: line.`Short Title`, source: line.`Source(s)`})
-WITH a, t, line
-CALL apoc.create.relationship(a, 'Equivalent_To', {}, t) YIELD rel
-RETURN count(rel)
+WITH t, line
+MATCH (a:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
+WITH t, a, line
+MERGE (a)-[:Equivalent_To]->(t)
 ",{batchSize:10000})""") #56779	
 
 # Trying Match to see if the properties are not removed.
@@ -545,12 +600,12 @@ LOAD CSV WITH HEADERS
 FROM 'file:///AlternateTitles.csv' AS line
 RETURN line
 ","
-MATCH (a:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MERGE (t:AlternateTitles {title: line.`Alternate Title`,
     shorttitle: line.`Short Title`, source: line.`Source(s)`})
-WITH a, t, line
-CALL apoc.create.relationship(a, 'Equivalent_To', {}, t) YIELD rel
-RETURN count(rel)
+WITH t, line
+MATCH (a:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
+WITH t, a, line
+MERGE (a)-[:Equivalent_To]->(t)
 ",{batchSize:10000})""") #56779	
 
 # Add IWA and DWA to Generalized Work Activities
@@ -562,8 +617,7 @@ RETURN line
 MATCH (a:Generalized_Work_Activities {elementID: line.`Element ID`})
 MERGE (b:Generalized_Work_Activities {elementID: line.`IWA ID`, title: line.`IWA Title`})
 WITH a, b, line
-CALL apoc.create.relationship(b, 'Sub_Element_Of', {type: 'IWA'}, a) YIELD rel
-RETURN count(rel)
+MERGE (b)-[:Sub_Element_Of]->(a)
 ",{batchSize:1000})""") #332
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -574,8 +628,7 @@ RETURN line
 MATCH (a:Generalized_Work_Activities {elementID: line.`IWA ID`})
 MERGE (b:Generalized_Work_Activities {elementID: line.`DWA ID`, title: line.`DWA Title`})
 WITH a, b, line
-CALL apoc.create.relationship(b, 'Sub_Element_Of', {type: 'DWA'}, a) YIELD rel
-RETURN count(rel)
+MERGE (b)-[:Sub_Element_Of]->(a)
 ",{batchSize:1000})""") #2067
 
 # Add Education, Experience and Training relationships and measures
@@ -588,10 +641,7 @@ RETURN line
 MATCH (a:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (b:Education {elementID: line.`Element ID`})
 WITH a, b, line
-CALL apoc.create.relationship(b, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'education'},  a) YIELD rel
-RETURN count(rel)
+MERGE (b)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'education'}]->(a)
 ",{batchSize:10000})""") #40186
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -602,10 +652,7 @@ RETURN line
 MATCH (a:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (b:Experience_And_Training {elementID: line.`Element ID`})
 WITH a, b, line
-CALL apoc.create.relationship(b, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'experience'},  a) YIELD rel
-RETURN count(rel)
+MERGE (b)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'experience'}]->(a)
 ",{batchSize:10000})""") #40186
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -616,10 +663,7 @@ RETURN line
 MATCH (a:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (b:Education {elementID: line.`Element ID`})
 WITH a, b, line
-CALL apoc.create.relationship(b, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'education'},  a) YIELD rel
-RETURN count(rel)
+MERGE (b)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'education'}]->(a)
 ",{batchSize:10000})""") #40186
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -630,10 +674,7 @@ RETURN line
 MATCH (a:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (b:Experience_And_Training {elementID: line.`Element ID`})
 WITH a, b, line
-CALL apoc.create.relationship(b, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'experience'},  a) YIELD rel
-RETURN count(rel)
+MERGE (b)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'experience'}]->(a)
 ",{batchSize:10000})""") #40186
 
 # Interests
@@ -645,10 +686,7 @@ RETURN line
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (i:Interests {elementID: line.`Element ID`})
 WITH o, i, line
-CALL apoc.create.relationship(i, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-    scale: line.`Scale ID`,
-    element: 'interest'}, o) YIELD rel
-RETURN count(rel)
+MERGE (i)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'interest'}]->(o)
 ",{batchSize:1000})""") #8766
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -659,10 +697,7 @@ RETURN line
 MATCH (w:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (i:Interests {elementID: line.`Element ID`})
 WITH w, i, line
-CALL apoc.create.relationship(i, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-    scale: line.`Scale ID`,
-    element: 'interest'}, w) YIELD rel
-RETURN count(rel)
+MERGE (i)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'interest'}]->(w)
 ",{batchSize:1000})""") #8766
 
 # Job Zones
@@ -686,12 +721,10 @@ LOAD CSV WITH HEADERS
 FROM 'file:///JobZones.csv' AS line
 RETURN line
 ","
-MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (j:JobZone {jobzone: toInteger(line.`Job Zone`)})
-WITH o, j, line
-CALL apoc.create.relationship(o, 'In_Job_Zone', {jobzone: line.`Job Zone`,
-    date: line.Date}, j) YIELD rel
-RETURN count(rel)
+MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
+WITH j, o, line
+MERGE (o)-[:In_Job_Zone {jobzone: line.`Job Zone`, date: line.Date}]->(j)
 ",{batchSize:1000})""") #969
 
 # Knowledge
@@ -704,10 +737,7 @@ RETURN line
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (k:Knowledge {elementID: line.`Element ID`})
 WITH o, k, line
-CALL apoc.create.relationship(k, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'knowledge'},  o) YIELD rel
-RETURN count(rel)
+MERGE (k)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'knowledge'}]->(o)
 ",{batchSize:10000})""") #63888
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -718,10 +748,7 @@ RETURN line
 MATCH (w:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (k:Knowledge {elementID: line.`Element ID`})
 WITH w, k, line
-CALL apoc.create.relationship(k, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'knowledge'},  w) YIELD rel
-RETURN count(rel)
+MERGE (k)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'knowledge'}]->(w)
 ",{batchSize:10000})""") #63888
 
 # Skills
@@ -734,10 +761,7 @@ RETURN line
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (s:Basic_Skills {elementID: line.`Element ID`})
 WITH o, s, line
-CALL apoc.create.relationship(s, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'basic_skill'},  o) YIELD rel
-RETURN count(rel)
+MERGE (s)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'basic_skill'}]->(o)
 ",{batchSize:10000})""") #67760
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -748,10 +772,7 @@ RETURN line
 MATCH (w:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (s:Basic_Skills {elementID: line.`Element ID`})
 WITH w, s, line
-CALL apoc.create.relationship(s, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'basic_skill'},  w) YIELD rel
-RETURN count(rel)
+MERGE (s)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'basic_skill'}]->(w)
 ",{batchSize:10000})""") #67760
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -762,10 +783,7 @@ RETURN line
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (s:Cross_Functional_Skills {elementID: line.`Element ID`})
 WITH o, s, line
-CALL apoc.create.relationship(s, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'cf_skill'},  o) YIELD rel
-RETURN count(rel)
+MERGE (s)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'cf_skill'}]->(o)
 ",{batchSize:10000})""") #67760
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -776,10 +794,7 @@ RETURN line
 MATCH (w:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (s:Cross_Functional_Skills {elementID: line.`Element ID`})
 WITH w, s, line
-CALL apoc.create.relationship(s, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'cf_skill'},  w) YIELD rel
-RETURN count(rel)
+MERGE (s)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'cf_skill'}]->(w)
 ",{batchSize:10000})""") #67760
 
 # This sections will add task and their statements as nodes and create relationships to occupations.
@@ -806,10 +821,7 @@ RETURN line
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (task:Task { taskID: toInteger(line.`Task ID`)})
 WITH o, task, line
-CALL apoc.create.relationship(task, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'task'},  o) YIELD rel
-RETURN count(rel)
+MERGE (task)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'task'}]->(o)
 ",{batchSize:10000})""") #175977
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -820,10 +832,7 @@ RETURN line
 MATCH (o:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (task:Task { taskID: toInteger(line.`Task ID`)})
 WITH o, task, line
-CALL apoc.create.relationship(task, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'task'},  o) YIELD rel
-RETURN count(rel)
+MERGE (task)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'task'}]->(o)
 ",{batchSize:10000})""") #175977
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -831,11 +840,10 @@ LOAD CSV WITH HEADERS
 FROM 'file:///TaskstoDWAs.csv' AS line
 RETURN line
 ","
-MATCH (task:Task { taskID: toInteger(line.`Task ID`)})
 MATCH (a:Generalized_Work_Activities {elementID: line.`DWA ID`})
+MATCH (task:Task { taskID: toInteger(line.`Task ID`)})
 WITH a, task, line
-CALL apoc.create.relationship(task, 'Task_For_DWA', {date: line.Date, domainsource: line.`Domain Source`}, a) YIELD rel
-RETURN count(rel)
+MERGE (task)-[:Task_For_DWA {date: line.Date, domainsource: line.`Domain Source`}]->(a)
 ",{batchSize:10000})""") #23307
 
 # Commodities, to include tools and tech
@@ -844,7 +852,7 @@ LOAD CSV WITH HEADERS
 FROM 'file:///UNSPSCReference.csv' AS line
 RETURN line
 ","
-MERGE (s:Segement {segmentID: toInteger(line.`Segment Code`), title: toLower(line.`Segment Title`)})
+MERGE (s:Segment {segmentID: toInteger(line.`Segment Code`), title: toLower(line.`Segment Title`)})
 MERGE (f:Family {familyID: toInteger(line.`Family Code`), title: toLower(line.`Family Title`)})
 MERGE (c:Class { classID: toInteger(line.`Class Code`), title: toLower(line.`Class Title`)})
 MERGE (m:Commodity {commodityID: toInteger(line.`Commodity Code`), title: toLower(line.`Commodity Title`)})
@@ -859,14 +867,13 @@ FROM 'file:///TechnologySkills.csv' AS line
 RETURN line
 ","
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
-MATCH (t:Technology_Skills {elementID: '5.F.1'})
 MATCH (m:Commodity {commodityID: toInteger(line.`Commodity Code`)})
+MATCH (t:Technology_Skills {elementID: '5.F.1'})
 SET m:Technology_Skills
 REMOVE m:Commodity
 MERGE (m)-[r:Sub_Element_Of]-(t)
 WITH o, m, line
-CALL apoc.create.relationship(m, 'Technology_Used_In', {example: line.Example, hottech: line.`Hot Technology`}, o) YIELD rel
-RETURN count(rel)
+MERGE (m)-[:Technology_Used_In {example: line.Example, hottech: line.`Hot Technology`}]->(o)
 ",{batchSize:10000})""") #29370
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -877,8 +884,7 @@ RETURN line
 MATCH (o:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (m:Technology_Skills {commodityID: toInteger(line.`Commodity Code`)})
 WITH o, m, line
-CALL apoc.create.relationship(m, 'Technology_Used_In', {example: line.Example, hottech: line.`Hot Technology`}, o) YIELD rel
-RETURN count(rel)
+MERGE (m)-[:Technology_Used_In {example: line.Example, hottech: line.`Hot Technology`}]->(o)
 ",{batchSize:10000})""") #29370
 
 # Tools
@@ -888,14 +894,13 @@ FROM 'file:///ToolsUsed.csv' AS line
 RETURN line
 ","
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
-MATCH (t:Tools {elementID: '5.G.1'})
 MATCH (m:Commodity {commodityID: toInteger(line.`Commodity Code`)})
+MATCH (t:Tools {elementID: '5.G.1'})
 SET m:Tools
 REMOVE m:Commodity
 MERGE (m)-[r:Sub_Element_Of]-(t)
 WITH o, m, line
-CALL apoc.create.relationship(m, 'Tools_Used_In', {example: line.Example}, o) YIELD rel
-RETURN count(rel)
+MERGE (m)-[:Tools_Used_In {example: line.Example}]->(o)
 ",{batchSize:10000})""") #42278
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -906,8 +911,7 @@ RETURN line
 MATCH (o:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (m:Tools {commodityID: toInteger(line.`Commodity Code`)})
 WITH o, m, line
-CALL apoc.create.relationship(m, 'Tools_Used_In', {example: line.Example}, o) YIELD rel
-RETURN count(rel)
+MERGE (m)-[:Tools_Used_In {example: line.Example}]->(o)
 ",{batchSize:10000})""") #42278
 
 # Activities
@@ -920,10 +924,7 @@ RETURN line
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (a:Generalized_Work_Activities { elementID: line.`Element ID`})
 WITH o, a, line
-CALL apoc.create.relationship(a, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'activity'},  o) YIELD rel
-RETURN count(rel)
+MERGE (a)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'activity'}]->(o)
 ",{batchSize:10000})""") #79376
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -934,10 +935,7 @@ RETURN line
 MATCH (o:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (a:Generalized_Work_Activities { elementID: line.`Element ID`})
 WITH o, a, line
-CALL apoc.create.relationship(a, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'activity'}, o) YIELD rel
-RETURN count(rel)
+MERGE (a)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'activity'}]->(o)
 ",{batchSize:10000})""") #79376
 
 # Work Styles
@@ -949,10 +947,7 @@ RETURN line
 MATCH (o:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (a:Work_Styles { elementID: line.`Element ID`})
 WITH o, a, line
-CALL apoc.create.relationship(a, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'work_style'},  o) YIELD rel
-RETURN count(rel)
+MERGE (a)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'work_style'}]->(o)
 ",{batchSize:1000})""") #15472
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -960,13 +955,10 @@ LOAD CSV WITH HEADERS
 FROM 'file:///WorkStyles.csv' AS line
 RETURN line
 ","
-MATCH (o:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (a:Work_Styles { elementID: line.`Element ID`})
-WITH o, a, line
-CALL apoc.create.relationship(o, 'Found_In', {datavalue: toFloat(line.`Data Value`),
-     scale: line.`Scale ID`,
-     element: 'work_style'},  a) YIELD rel
-RETURN count(rel)
+MATCH (o:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
+WITH a, o, line
+MERGE (o)-[:Found_In {datavalue: toFloat(line.`Data Value`), scale: line.`Scale ID`, element: 'work_style'}]->(a)
 ",{batchSize:1000})""") #15472
 
 ############# NCC OPM Crosswalk #############
@@ -1031,13 +1023,9 @@ WHERE o.onet_soc_code CONTAINS('15-1111') AND opm.series CONTAINS("1550")
 MERGE (o)-[r:IN_OPM_Series {censuscode: '1005', censustitle: toLower('COMPUTER & INFORMATION RESEARCH SCIENTISTS')}]->(opm)
 ;""")
 
-query_list.append("""MATCH (o:Occupation), (opm:OPMSeries)
-WHERE o.onet_soc_code CONTAINS('15-1') AND opm.series CONTAINS('2210')
-WITH o, opm
-CALL apoc.create.relationship(o, 'IN_OPM_Series', {censuscode: '1050',
-     censustitle: toLower('COMPUTER SUPPORT SPECIALISTS')
-     }, opm) YIELD rel
-RETURN count(rel)
+query_list.append("""MATCH (opm:OPMSeries), (o:Occupation)
+WHERE opm.series CONTAINS('2210') AND o.onet_soc_code CONTAINS('15-1')
+MERGE (o)-[:IN_OPM_Series {censuscode: '1050', censustitle: toLower('COMPUTER SUPPORT SPECIALISTS')}]->(opm)
 ;""")
 
 # # NOT TESTED BECAUSE I DON'T HAVE EMPLOYEE DATA YET
