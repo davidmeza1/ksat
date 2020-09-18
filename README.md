@@ -1,2 +1,2 @@
-# ksat
-Knowledge Skills Abillities Tasks
+# ksatt
+Knowledge Skills Abillities Tasks Training
