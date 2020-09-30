@@ -19,6 +19,7 @@
 #   eval "$(pyenv init -)"
 # fi' 
 # to .bashrc/.bash_profile and reload shell
+# WAS ABLE TO OMIT WHEN SETTING THIS UP ON WINDOWS
 # 9. test with
 # python -m tkinter -c 'tkinter._test()'
 # should pop open a gui window
@@ -29,6 +30,7 @@
     # dbms.memory.heap.initial_size=1G
     # dbms.memory.heap.max_size=3G
     # apoc.import.file.enabled=true AFTER dbms.security.procedures.unrestricted=apoc.*,gds.* (will get errors otherwise)
+    # apoc.export.file.enabled=true
 # Start up database
 
 # Manually add CSV files to database's 'import' folder
@@ -72,7 +74,7 @@ import csv
 assumed_path = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'import')) #assume path but allow changes
 standard_font = 'Courier', 16
 
-layout = [  [gui.Text('Database Port', font=(standard_font)), gui.InputText('7687', font=(standard_font))],
+layout = [  [gui.Text('Database Port', font=(standard_font)), gui.InputText(font=(standard_font))],
             [gui.Text('Database Password', font=(standard_font)), gui.InputText(font=(standard_font))], 
             [gui.Text('Path to Import Folder', font=(standard_font)), gui.InputText(assumed_path, font=(standard_font))],
             [gui.Text('Install Choice: ', font=(standard_font)),
@@ -142,7 +144,7 @@ soup = BeautifulSoup(r.text, 'html.parser')
 update('SUCCESS: Accessed ONET Database, starting to import files.')
 
 import_count = 1
-skip_count = 1
+skip_count = 0
 file_process_time_start = time.perf_counter() # start timer to log total file import time
 #file importing status box initialization
 layout = [  [gui.Text('IMPORTING AND CONVERTING FILES', font=(standard_font))],
@@ -178,7 +180,19 @@ files_used = ['occupationdata.csv',
     'toolsused.csv',
     'workactivities.csv',
     'workstyles.csv',
-    'ncc_crosswalk.csv']
+    'ncc_crosswalk.csv',
+    'Employees_2020-05-28.csv',
+    'Employees_2020-05-27.csv',
+    'elementAbilities.csv',
+    'elementBasicSkills.csv',
+    'elementCrossFunctionalSkills.csv',
+    'elementKnowledge.csv',
+    'elementTasks.csv',
+    'elementTechSkills.csv',
+    'elementWorkActivities.csv',
+    'FTE2020.csv',
+    'NASACompetencyLibrary.csv',
+    'OPMCompetencyLibrary.csv']
 #TODO: add files used in employee data to this list
 
 # scrape page for all links
@@ -262,8 +276,6 @@ except Exception as e:
 ############# APPEND THE QUERIES TO QUERY_ LIST #############
 
 #clear db
-#TODO: should it clear it each time? Or build on top of it? 
-# You won't have the same DB if building from 24.3 as you do from 25.0 then
 if firstrun:
     graph.run("""MATCH (n) DETACH DELETE n""")
 
@@ -698,7 +710,7 @@ MATCH (a:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (b:Education {elementID: line.`Element ID`})
 WITH a, b, line
 MERGE (b)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'education'}]->(a)
-ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'ability'
+ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'education'
 SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:10000})""") #40186
 
@@ -711,8 +723,8 @@ MATCH (a:Occupation {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (b:Experience_And_Training {elementID: line.`Element ID`})
 WITH a, b, line
 MERGE (b)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'experience'}]->(a)
-ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'ability'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'experience'
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:10000})""") #40186
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -724,7 +736,7 @@ MATCH (a:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (b:Education {elementID: line.`Element ID`})
 WITH a, b, line
 MERGE (b)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'education'}]->(a)
-ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'ability'
+ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'education'
 SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:10000})""") #40186
 
@@ -737,8 +749,8 @@ MATCH (a:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (b:Experience_And_Training {elementID: line.`Element ID`})
 WITH a, b, line
 MERGE (b)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'experience'}]->(a)
-ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'ability'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'experience'
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:10000})""") #40186
 
 # Interests
@@ -752,7 +764,7 @@ MATCH (i:Interests {elementID: line.`Element ID`})
 WITH o, i, line
 MERGE (i)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'interest'}]->(o)
 ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'interest'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:1000})""") #8766
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -763,9 +775,9 @@ RETURN line
 MATCH (w:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 MATCH (i:Interests {elementID: line.`Element ID`})
 WITH w, i, line
-MERGE (i)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'interest'}]->(o)
+MERGE (i)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'interest'}]->(w)
 ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'interest'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:1000})""") #8766
 
 # Job Zones
@@ -807,7 +819,7 @@ MATCH (k:Knowledge {elementID: line.`Element ID`})
 WITH o, k, line
 MERGE (k)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'knowledge'}]->(o)
 ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'knowledge'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:10000})""") #63888
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -820,7 +832,7 @@ MATCH (k:Knowledge {elementID: line.`Element ID`})
 WITH w, k, line
 MERGE (k)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'knowledge'}]->(w)
 ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'knowledge'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:10000})""") #63888
 
 # Skills
@@ -835,7 +847,7 @@ MATCH (s:Basic_Skills {elementID: line.`Element ID`})
 WITH o, s, line
 MERGE (s)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'basic_skill'}]->(o)
 ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'basic_skill'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:10000})""") #67760
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -848,7 +860,7 @@ MATCH (s:Basic_Skills {elementID: line.`Element ID`})
 WITH w, s, line
 MERGE (s)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'basic_skill'}]->(w)
 ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'basic_skill'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:10000})""") #67760
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -861,7 +873,7 @@ MATCH (s:Cross_Functional_Skills {elementID: line.`Element ID`})
 WITH o, s, line
 MERGE (s)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'cf_skill'}]->(o)
 ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'cf_skill'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:10000})""") #67760
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -874,7 +886,7 @@ MATCH (s:Cross_Functional_Skills {elementID: line.`Element ID`})
 WITH w, s, line
 MERGE (s)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'cf_skill'}]->(w)
 ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'cf_skill'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:10000})""") #67760
 
 # This sections will add task and their statements as nodes and create relationships to occupations.
@@ -903,7 +915,7 @@ MATCH (task:Task { taskID: toInteger(line.`Task ID`)})
 WITH o, task, line
 MERGE (task)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'task'}]->(o)
 ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'task'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:10000})""") #175977
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -916,7 +928,7 @@ MATCH (task:Task { taskID: toInteger(line.`Task ID`)})
 WITH o, task, line
 MERGE (task)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'task'}]->(o)
 ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'task'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:10000})""") #175977
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -1020,7 +1032,7 @@ MATCH (a:Generalized_Work_Activities { elementID: line.`Element ID`})
 WITH o, a, line
 MERGE (a)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'activity'}]->(o)
 ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'activity'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:10000})""") #79376
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -1033,7 +1045,7 @@ MATCH (a:Generalized_Work_Activities { elementID: line.`Element ID`})
 WITH o, a, line
 MERGE (a)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'activity'}]->(o)
 ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'activity'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:10000})""") #79376
 
 # Work Styles
@@ -1047,7 +1059,7 @@ MATCH (a:Work_Styles { elementID: line.`Element ID`})
 WITH o, a, line
 MERGE (a)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'work_style'}]->(o)
 ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'work_style'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:1000})""") #15472
 
 query_list.append("""CALL apoc.periodic.iterate("
@@ -1060,7 +1072,7 @@ MATCH (o:Workrole {onet_soc_code: line.`O*NET-SOC Code`})
 WITH a, o, line
 MERGE (o)-[Found_In:Found_In {scale: line.`Scale ID`, element: 'work_style'}]->(a)
 ON CREATE SET Found_In.scale = toString(line.`Scale ID`), Found_In.element = 'work_style'
-SET Found_In.datavalue: toFloat(line.`Data Value`)
+SET Found_In.datavalue = toFloat(line.`Data Value`)
 ",{batchSize:1000})""") #15472
 
 ############# NCC OPM Crosswalk #############
@@ -1129,278 +1141,278 @@ WHERE opm.series CONTAINS('2210') AND o.onet_soc_code CONTAINS('15-1')
 MERGE (o)-[:IN_OPM_Series {censuscode: '1050', censustitle: toLower('COMPUTER SUPPORT SPECIALISTS')}]->(opm)
 ;""")
 
-# # NOT TESTED BECAUSE I DON'T HAVE EMPLOYEE DATA YET
-# ############# Employees #############
+############# Employees #############
 
-# query_list.append("""CALL apoc.periodic.iterate("
-# LOAD CSV WITH HEADERS
-# FROM 'file:///Employees_2020-05-28.csv' AS line
-# RETURN line
-# ","
-# MERGE (emp:Employee {uupic: line.UUPIC})
-# ON CREATE SET emp.fname = line.`Name First`,
-# 			emp.minitial = line.`Name Middle`,
-# 			emp.lname = line.`Name Last`,
-# 			emp.date_position = line.`Date Entered Current Position`,
-# 			emp.email = toLower(line.`Email Address Work`),
-# 			emp.age = toInteger(line.`Employee Age in Yrs`),
-# 			emp.status = line.`Employee Status`,
-# 			emp.type = line.`Employee Type`,
-# 			emp.grade = line.Grade,
-# 			emp.service_years = line.`Years of Service - Federal`,
-# 			emp.accession = line.`Date Accession` // you need to change format to YYYY-MM-DD
+query_list.append("""CALL apoc.periodic.iterate("
+LOAD CSV WITH HEADERS
+FROM 'file:///Employees_2020-05-28.csv' AS line
+RETURN line
+","
+MERGE (emp:Employee {uupic: line.UUPIC})
+ON CREATE SET emp.fname = line.`Name First`,
+			emp.minitial = line.`Name Middle`,
+			emp.lname = line.`Name Last`,
+			emp.date_position = line.`Date Entered Current Position`,
+			emp.email = toLower(line.`Email Address Work`),
+			emp.age = toInteger(line.`Employee Age in Yrs`),
+			emp.status = line.`Employee Status`,
+			emp.type = line.`Employee Type`,
+			emp.grade = line.Grade,
+			emp.service_years = line.`Years of Service - Federal`,
+			emp.accession = line.`Date Accession` // you need to change format to YYYY-MM-DD
 
-# MERGE (center:Center { center: line.Center})
+MERGE (center:Center { center: line.Center})
 
-# MERGE (org:Organizations { org_code: line.`Organization Code`})
-# On CREATE SET org.title = line.`Organization Title`
+MERGE (org:Organizations { org_code: line.`Organization Code`})
+On CREATE SET org.title = line.`Organization Title`
 
-# MERGE (map:MapOrganization {map_org: line.`Map Organization Code`})
+MERGE (map:MapOrganization {map_org: line.`Map Organization Code`})
 
-# MERGE (emp)-[:Located_At]->(center)
-# MERGE (emp)-[:In_Organization]->(org)
-# MERGE (org)-[:In_MAP]->(map)
-# ",{batchSize:10000})""")
+MERGE (emp)-[:Located_At]->(center)
+MERGE (emp)-[:In_Organization]->(org)
+MERGE (org)-[:In_MAP]->(map)
+",{batchSize:10000})""")
 
-# query_list.append("""CALL apoc.periodic.iterate("
-# LOAD CSV WITH HEADERS
-# FROM 'file:///Employees_2020-05-27.csv' AS line
-# RETURN line
-# ","
-# MATCH (emp:Employee), (opm:OPMSeries)
-# WHERE emp.uupic = line.UUPIC and opm.series CONTAINS(line.`Occupational Series`)
-# MERGE (emp)-[:IN_OPM_Series]->(opm)
-# ",{batchSize:10000})""")
+query_list.append("""CALL apoc.periodic.iterate("
+LOAD CSV WITH HEADERS
+FROM 'file:///Employees_2020-05-27.csv' AS line
+RETURN line
+","
+MATCH (emp:Employee), (opm:OPMSeries)
+WHERE emp.uupic = line.UUPIC and opm.series CONTAINS(line.`Occupational Series`)
+MERGE (emp)-[:IN_OPM_Series]->(opm)
+",{batchSize:10000})""")
 
-# # Map Elements to Employees
-# query_list.append("""CALL apoc.periodic.iterate("
-# LOAD CSV WITH HEADERS
-# FROM 'file:///elementAbilities.csv' AS line
-# RETURN line
-# ","
-# MATCH (emp:Employee), (elem:Abilities)
-# WHERE emp.uupic = line.UUPIC AND elem.description = line.Abilities
-# MERGE (emp)-[f:Found_In]->(elem)
-# SET f.datavalue = toFloat(2.5),
-# 	f.scale = 'IM',
-# 	f.element = 'ability'
-# ",{batchSize:10000})""")
+# Map Elements to Employees
+query_list.append("""CALL apoc.periodic.iterate("
+LOAD CSV WITH HEADERS
+FROM 'file:///elementAbilities.csv' AS line
+RETURN line
+","
+MATCH (emp:Employee), (elem:Abilities)
+WHERE emp.uupic = line.UUPIC AND elem.description = line.Abilities
+MERGE (emp)-[f:Found_In]->(elem)
+SET f.datavalue = toFloat(2.5),
+	f.scale = 'IM',
+	f.element = 'ability'
+",{batchSize:10000})""")
 
-# query_list.append("""CALL apoc.periodic.iterate("
-# LOAD CSV WITH HEADERS
-# FROM 'file:///elementBasicSkills.csv' AS line
-# RETURN line
-# ","
-# MATCH (emp:Employee), (elem:Basic_Skills)
-# WHERE emp.uupic = line.UUPIC AND elem.description = line.BasicSkills
-# MERGE (emp)-[f:Found_In]->(elem)
-# SET f.datavalue = toFloat(2.5),
-# 	f.scale = 'IM',
-# 	f.element = 'basic_skill'
-# ",{batchSize:10000})""")
+query_list.append("""CALL apoc.periodic.iterate("
+LOAD CSV WITH HEADERS
+FROM 'file:///elementBasicSkills.csv' AS line
+RETURN line
+","
+MATCH (emp:Employee), (elem:Basic_Skills)
+WHERE emp.uupic = line.UUPIC AND elem.description = line.BasicSkills
+MERGE (emp)-[f:Found_In]->(elem)
+SET f.datavalue = toFloat(2.5),
+	f.scale = 'IM',
+	f.element = 'basic_skill'
+",{batchSize:10000})""")
 
-# query_list.append("""CALL apoc.periodic.iterate("
-# LOAD CSV WITH HEADERS
-# FROM 'file:///elementCrossFunctionalSkills.csv' AS line
-# RETURN line
-# ","
-# MATCH (emp:Employee), (elem:Cross_Functional_Skills)
-# WHERE emp.uupic = line.UUPIC AND elem.description = line.CrossFunctionalSkills
-# MERGE (emp)-[f:Found_In]->(elem)
-# SET f.datavalue = toFloat(2.5),
-# 	f.scale = 'IM',
-# 	f.element = 'cf_skill'
-# ",{batchSize:10000})""")
+query_list.append("""CALL apoc.periodic.iterate("
+LOAD CSV WITH HEADERS
+FROM 'file:///elementCrossFunctionalSkills.csv' AS line
+RETURN line
+","
+MATCH (emp:Employee), (elem:Cross_Functional_Skills)
+WHERE emp.uupic = line.UUPIC AND elem.description = line.CrossFunctionalSkills
+MERGE (emp)-[f:Found_In]->(elem)
+SET f.datavalue = toFloat(2.5),
+	f.scale = 'IM',
+	f.element = 'cf_skill'
+",{batchSize:10000})""")
 
-# query_list.append("""CALL apoc.periodic.iterate("
-# LOAD CSV WITH HEADERS
-# FROM 'file:///elementKnowledge.csv' AS line
-# RETURN line
-# ","
-# MATCH (emp:Employee), (elem:Knowledge)
-# WHERE emp.uupic = line.UUPIC AND elem.description = line.Knowledge
-# MERGE (emp)-[f:Found_In]->(elem)
-# SET f.datavalue = toFloat(2.5),
-# 	f.scale = 'IM',
-# 	f.element = 'knowledge'
-# ",{batchSize:10000})""")
+query_list.append("""CALL apoc.periodic.iterate("
+LOAD CSV WITH HEADERS
+FROM 'file:///elementKnowledge.csv' AS line
+RETURN line
+","
+MATCH (emp:Employee {uupic: line.UUPIC}), (elem:Knowledge {description: line.Knowledge})
+MERGE (emp)-[f:Found_In]->(elem)
+SET f.datavalue = toFloat(2.5),
+	f.scale = 'IM',
+	f.element = 'knowledge'
+",{batchSize:10000})""")
 
-# query_list.append("""CALL apoc.periodic.iterate("
-# LOAD CSV WITH HEADERS
-# FROM 'file:///elementTasks.csv' AS line
-# RETURN line
-# ","
-# MATCH (emp:Employee), (elem:Task)
-# WHERE emp.uupic = line.UUPIC AND elem.description = line.Tasks
-# MERGE (emp)-[f:Found_In]->(elem)
-# SET f.datavalue = toFloat(2.5),
-# 	f.scale = 'IM',
-# 	f.element = 'task'
-# ",{batchSize:10000})""")
+query_list.append("""CALL apoc.periodic.iterate("
+LOAD CSV WITH HEADERS
+FROM 'file:///elementTasks.csv' AS line
+RETURN line
+","
+MATCH (emp:Employee), (elem:Task)
+WHERE emp.uupic = line.UUPIC AND elem.description = line.Tasks
+MERGE (emp)-[f:Found_In]->(elem)
+SET f.datavalue = toFloat(2.5),
+	f.scale = 'IM',
+	f.element = 'task'
+",{batchSize:10000})""")
 
-# query_list.append("""CALL apoc.periodic.iterate("
-# LOAD CSV WITH HEADERS
-# FROM 'file:///elementTechSkills.csv' AS line
-# RETURN line
-# ","
-# MATCH (emp:Employee), (elem:Technology_Skills)
-# WHERE emp.uupic = line.UUPIC AND elem.title = line.TechSkills
-# MERGE (emp)-[f:Found_In]->(elem)
-# SET f.datavalue = toFloat(2.5),
-# 	f.scale = 'IM',
-# 	f.element = 'tech_skill'
-# ",{batchSize:10000})""")
+#TODO: RESUME HERE
 
-# query_list.append("""CALL apoc.periodic.iterate("
-# LOAD CSV WITH HEADERS
-# FROM 'file:///elementWorkActivities.csv' AS line
-# RETURN line
-# ","
-# MATCH (emp:Employee), (elem:Generalized_Work_Activities)
-# WHERE emp.uupic = line.UUPIC AND elem.description = line.WorkActivities
-# MERGE (emp)-[f:Found_In]->(elem)
-# SET f.datavalue = toFloat(2.5),
-# 	f.scale = 'IM',
-# 	f.element = 'activity'
-# ",{batchSize:10000})""")
+query_list.append("""CALL apoc.periodic.iterate("
+LOAD CSV WITH HEADERS
+FROM 'file:///elementTechSkills.csv' AS line
+RETURN line
+","
+MATCH (emp:Employee), (elem:Technology_Skills)
+WHERE emp.uupic = line.UUPIC AND elem.title = line.TechSkills
+MERGE (emp)-[f:Found_In]->(elem)
+SET f.datavalue = toFloat(2.5),
+	f.scale = 'IM',
+	f.element = 'tech_skill'
+",{batchSize:10000})""")
 
-# # Update Center Inforation
-# query_list.append("""MATCH (c:Center)
-# WHERE c.center = 'HQ'
-# SET c.title = 'Headquarters',
-# 	c.business_area = toInteger(10)
-# ;""")
-# query_list.append("""MATCH (c:Center)
-# WHERE c.center = 'OIG'
-# SET c.title = 'Office of the Inspector General',
-# 	c.business_area = toInteger(99)
-# ;""")
-# query_list.append("""MATCH (c:Center)
-# WHERE c.center = 'NSSC'
-# SET c.title = 'NASA Shared Services Center',
-# 	c.business_area = toInteger(99)
-# ;""")
-# query_list.append("""MATCH (c:Center)
-# WHERE c.center = 'ARC'
-# SET c.title = 'Ames Research Center',
-# 	c.business_area = toInteger(21)
-# ;""")
-# query_list.append("""MATCH (c:Center)
-# WHERE c.center = 'GRC'
-# SET c.title = 'Glenn Research Center',
-# 	c.business_area = toInteger(22)
-# ;""")
-# query_list.append("""MATCH (c:Center)
-# WHERE c.center = 'LARC'
-# SET c.title = 'Langley Research Center',
-# 	c.business_area = toInteger(23)
-# ;""")
-# query_list.append("""MATCH (c:Center)
-# WHERE c.center = 'AFRC'
-# SET c.title = 'Armstrong Filght Research Center',
-# 	c.business_area = toInteger(24)
-# ;""")
-# query_list.append("""MATCH (c:Center)
-# WHERE c.center = 'GSFC'
-# SET c.title = 'Goddard Space Flight Center',
-# 	c.business_area = toInteger(51)
-# ;""")
-# query_list.append("""MATCH (c:Center)
-# WHERE c.center = 'MSFC'
-# SET c.title = 'Marshall Space Flight Center',
-# 	c.business_area = toInteger(62)
-# ;""")
-# query_list.append("""MATCH (c:Center)
-# WHERE c.center = 'SSC'
-# SET c.title = 'Stennis Space Center',
-# 	c.business_area = toInteger(64)
-# ;""")
-# query_list.append("""MATCH (c:Center)
-# WHERE c.center = 'JSC'
-# SET c.title = 'Johnson Space Center',
-# 	c.business_area = toInteger(72)
-# ;""")
-# query_list.append("""MATCH (c:Center)
-# WHERE c.center = 'KSC'
-# SET c.title = 'Kennedy Space Center',
-# 	c.business_area = toInteger(74)
-# ;""")
-# # ADD Mission, Theme, Program, Project, Cost Center From ALDS info
-# query_list.append("""CALL apoc.periodic.iterate("
-# LOAD CSV WITH HEADERS
-# FROM 'file:///FTE2020.csv' AS line
-# RETURN line
-# ","
-# MATCH (emp:Employee)
-# WHERE emp.uupic = line.UUPIC 
+query_list.append("""CALL apoc.periodic.iterate("
+LOAD CSV WITH HEADERS
+FROM 'file:///elementWorkActivities.csv' AS line
+RETURN line
+","
+MATCH (emp:Employee), (elem:Generalized_Work_Activities)
+WHERE emp.uupic = line.UUPIC AND elem.description = line.WorkActivities
+MERGE (emp)-[f:Found_In]->(elem)
+SET f.datavalue = toFloat(2.5),
+	f.scale = 'IM',
+	f.element = 'activity'
+",{batchSize:10000})""")
 
-# MERGE (mis:Mission {acronym: line.`Mission/Mission Equivalent`})
-# ON CREATE SET mis.title = line.`Mission Equivalent`
+# Update Center Inforation
+query_list.append("""MATCH (c:Center)
+WHERE c.center = 'HQ'
+SET c.title = 'Headquarters',
+	c.business_area = toInteger(10)
+;""")
+query_list.append("""MATCH (c:Center)
+WHERE c.center = 'OIG'
+SET c.title = 'Office of the Inspector General',
+	c.business_area = toInteger(99)
+;""")
+query_list.append("""MATCH (c:Center)
+WHERE c.center = 'NSSC'
+SET c.title = 'NASA Shared Services Center',
+	c.business_area = toInteger(99)
+;""")
+query_list.append("""MATCH (c:Center)
+WHERE c.center = 'ARC'
+SET c.title = 'Ames Research Center',
+	c.business_area = toInteger(21)
+;""")
+query_list.append("""MATCH (c:Center)
+WHERE c.center = 'GRC'
+SET c.title = 'Glenn Research Center',
+	c.business_area = toInteger(22)
+;""")
+query_list.append("""MATCH (c:Center)
+WHERE c.center = 'LARC'
+SET c.title = 'Langley Research Center',
+	c.business_area = toInteger(23)
+;""")
+query_list.append("""MATCH (c:Center)
+WHERE c.center = 'AFRC'
+SET c.title = 'Armstrong Filght Research Center',
+	c.business_area = toInteger(24)
+;""")
+query_list.append("""MATCH (c:Center)
+WHERE c.center = 'GSFC'
+SET c.title = 'Goddard Space Flight Center',
+	c.business_area = toInteger(51)
+;""")
+query_list.append("""MATCH (c:Center)
+WHERE c.center = 'MSFC'
+SET c.title = 'Marshall Space Flight Center',
+	c.business_area = toInteger(62)
+;""")
+query_list.append("""MATCH (c:Center)
+WHERE c.center = 'SSC'
+SET c.title = 'Stennis Space Center',
+	c.business_area = toInteger(64)
+;""")
+query_list.append("""MATCH (c:Center)
+WHERE c.center = 'JSC'
+SET c.title = 'Johnson Space Center',
+	c.business_area = toInteger(72)
+;""")
+query_list.append("""MATCH (c:Center)
+WHERE c.center = 'KSC'
+SET c.title = 'Kennedy Space Center',
+	c.business_area = toInteger(74)
+;""")
+# ADD Mission, Theme, Program, Project, Cost Center From ALDS info
+query_list.append("""CALL apoc.periodic.iterate("
+LOAD CSV WITH HEADERS
+FROM 'file:///FTE2020.csv' AS line
+RETURN line
+","
+MATCH (emp:Employee)
+WHERE emp.uupic = line.UUPIC 
 
-# MERGE (theme:Theme {acronym: line.`Theme/Theme  Equivalent`})
-# ON CREATE SET theme.title = line.`Theme  Equivalent`
+MERGE (mis:Mission {acronym: line.`Mission/Mission Equivalent`})
+ON CREATE SET mis.title = line.`Mission Equivalent`
 
-# MERGE (program:Program {program_code: line.`Program/Program Equivalent`})
-# ON CREATE SET program.title = line.`Program Equivalent`
+MERGE (theme:Theme {acronym: line.`Theme/Theme  Equivalent`})
+ON CREATE SET theme.title = line.`Theme  Equivalent`
 
-# MERGE (project:Project {project_code: line.`Project/Project  Equivalent`})
-# ON CREATE SET project.title = line.`Project  Equivalent`
+MERGE (program:Program {program_code: line.`Program/Program Equivalent`})
+ON CREATE SET program.title = line.`Program Equivalent`
 
-# MERGE (cost:Cost_Center {cost_code: line.`Cost Center`})
-# ON CREATE SET cost.title = line.`Cost Center Equivalent`
+MERGE (project:Project {project_code: line.`Project/Project  Equivalent`})
+ON CREATE SET project.title = line.`Project  Equivalent`
 
-# MERGE (emp)-[:Charged_To]->(cost)
-# MERGE (cost)-[:Charged_To]->(project)
-# MERGE (project)-[:Charged_To]->(program)
-# MERGE (program)-[:Charged_To]->(theme)
-# MERGE (theme)-[:Charged_To]->(mis)
-# ",{batchSize:10000})""")
+MERGE (cost:Cost_Center {cost_code: line.`Cost Center`})
+ON CREATE SET cost.title = line.`Cost Center Equivalent`
 
-# # Add NASA Competency Library
-# query_list.append("""CALL apoc.periodic.iterate("
-# LOAD CSV WITH HEADERS
-# FROM 'file:///NASACompetencyLibrary.csv' AS line
-# RETURN line
-# ","
+MERGE (emp)-[:Charged_To]->(cost)
+MERGE (cost)-[:Charged_To]->(project)
+MERGE (project)-[:Charged_To]->(program)
+MERGE (program)-[:Charged_To]->(theme)
+MERGE (theme)-[:Charged_To]->(mis)
+",{batchSize:10000})""")
 
-# MERGE (comptype:CompetencyType {prefix: line.Prefix})
-# ON CREATE SET comptype.title = line.comptype,
-# comptype.source = 'NASA'
+# Add NASA Competency Library
+query_list.append("""CALL apoc.periodic.iterate("
+LOAD CSV WITH HEADERS
+FROM 'file:///NASACompetencyLibrary.csv' AS line
+RETURN line
+","
 
-# MERGE (compsuite:CompetencySuite)
-# ON CREATE SET compsuite.title = line.CompSuite,
-# compsuite.source = 'NASA' 
+MERGE (comptype:CompetencyType {prefix: line.Prefix})
+ON CREATE SET comptype.title = line.comptype,
+comptype.source = 'NASA'
 
-# MERGE (compdesg:CompetencyDesignation {acronym: line.CompDesg})
-# ON CREATE SET compdesg.source = 'NASA'
+MERGE (compsuite:CompetencySuite)
+ON CREATE SET compsuite.title = line.CompSuite,
+compsuite.source = 'NASA' 
 
-# MERGE (comp:Competency {compid: toInteger(line.CompID)})
-# ON CREATE SET comp.title = line.CompTitle,
-# comp.description = line.CompDescription,
-# comp.source = 'NASA'
+MERGE (compdesg:CompetencyDesignation {acronym: line.CompDesg})
+ON CREATE SET compdesg.source = 'NASA'
 
-# MERGE (compsuite)-[:In_Comp_Type]->(comptype)
-# MERGE (compdesg)-[:In_Comp_Suite]->(compsuite)
-# MERGE (comp)-[:Has_Comp_Desgination]->(compdesg)
-# ",{batchSize:10000})""")
+MERGE (comp:Competency {compid: toInteger(line.CompID)})
+ON CREATE SET comp.title = line.CompTitle,
+comp.description = line.CompDescription,
+comp.source = 'NASA'
 
-
-# query_list.append("""CALL apoc.periodic.iterate("
-# LOAD CSV WITH HEADERS
-# FROM 'file:///OPMCompetencyLibrary.csv' AS line
-# RETURN line
-# ","
-# MERGE (comp:Competency {compid: toInteger(line.id)})
-# ON CREATE SET comp.title = line.CompetencyTitle,
-# comp.description = line.CompetencyDefinition,
-# comp.source = 'OPM'
-# ",{batchSize:10000, parallel:true, retries: 10})""")
+MERGE (compsuite)-[:In_Comp_Type]->(comptype)
+MERGE (compdesg)-[:In_Comp_Suite]->(compsuite)
+MERGE (comp)-[:Has_Comp_Desgination]->(compdesg)
+",{batchSize:10000})""")
 
 
-# ############# DON'T UNCOMMENT #############
-# ############# CREATE INDEX #############
+query_list.append("""CALL apoc.periodic.iterate("
+LOAD CSV WITH HEADERS
+FROM 'file:///OPMCompetencyLibrary.csv' AS line
+RETURN line
+","
+MERGE (comp:Competency {compid: toInteger(line.id)})
+ON CREATE SET comp.title = line.CompetencyTitle,
+comp.description = line.CompetencyDefinition,
+comp.source = 'OPM'
+",{batchSize:10000, parallel:true, retries: 10})""")
+
+
+############# DON'T UNCOMMENT #############
+############# CREATE INDEX #############
 # # Template for single-property
-# query_list.append("""CREATE INDEX [index_name]
+# query_list.append("""CREATE INDEX index_name
 # FOR (n:LabelName)
 # ON (n.propertyName)""")
 
@@ -1412,17 +1424,17 @@ MERGE (o)-[:IN_OPM_Series {censuscode: '1050', censustitle: toLower('COMPUTER SU
 #     …
 #     n.propertyName_n)""")
 
-# query_list.append("""CREATE INDEX [workrole]
-# FOR (w:Workrole)
-# ON (w.onet_soc_code,
-# 	w.title)
-# ;""")
+query_list.append("""CREATE INDEX workrole
+FOR (w:Workrole)
+ON (w.onet_soc_code,
+	w.title)
+;""")
 
-# query_list.append("""CREATE INDEX [occupation]
-# FOR (o:Occupation)
-# ON (o.onet_soc_code,
-# 	o.title)	
-# ;""")
+query_list.append("""CREATE INDEX occupation
+FOR (o:Occupation)
+ON (o.onet_soc_code,
+	o.title)	
+;""")
 
 ############# EXECUTE QUERIES THROUGH A LOOP #############
 ############# runs query, logs query execution time, sends update message about query progress #############
@@ -1479,7 +1491,7 @@ success = gui.Window(' ', [[gui.Text('SUCCESS: Completed building the database.'
                             [gui.Text(total_time_message, font=(standard_font))],
                             [gui.Text(file_time_message, font=(standard_font))],
                             [gui.Text(query_time_message, font=(standard_font))],
-                            [gui.Text('Full log of individual query times and this summary in query_times_and_summary_logs.txt.', font=(standard_font))],
+                            [gui.Text('Full log of individual query times and this summary in query_times_and_summary_logs.txt, under "logs" folder.', font=(standard_font))],
                             [gui.Text('Close this window to finish program, and make sure to deactivate your virtualenv.', font=(standard_font))]])
 if success.read() == gui.WIN_CLOSED:
     success.close()
