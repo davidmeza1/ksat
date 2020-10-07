@@ -1159,7 +1159,7 @@ ON CREATE SET emp.fname = line.`Name First`,
 			emp.type = line.`Employee Type`,
 			emp.grade = line.Grade,
 			emp.service_years = line.`Years of Service - Federal`,
-			emp.accession = line.`Date Accession` // you need to change format to YYYY-MM-DD
+			date(emp.accession) = line.`Date Accession` // you need to change format to YYYY-MM-DD
 
 MERGE (center:Center { center: line.Center})
 
