@@ -193,7 +193,6 @@ files_used = ['occupationdata.csv',
     'FTE2020.csv',
     'NASACompetencyLibrary.csv',
     'OPMCompetencyLibrary.csv']
-#TODO: add files used in employee data to this list
 
 # scrape page for all links
 for link in soup.find_all('a'):
@@ -248,10 +247,14 @@ time.sleep(5)
 window.close()
 
 # if you need a file and it's not in the import folder, quit
+files_missing = []
 for file_used in files_used:
     if file_used not in os.listdir(path):
-        update('Missing '+file_used+' needed for updating database, cannot continue without it.')
-        quit()
+        files_missing.append(file_used)
+if files_missing != []:
+    for file_missing in files_missing:
+        update('Missing '+file_missing+'. Cannot continue.')
+    quit()
 # remove any files not actively used in script
 for file_included in os.listdir(path):
     if file_included not in files_used:
@@ -1192,7 +1195,8 @@ RETURN line
 MATCH (emp:Employee), (elem:Abilities)
 WHERE emp.uupic = line.UUPIC AND elem.description = line.Abilities
 MERGE (emp)-[f:Found_In]->(elem)
-SET f.datavalue = toFloat(2.5),
+WITH toFloat(apoc.coll.shuffle(range(15,45,1))[0]*0.1) AS value
+SET f.datavalue = (round(100 * value) / 100),
 	f.scale = 'IM',
 	f.element = 'ability'
 ",{batchSize:10000})""")
@@ -1205,7 +1209,8 @@ RETURN line
 MATCH (emp:Employee), (elem:Basic_Skills)
 WHERE emp.uupic = line.UUPIC AND elem.description = line.BasicSkills
 MERGE (emp)-[f:Found_In]->(elem)
-SET f.datavalue = toFloat(2.5),
+WITH toFloat(apoc.coll.shuffle(range(15,45,1))[0]*0.1) AS value
+SET f.datavalue = (round(100 * value) / 100),
 	f.scale = 'IM',
 	f.element = 'basic_skill'
 ",{batchSize:10000})""")
@@ -1218,7 +1223,8 @@ RETURN line
 MATCH (emp:Employee), (elem:Cross_Functional_Skills)
 WHERE emp.uupic = line.UUPIC AND elem.description = line.CrossFunctionalSkills
 MERGE (emp)-[f:Found_In]->(elem)
-SET f.datavalue = toFloat(2.5),
+WITH toFloat(apoc.coll.shuffle(range(15,45,1))[0]*0.1) AS value
+SET f.datavalue = (round(100 * value) / 100),
 	f.scale = 'IM',
 	f.element = 'cf_skill'
 ",{batchSize:10000})""")
@@ -1230,7 +1236,8 @@ RETURN line
 ","
 MATCH (emp:Employee {uupic: line.UUPIC}), (elem:Knowledge {description: line.Knowledge})
 MERGE (emp)-[f:Found_In]->(elem)
-SET f.datavalue = toFloat(2.5),
+WITH toFloat(apoc.coll.shuffle(range(15,45,1))[0]*0.1) AS value
+SET f.datavalue = (round(100 * value) / 100),
 	f.scale = 'IM',
 	f.element = 'knowledge'
 ",{batchSize:10000})""")
@@ -1243,7 +1250,8 @@ RETURN line
 MATCH (emp:Employee), (elem:Task)
 WHERE emp.uupic = line.UUPIC AND elem.description = line.Tasks
 MERGE (emp)-[f:Found_In]->(elem)
-SET f.datavalue = toFloat(2.5),
+WITH toFloat(apoc.coll.shuffle(range(15,45,1))[0]*0.1) AS value
+SET f.datavalue = (round(100 * value) / 100),
 	f.scale = 'IM',
 	f.element = 'task'
 ",{batchSize:10000})""")
@@ -1258,7 +1266,8 @@ RETURN line
 MATCH (emp:Employee), (elem:Technology_Skills)
 WHERE emp.uupic = line.UUPIC AND elem.title = line.TechSkills
 MERGE (emp)-[f:Found_In]->(elem)
-SET f.datavalue = toFloat(2.5),
+WITH toFloat(apoc.coll.shuffle(range(15,45,1))[0]*0.1) AS value
+SET f.datavalue = (round(100 * value) / 100),
 	f.scale = 'IM',
 	f.element = 'tech_skill'
 ",{batchSize:10000})""")
@@ -1271,7 +1280,8 @@ RETURN line
 MATCH (emp:Employee), (elem:Generalized_Work_Activities)
 WHERE emp.uupic = line.UUPIC AND elem.description = line.WorkActivities
 MERGE (emp)-[f:Found_In]->(elem)
-SET f.datavalue = toFloat(2.5),
+WITH toFloat(apoc.coll.shuffle(range(15,45,1))[0]*0.1) AS value
+SET f.datavalue = (round(100 * value) / 100),
 	f.scale = 'IM',
 	f.element = 'activity'
 ",{batchSize:10000})""")
