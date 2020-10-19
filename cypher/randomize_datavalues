@@ -1,0 +1,4 @@
+MATCH (e:Employee)-[r:Found_In]->(ele:Element)
+WITH toFloat(apoc.coll.shuffle(range(15,45,1))[0]*0.1) AS value, r
+SET r.datavalue = round(100 * value) / 100
+RETURN r
