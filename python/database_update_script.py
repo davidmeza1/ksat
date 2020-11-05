@@ -1446,6 +1446,17 @@ ON (o.onet_soc_code,
 	o.title)	
 ;""")
 
+query_list.append("""CREATE INDEX occupation
+FOR (o:Occupation)
+ON (o.onet_soc_code,
+	o.title)	
+;""")
+
+query_list.append("""CALL db.index.fulltext.createNodeIndex('Employees', ['Employee'], 
+                    ['fname', 'lname', 'email', 'status', 'grade', 'type', 'date_position', 'accession', 'service_years', 'uupic'])""")
+
+query_list.append("""CALL db.index.fulltext.createNodeIndex("emp_occ_ksatt",["Employee", "Occupation", "Element"],['fname', 'lname', "title", "description"])""")
+
 ############# EXECUTE QUERIES THROUGH A LOOP #############
 ############# runs query, logs query execution time, sends update message about query progress #############
 
